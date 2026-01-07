@@ -133,41 +133,84 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"
     ></script>
     <script type="application/ld+json">
-      [
-        {
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "Контакты TokenBel",
-          "url": "https://tokenbel.info/contacts/",
-          "description": "Страница контактов TokenBel с информацией о способах связи с командой.",
-          "mainEntity": {
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://tokenbel.info/#website",
+            "url": "https://tokenbel.info/",
+            "name": "TokenBel",
+            "description": "Информация о токенах и компаниях-эмитентах Беларуси",
+            "publisher": {
+              "@id": "https://tokenbel.info/#organization"
+            },
+            "inLanguage": "ru-BY"
+          },
+          {
             "@type": "Organization",
+            "@id": "https://tokenbel.info/#organization",
             "name": "TokenBel",
             "url": "https://tokenbel.info/",
-            "logo": "https://static.tokenbel.info/files/180x180.png",
-            "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "email": "admin@tokenbel.info",
-                "url": "https://t.me/tokenbel"
-              }
-            ],
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://tokenbel.info/#logo",
+              "url": "https://static.tokenbel.info/files/180x180.png",
+              "contentUrl": "https://static.tokenbel.info/files/180x180.png",
+              "width": 180,
+              "height": 180,
+              "caption": "TokenBel"
+            },
+            "image": {
+              "@id": "https://tokenbel.info/#logo"
+            },
             "sameAs": [
               "https://t.me/tokenbel",
               "https://t.me/tokenbel_chat",
               "https://t.me/tokenbel_bot",
               "https://www.threads.com/@tokenbel_info"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "admin@tokenbel.info",
+              "url": "https://t.me/tokenbel",
+              "availableLanguage": ["Russian", "Belarusian"]
+            }
+          },
+          {
+            "@type": "ContactPage",
+            "@id": "https://tokenbel.info/contacts/#webpage",
+            "url": "https://tokenbel.info/contacts/",
+            "name": "Контакты TokenBel – связь с командой",
+            "description": "Свяжитесь с командой TokenBel через Telegram, email или форму обратной связи. Мы открыты для вопросов, предложений и сотрудничества.",
+            "isPartOf": {
+              "@id": "https://tokenbel.info/#website"
+            },
+            "about": {
+              "@id": "https://tokenbel.info/#organization"
+            },
+            "inLanguage": "ru-BY"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://tokenbel.info/contacts/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://tokenbel.info/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Контакты"
+              }
             ]
           }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "TokenBel",
-          "url": "https://tokenbel.info/"
-        }
-      ]
+        ]
+      }
     </script>
     <script
       defer
