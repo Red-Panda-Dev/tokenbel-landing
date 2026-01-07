@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: ["./index.html", "./contacts/**/*.html", "./public/**/*.html"],
+  content: ["./index.html", "./contacts/**/*.html", "./rss/**/*.html", "./404/**/*.html"],
   theme: {
     container: {
       center: true,
@@ -15,7 +15,6 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
