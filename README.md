@@ -1,73 +1,137 @@
-# Welcome to your Lovable project
+# Contact Refresh - Pure HTML + Tailwind 4.1 Project
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+This project has been successfully migrated from a React + Vite + TypeScript setup to a pure HTML + Tailwind CSS 4.1 static site.
 
-## How can I edit this code?
+## Project Structure
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+/
+├── public/                  # Static assets and additional HTML pages
+│   ├── contacts.html        # Contact page
+│   ├── favicon.ico          # Favicon
+│   └── ...                  # Other static assets
+├── index.html              # Main HTML file
+├── vite.config.ts          # Vite configuration
+├── tailwind.config.ts      # Tailwind CSS configuration
+├── postcss.config.js       # PostCSS configuration
+└── package.json            # Project dependencies
 ```
 
-**Edit a file directly in GitHub**
+## Technologies Used
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS 4.1** - Utility-first CSS framework (via CDN)
+- **Alpine.js** - Lightweight JavaScript framework for interactivity
+- **HTML5** - Pure HTML structure
 
-**Use GitHub Codespaces**
+## Getting Started
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Prerequisites
 
-## What technologies are used for this project?
+- Node.js (v18+) or Bun
+- npm, yarn, pnpm, or bun
 
-This project is built with:
+### Installation
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+# Clone the repository
+git clone <repository-url>
+cd contact-refresh
 
-## How can I deploy this project?
+# Install dependencies
+bun install
+# or
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Development
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+# Start development server
+bun run dev
+# or
+npm run dev
 
-Yes, you can!
+# Server will start at http://localhost:8080
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Building for Production
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```bash
+# Build for production
+bun run build
+# or
+npm run build
+
+# Preview production build
+bun run preview
+# or
+npm run preview
+```
+
+## Project Features
+
+✅ **Pure HTML + Tailwind CSS** - No React dependencies
+✅ **Fast build times** - Vite-powered optimization
+✅ **Responsive design** - Mobile-first approach
+✅ **Easy to maintain** - Simple file structure
+✅ **Production ready** - Optimized assets
+
+## Available Pages
+
+- **Home Page** (`index.html`) - Main landing page
+- **Contact Page** (`public/contacts.html`) - Contact form and information
+
+## Customization
+
+### Adding New Pages
+
+1. Create a new HTML file in the `public/` directory
+2. Add the page to the `vite.config.ts` rollupOptions.input
+3. Use Tailwind CSS classes for styling
+
+### Styling
+
+The project uses Tailwind CSS 4.1 via CDN. You can:
+
+- Use utility classes directly in HTML
+- Add custom CSS in `<style>` tags
+- Extend Tailwind configuration in `tailwind.config.ts`
+
+## Deployment
+
+The project can be deployed to any static hosting service:
+
+- Vercel
+- Netlify
+- GitHub Pages
+- Cloudflare Pages
+- AWS S3
+- Any static file hosting
+
+### Example Deployment
+
+```bash
+# Build for production
+bun run build
+
+# Deploy the dist/ folder to your hosting provider
+```
+
+## Migration Summary
+
+This project was successfully migrated from:
+- **React 18** → **Pure HTML**
+- **TypeScript** → **JavaScript**
+- **Complex build system** → **Simple Vite setup**
+- **Multiple dependencies** → **Minimal dependencies**
+
+## Support
+
+For any issues or questions, please open an issue on the GitHub repository.
