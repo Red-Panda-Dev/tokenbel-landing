@@ -133,33 +133,51 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"
     ></script>
     <script type="application/ld+json">
-      [
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "TokenBel",
-          "url": "https://tokenbel.info/"
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "TokenBel",
-          "url": "https://tokenbel.info/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://static.tokenbel.info/files/180x180.png",
-            "width": 300,
-            "height": 300
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://tokenbel.info/#website",
+            "url": "https://tokenbel.info/",
+            "name": "TokenBel",
+            "description": "Информация о токенах и компаниях-эмитентах Беларуси",
+            "publisher": {
+              "@id": "https://tokenbel.info/#organization"
+            },
+            "inLanguage": "ru-BY"
           },
-          "description": "TokenBel - информационная платформа для инвестиций в токены, предоставляющая доступ к информации о эмиссиях токенов белорусских компаний. Мы помогаем инвесторам полную и детальную информацию о рынке токенов.",
-          "foundingDate": "2025-06-02",
-          "sameAs": ["https://t.me/tokenbel"],
-          "areaServed": {
-            "@type": "Country",
-            "name": "Беларусь"
+          {
+            "@type": "Organization",
+            "@id": "https://tokenbel.info/#organization",
+            "name": "TokenBel",
+            "url": "https://tokenbel.info/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://tokenbel.info/#logo",
+              "url": "https://static.tokenbel.info/files/180x180.png",
+              "contentUrl": "https://static.tokenbel.info/files/180x180.png",
+              "width": 180,
+              "height": 180,
+              "caption": "TokenBel"
+            },
+            "image": {
+              "@id": "https://tokenbel.info/#logo"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://tokenbel.info/404/#webpage",
+            "url": "https://tokenbel.info/404/",
+            "name": "Страница не найдена – TokenBel",
+            "description": "Запрашиваемая страница не найдена. Вернитесь на главную страницу TokenBel.",
+            "isPartOf": {
+              "@id": "https://tokenbel.info/#website"
+            },
+            "inLanguage": "ru-BY"
           }
-        }
-      ]
+        ]
+      }
     </script>
     <script
       defer

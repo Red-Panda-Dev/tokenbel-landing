@@ -90,33 +90,73 @@
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.15.0/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"></script>
     <script type="application/ld+json">
-      [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
           {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "TokenBel",
-              "url": "https://tokenbel.info/"
+            "@type": "WebSite",
+            "@id": "https://tokenbel.info/#website",
+            "url": "https://tokenbel.info/",
+            "name": "TokenBel",
+            "description": "Информация о токенах и компаниях-эмитентах Беларуси",
+            "publisher": {
+              "@id": "https://tokenbel.info/#organization"
+            },
+            "inLanguage": "ru-BY"
           },
           {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "TokenBel",
-              "url": "https://tokenbel.info/",
-              "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://static.tokenbel.info/files/180x180.png",
-                  "width": 300,
-                  "height": 300
-              },
-              "description": "TokenBel - информационная платформа для инвестиций в токены, предоставляющая доступ к информации о эмиссиях токенов белорусских компаний. Мы помогаем инвесторам полную и детальную информацию о рынке токенов.",
-              "foundingDate": "2025-06-02",
-              "sameAs": ["https://t.me/tokenbel"],
-              "areaServed": {
-                  "@type": "Country",
-                  "name": "Беларусь"
-              }
+            "@type": "Organization",
+            "@id": "https://tokenbel.info/#organization",
+            "name": "TokenBel",
+            "url": "https://tokenbel.info/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://tokenbel.info/#logo",
+              "url": "https://static.tokenbel.info/files/180x180.png",
+              "contentUrl": "https://static.tokenbel.info/files/180x180.png",
+              "width": 180,
+              "height": 180,
+              "caption": "TokenBel"
+            },
+            "image": {
+              "@id": "https://tokenbel.info/#logo"
+            },
+            "description": "TokenBel — информационная платформа о токенах и компаниях-эмитентах Беларуси. Аналитика доходности, статистика рынка, вторичный рынок токенов.",
+            "foundingDate": "2025-06-02",
+            "sameAs": [
+              "https://t.me/tokenbel",
+              "https://t.me/tokenbel_chat",
+              "https://t.me/tokenbel_bot",
+              "https://www.threads.com/@tokenbel_info"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "admin@tokenbel.info",
+              "url": "https://t.me/tokenbel",
+              "availableLanguage": ["Russian", "Belarusian"]
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Belarus"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://tokenbel.info/#webpage",
+            "url": "https://tokenbel.info/",
+            "name": "TokenBel – Информация о токенах и компаниях Беларуси",
+            "isPartOf": {
+              "@id": "https://tokenbel.info/#website"
+            },
+            "about": {
+              "@id": "https://tokenbel.info/#organization"
+            },
+            "description": "Актуальная информация о токенах и компаниях-эмитентах Беларуси. Аналитика доходности, статистика рынка, вторичный рынок токенов.",
+            "inLanguage": "ru-BY"
           }
-      ]
+        ]
+      }
     </script>
     <script
       defer
