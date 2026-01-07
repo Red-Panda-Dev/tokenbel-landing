@@ -21,11 +21,11 @@
       })(window, document, "script", "dataLayer", "GTM-NZ6G8T8C");
     </script>
     <!-- End Google Tag Manager -->
-    <title>TokenBel – RSS-ленты</title>
+    <title>RSS-ленты токенов и вторичного рынка – TokenBel</title>
     <meta charset="UTF-8" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="TokenBel – RSS-ленты" />
+    <meta property="og:title" content="RSS-ленты токенов и вторичного рынка – TokenBel" />
     <meta
       property="og:image"
       content="https://static.tokenbel.info/files/48x48.png"
@@ -36,10 +36,10 @@
     />
     <meta property="og:locale" content="ru-BY" />
     <meta property="og:site_name" content="TokenBel" />
-    <meta property="og:image:alt" content="TokenBel poster" />
+    <meta property="og:image:alt" content="TokenBel RSS" />
     <meta
       property="og:description"
-      content="RSS-ленты TokenBel: подпишитесь на обновления эмиссий токенов и предложений вторичного рынка."
+      content="Подпишитесь на RSS-ленты TokenBel для мгновенных уведомлений о новых эмиссиях токенов и предложениях на вторичном рынке Беларуси."
     />
 
     <meta name="language" content="ru" />
@@ -48,26 +48,26 @@
     <meta name="application-name" content="TokenBel" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="TokenBel – RSS-ленты" />
+    <meta name="twitter:title" content="RSS-ленты токенов – TokenBel" />
     <meta
       name="twitter:description"
-      content="RSS-ленты TokenBel: подпишитесь на обновления эмиссий токенов и предложений вторичного рынка."
+      content="Подпишитесь на RSS-ленты TokenBel для мгновенных уведомлений о новых эмиссиях токенов и предложениях на вторичном рынке."
     />
     <meta
       name="twitter:image"
       content="https://static.tokenbel.info/files/48x48.png"
     />
-    <meta name="twitter:image:alt" content="TokenBel poster" />
+    <meta name="twitter:image:alt" content="TokenBel RSS" />
 
     <meta name="robots" content="index, follow" />
     <meta
       name="keywords"
-      content="RSS,лента,токены,эмиссии,вторичный рынок,TokenBel"
+      content="RSS токены Беларусь,RSS лента эмиссий,подписка токены,уведомления токены,вторичный рынок RSS,TokenBel RSS"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="RSS-ленты TokenBel: подпишитесь на обновления эмиссий токенов и предложений вторичного рынка."
+      content="RSS-ленты TokenBel: мгновенные уведомления о новых эмиссиях токенов и предложениях на вторичном рынке Беларуси. Подпишитесь в любимом RSS-ридере."
     />
     <meta
       name="google-site-verification"
@@ -133,28 +133,29 @@
       [
         {
           "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "TokenBel",
-          "url": "https://tokenbel.info/"
+          "@type": "WebPage",
+          "name": "RSS-ленты токенов и вторичного рынка",
+          "url": "https://tokenbel.info/rss/",
+          "description": "RSS-ленты TokenBel для получения уведомлений о новых эмиссиях токенов и предложениях на вторичном рынке Беларуси.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "name": "TokenBel",
+            "url": "https://tokenbel.info/"
+          }
         },
         {
           "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "TokenBel",
-          "url": "https://tokenbel.info/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://static.tokenbel.info/files/180x180.png",
-            "width": 300,
-            "height": 300
-          },
-          "description": "TokenBel - информационная платформа для инвестиций в токены, предоставляющая доступ к информации о эмиссиях токенов белорусских компаний. Мы помогаем инвесторам полную и детальную информацию о рынке токенов.",
-          "foundingDate": "2025-06-02",
-          "sameAs": ["https://t.me/tokenbel"],
-          "areaServed": {
-            "@type": "Country",
-            "name": "Беларусь"
-          }
+          "@type": "DataFeed",
+          "name": "Лента токенов TokenBel",
+          "url": "https://dashboard.tokenbel.info/rss/emission",
+          "description": "RSS-лента с последними эмиссиями токенов белорусских компаний"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "DataFeed",
+          "name": "Лента вторичного рынка TokenBel",
+          "url": "https://dashboard.tokenbel.info/rss/secondhand",
+          "description": "RSS-лента с предложениями на вторичном рынке токенов"
         }
       ]
     </script>
@@ -168,16 +169,6 @@
     class="bg-gray-50 text-black min-h-screen flex flex-col font-sans px-4 antialiased"
     x-data="{ mobileMenu: false }"
   >
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NZ6G8T8C"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe
@@ -349,121 +340,184 @@
     </header>
 
     <!-- main -->
-    <main class="w-full mb-8 mt-20">
-      <section
-        class="bg-gradient-to-br from-orange-50 via-red-50 to-orange-100 py-12 sm:py-16 px-4"
-      >
+    <main class="w-full mb-8 mt-20" x-data="{ copied: null }">
+      <!-- Hero Section -->
+      <section class="bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 py-12 sm:py-16 lg:py-20 px-4">
         <div class="container mx-auto text-center max-w-4xl">
-          <h1
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-900"
-          >
-            RSS-ленты
+          <div class="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-orange-100 rounded-2xl mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 sm:w-10 sm:h-10 text-orange-600" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"/>
+            </svg>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-900">
+            RSS-ленты TokenBel
           </h1>
-          <p
-            class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed"
-          >
-            Подпишитесь на RSS-ленты для получения актуальной информации об
-            эмиссиях токенов и предложениях на вторичном рынке.
+          <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Получайте мгновенные уведомления о новых токенах и предложениях на вторичном рынке прямо в вашем любимом RSS-ридере.
           </p>
         </div>
       </section>
 
-      <section class="py-12 sm:py-16 bg-white px-4">
-        <div class="container mx-auto max-w-4xl">
-          <div class="flex flex-col gap-4">
+      <!-- RSS Feeds Section -->
+      <section class="py-12 sm:py-16 lg:py-20 bg-white px-4">
+        <div class="container mx-auto max-w-5xl">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            
             <!-- Лента токенов -->
-            <div
-              class="bg-white border border-gray-200 rounded-2xl p-6 flex items-start gap-4 hover:shadow-lg hover:border-blue-200 transition-all duration-300"
-            >
-              <div
-                class="bg-blue-100 text-blue-600 p-4 rounded-xl flex-shrink-0"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-8 w-8"
-                  viewBox="0 0 24 24"
-                >
-                  <rect width="24" height="24" fill="none" />
-                  <path
-                    fill="currentColor"
-                    d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"
-                  />
-                </svg>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Лента токенов
-                </h3>
-                <p class="text-gray-600 mb-3">
-                  Последние 20 выпущенных токенов
-                </p>
-                <a
-                  href="https://dashboard.tokenbel.info/rss/emission"
-                  class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group"
-                >
-                  https://dashboard.tokenbel.info/rss/emission
-                  <svg
-                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    ></path>
+            <article class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 sm:p-8 flex flex-col hover:shadow-lg hover:border-blue-200 transition-all duration-300 group">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="bg-blue-100 text-blue-600 p-3 sm:p-4 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 sm:h-8 sm:w-8" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"/>
                   </svg>
-                </a>
+                </div>
+                <div>
+                  <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-1">Лента токенов</h2>
+                  <p class="text-gray-600 text-sm sm:text-base">Новые эмиссии токенов</p>
+                </div>
               </div>
-            </div>
+              
+              <div class="flex-1">
+                <p class="text-gray-700 mb-4 text-sm sm:text-base leading-relaxed">
+                  Последние <strong>20 выпущенных токенов</strong> белорусских компаний. Узнавайте первыми о новых инвестиционных возможностях.
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                    Обновление: ежечасно
+                  </span>
+                  <span class="inline-flex items-center px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    20 записей
+                  </span>
+                </div>
+              </div>
+              
+              <!-- URL Box -->
+              <div class="bg-white/80 rounded-xl p-3 sm:p-4 border border-blue-200">
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
+                  <code class="flex-1 text-xs sm:text-sm text-gray-700 bg-gray-50 px-3 py-2 rounded-lg overflow-x-auto whitespace-nowrap">
+                    https://dashboard.tokenbel.info/rss/emission
+                  </code>
+                  <div class="flex gap-2">
+                    <button 
+                      @click="navigator.clipboard.writeText('https://dashboard.tokenbel.info/rss/emission'); copied = 'emission'; setTimeout(() => copied = null, 2000)"
+                      class="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                    >
+                      <svg x-show="copied !== 'emission'" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                      <svg x-show="copied === 'emission'" x-cloak class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span x-text="copied === 'emission' ? 'Скопировано' : 'Копировать'">Копировать</span>
+                    </button>
+                    <a 
+                      href="https://dashboard.tokenbel.info/rss/emission"
+                      target="_blank"
+                      rel="noopener"
+                      class="inline-flex items-center justify-center px-3 py-2 border border-blue-200 text-blue-600 text-sm font-medium rounded-lg hover:bg-blue-50 transition-colors"
+                      title="Открыть RSS"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
 
             <!-- Лента вторичного рынка -->
-            <div
-              class="bg-white border border-gray-200 rounded-2xl p-6 flex items-start gap-4 hover:shadow-lg hover:border-blue-200 transition-all duration-300"
-            >
-              <div
-                class="bg-green-100 text-green-600 p-4 rounded-xl flex-shrink-0"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-8 w-8"
-                  viewBox="0 0 24 24"
-                >
-                  <rect width="24" height="24" fill="none" />
-                  <path
-                    fill="currentColor"
-                    d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"
-                  />
-                </svg>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Лента предложений вторичного рынка
-                </h3>
-                <p class="text-gray-600 mb-3">
-                  Последние 50 созданных предложений на вторичном рынке
-                </p>
-                <a
-                  href="https://dashboard.tokenbel.info/rss/secondhand"
-                  class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group"
-                >
-                  https://dashboard.tokenbel.info/rss/secondhand
-                  <svg
-                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    ></path>
+            <article class="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 rounded-2xl p-6 sm:p-8 flex flex-col hover:shadow-lg hover:border-green-200 transition-all duration-300 group">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="bg-green-100 text-green-600 p-3 sm:p-4 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 sm:h-8 sm:w-8" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M21.71 8.71c1.25-1.25.68-2.71 0-3.42l-3-3c-1.26-1.25-2.71-.68-3.42 0L13.59 4H11C9.1 4 8 5 7.44 6.15L3 10.59v4l-.71.7c-1.25 1.26-.68 2.71 0 3.42l3 3c.54.54 1.12.74 1.67.74c.71 0 1.36-.35 1.75-.74l2.7-2.71H15c1.7 0 2.56-1.06 2.87-2.1c1.13-.3 1.75-1.16 2-2C21.42 14.5 22 13.03 22 12V9h-.59zM20 12c0 .45-.19 1-1 1h-1v1c0 .45-.19 1-1 1h-1v1c0 .45-.19 1-1 1h-4.41l-3.28 3.28c-.31.29-.49.12-.6.01l-2.99-2.98c-.29-.31-.12-.49-.01-.6L5 15.41v-4l2-2V11c0 1.21.8 3 3 3s3-1.79 3-3h7zm.29-4.71L18.59 9H11v2c0 .45-.19 1-1 1s-1-.55-1-1V8c0-.46.17-2 2-2h3.41l2.28-2.28c.31-.29.49-.12.6-.01l2.99 2.98c.29.31.12.49.01.6"/>
                   </svg>
-                </a>
+                </div>
+                <div>
+                  <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-1">Вторичный рынок</h2>
+                  <p class="text-gray-600 text-sm sm:text-base">Предложения купли-продажи</p>
+                </div>
+              </div>
+              
+              <div class="flex-1">
+                <p class="text-gray-700 mb-4 text-sm sm:text-base leading-relaxed">
+                  Последние <strong>50 предложений</strong> на вторичном рынке токенов. Следите за выгодными предложениями в реальном времени.
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                  <span class="inline-flex items-center px-2.5 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
+                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                    Обновление: ежечасно
+                  </span>
+                  <span class="inline-flex items-center px-2.5 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
+                    50 записей
+                  </span>
+                </div>
+              </div>
+              
+              <!-- URL Box -->
+              <div class="bg-white/80 rounded-xl p-3 sm:p-4 border border-green-200">
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
+                  <code class="flex-1 text-xs sm:text-sm text-gray-700 bg-gray-50 px-3 py-2 rounded-lg overflow-x-auto whitespace-nowrap">
+                    https://dashboard.tokenbel.info/rss/secondhand
+                  </code>
+                  <div class="flex gap-2">
+                    <button 
+                      @click="navigator.clipboard.writeText('https://dashboard.tokenbel.info/rss/secondhand'); copied = 'secondhand'; setTimeout(() => copied = null, 2000)"
+                      class="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                    >
+                      <svg x-show="copied !== 'secondhand'" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                      <svg x-show="copied === 'secondhand'" x-cloak class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span x-text="copied === 'secondhand' ? 'Скопировано' : 'Копировать'">Копировать</span>
+                    </button>
+                    <a 
+                      href="https://dashboard.tokenbel.info/rss/secondhand"
+                      target="_blank"
+                      rel="noopener"
+                      class="inline-flex items-center justify-center px-3 py-2 border border-green-200 text-green-600 text-sm font-medium rounded-lg hover:bg-green-50 transition-colors"
+                      title="Открыть RSS"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- How to use section -->
+          <div class="mt-12 sm:mt-16 bg-gray-50 rounded-2xl p-6 sm:p-8">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">Как подписаться на RSS?</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div class="text-center">
+                <div class="w-12 h-12 mx-auto mb-4 bg-white rounded-xl flex items-center justify-center text-gray-600 shadow-sm">
+                  <span class="text-xl font-bold">1</span>
+                </div>
+                <h4 class="font-semibold text-gray-900 mb-2">Скопируйте ссылку</h4>
+                <p class="text-gray-600 text-sm">Нажмите «Копировать» на нужной ленте выше</p>
+              </div>
+              <div class="text-center">
+                <div class="w-12 h-12 mx-auto mb-4 bg-white rounded-xl flex items-center justify-center text-gray-600 shadow-sm">
+                  <span class="text-xl font-bold">2</span>
+                </div>
+                <h4 class="font-semibold text-gray-900 mb-2">Откройте RSS-ридер</h4>
+                <p class="text-gray-600 text-sm">Feedly, Inoreader, NetNewsWire или любой другой</p>
+              </div>
+              <div class="text-center">
+                <div class="w-12 h-12 mx-auto mb-4 bg-white rounded-xl flex items-center justify-center text-gray-600 shadow-sm">
+                  <span class="text-xl font-bold">3</span>
+                </div>
+                <h4 class="font-semibold text-gray-900 mb-2">Добавьте подписку</h4>
+                <p class="text-gray-600 text-sm">Вставьте ссылку и получайте обновления</p>
               </div>
             </div>
           </div>
