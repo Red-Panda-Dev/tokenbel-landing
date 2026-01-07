@@ -87,6 +87,7 @@
 
     <link rel="stylesheet" href="/src/main.css" />
 
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.15.0/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.15.0/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"></script>
     <script type="application/ld+json">
@@ -390,13 +391,13 @@
                 </div>
                 
                 <!-- Progress Bar -->
-                <div class="mb-3">
+                <div class="mb-3" x-data="{ percent: 0, target: 53.4 }" x-intersect.once="let start = performance.now(); let animate = () => { let progress = Math.min((performance.now() - start) / 1000, 1); percent = +(target * progress).toFixed(1); if (progress < 1) requestAnimationFrame(animate); }; animate();">
                   <div class="flex justify-between text-xs text-gray-700 mb-1">
                     <span>Продано: <span class="font-semibold text-gray-900">10 676</span> / 20 000</span>
-                    <span class="font-semibold text-orange-600">53.4%</span>
+                    <span class="font-semibold text-orange-600" x-text="percent.toFixed(1) + '%'">0%</span>
                   </div>
                   <div class="w-full bg-green-200 rounded-full h-2 overflow-hidden">
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full transition-all" style="width: 53.4%"></div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full transition-all duration-100" :style="'width: ' + percent + '%'"></div>
                   </div>
                 </div>
                 
@@ -464,13 +465,13 @@
                   <span class="inline-flex items-center px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">12% USD</span>
                   <span class="text-xs text-gray-600">Ежемесячно</span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" x-data="{ percent: 0, target: 38.0 }" x-intersect.once="let start = performance.now(); let animate = () => { let progress = Math.min((performance.now() - start) / 1000, 1); percent = +(target * progress).toFixed(1); if (progress < 1) requestAnimationFrame(animate); }; animate();">
                   <div class="flex justify-between text-xs text-gray-700 mb-1">
                     <span>Продано: <span class="font-semibold text-gray-900">3 799</span> / 10 000</span>
-                    <span class="font-semibold text-orange-600">38.0%</span>
+                    <span class="font-semibold text-orange-600" x-text="percent.toFixed(1) + '%'">0%</span>
                   </div>
                   <div class="w-full bg-green-200 rounded-full h-2 overflow-hidden">
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 38%"></div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full transition-all duration-100" :style="'width: ' + percent + '%'"></div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs mb-3 pb-3 border-b border-gray-100">
@@ -515,13 +516,13 @@
                   <span class="inline-flex items-center px-2.5 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold">6.5% EUR</span>
                   <span class="text-xs text-gray-600">Ежемесячно</span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" x-data="{ percent: 0, target: 12.3 }" x-intersect.once="let start = performance.now(); let animate = () => { let progress = Math.min((performance.now() - start) / 1000, 1); percent = +(target * progress).toFixed(1); if (progress < 1) requestAnimationFrame(animate); }; animate();">
                   <div class="flex justify-between text-xs text-gray-700 mb-1">
                     <span>Продано: <span class="font-semibold text-gray-900">740</span> / 6 000</span>
-                    <span class="font-semibold text-orange-600">12.3%</span>
+                    <span class="font-semibold text-orange-600" x-text="percent.toFixed(1) + '%'">0%</span>
                   </div>
                   <div class="w-full bg-green-200 rounded-full h-2 overflow-hidden">
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 12.3%"></div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full transition-all duration-100" :style="'width: ' + percent + '%'"></div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs mb-3 pb-3 border-b border-gray-100">
@@ -566,13 +567,13 @@
                   <span class="inline-flex items-center px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">9% USD</span>
                   <span class="text-xs text-gray-600">Ежемесячно</span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" x-data="{ percent: 0, target: 38.0 }" x-intersect.once="let start = performance.now(); let animate = () => { let progress = Math.min((performance.now() - start) / 1000, 1); percent = +(target * progress).toFixed(1); if (progress < 1) requestAnimationFrame(animate); }; animate();">
                   <div class="flex justify-between text-xs text-gray-700 mb-1">
                     <span>Продано: <span class="font-semibold text-gray-900">9 493</span> / 25 000</span>
-                    <span class="font-semibold text-orange-600">38.0%</span>
+                    <span class="font-semibold text-orange-600" x-text="percent.toFixed(1) + '%'">0%</span>
                   </div>
                   <div class="w-full bg-green-200 rounded-full h-2 overflow-hidden">
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 38%"></div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full transition-all duration-100" :style="'width: ' + percent + '%'"></div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs mb-3 pb-3 border-b border-gray-100">
@@ -617,13 +618,13 @@
                   <span class="inline-flex items-center px-2.5 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold">6.75% EUR</span>
                   <span class="text-xs text-gray-600">Ежемесячно</span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" x-data="{ percent: 0, target: 50.6 }" x-intersect.once="let start = performance.now(); let animate = () => { let progress = Math.min((performance.now() - start) / 1000, 1); percent = +(target * progress).toFixed(1); if (progress < 1) requestAnimationFrame(animate); }; animate();">
                   <div class="flex justify-between text-xs text-gray-700 mb-1">
                     <span>Продано: <span class="font-semibold text-gray-900">25 302</span> / 50 000</span>
-                    <span class="font-semibold text-orange-600">50.6%</span>
+                    <span class="font-semibold text-orange-600" x-text="percent.toFixed(1) + '%'">0%</span>
                   </div>
                   <div class="w-full bg-green-200 rounded-full h-2 overflow-hidden">
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 50.6%"></div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full transition-all duration-100" :style="'width: ' + percent + '%'"></div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs mb-3 pb-3 border-b border-gray-100">
@@ -668,13 +669,13 @@
                   <span class="inline-flex items-center px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">5.5% USD</span>
                   <span class="text-xs text-gray-600">Ежемесячно</span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" x-data="{ percent: 0, target: 4.9 }" x-intersect.once="let start = performance.now(); let animate = () => { let progress = Math.min((performance.now() - start) / 1000, 1); percent = +(target * progress).toFixed(1); if (progress < 1) requestAnimationFrame(animate); }; animate();">
                   <div class="flex justify-between text-xs text-gray-700 mb-1">
                     <span>Продано: <span class="font-semibold text-gray-900">1 233</span> / 25 000</span>
-                    <span class="font-semibold text-orange-600">4.9%</span>
+                    <span class="font-semibold text-orange-600" x-text="percent.toFixed(1) + '%'">0%</span>
                   </div>
                   <div class="w-full bg-green-200 rounded-full h-2 overflow-hidden">
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 4.9%"></div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full transition-all duration-100" :style="'width: ' + percent + '%'"></div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs mb-3 pb-3 border-b border-gray-100">
