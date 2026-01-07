@@ -133,34 +133,88 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"
     ></script>
     <script type="application/ld+json">
-      [
-        {
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "RSS-ленты токенов и вторичного рынка",
-          "url": "https://tokenbel.info/rss/",
-          "description": "RSS-ленты TokenBel для получения уведомлений о новых эмиссиях токенов и предложениях на вторичном рынке Беларуси.",
-          "isPartOf": {
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
             "@type": "WebSite",
+            "@id": "https://tokenbel.info/#website",
+            "url": "https://tokenbel.info/",
             "name": "TokenBel",
-            "url": "https://tokenbel.info/"
+            "description": "Информация о токенах и компаниях-эмитентах Беларуси",
+            "publisher": {
+              "@id": "https://tokenbel.info/#organization"
+            },
+            "inLanguage": "ru-BY"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://tokenbel.info/#organization",
+            "name": "TokenBel",
+            "url": "https://tokenbel.info/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://tokenbel.info/#logo",
+              "url": "https://static.tokenbel.info/files/180x180.png",
+              "contentUrl": "https://static.tokenbel.info/files/180x180.png",
+              "width": 180,
+              "height": 180,
+              "caption": "TokenBel"
+            },
+            "image": {
+              "@id": "https://tokenbel.info/#logo"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://tokenbel.info/rss/#webpage",
+            "url": "https://tokenbel.info/rss/",
+            "name": "RSS-ленты токенов и вторичного рынка – TokenBel",
+            "description": "RSS-ленты TokenBel для получения уведомлений о новых эмиссиях токенов и предложениях на вторичном рынке Беларуси.",
+            "isPartOf": {
+              "@id": "https://tokenbel.info/#website"
+            },
+            "inLanguage": "ru-BY"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://tokenbel.info/rss/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://tokenbel.info/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "RSS-ленты"
+              }
+            ]
+          },
+          {
+            "@type": "DataFeed",
+            "@id": "https://tokenbel.info/rss/#emission-feed",
+            "name": "Лента токенов TokenBel",
+            "url": "https://dashboard.tokenbel.info/rss/emission",
+            "description": "RSS-лента с последними эмиссиями токенов белорусских компаний",
+            "provider": {
+              "@id": "https://tokenbel.info/#organization"
+            }
+          },
+          {
+            "@type": "DataFeed",
+            "@id": "https://tokenbel.info/rss/#secondhand-feed",
+            "name": "Лента вторичного рынка TokenBel",
+            "url": "https://dashboard.tokenbel.info/rss/secondhand",
+            "description": "RSS-лента с предложениями на вторичном рынке токенов",
+            "provider": {
+              "@id": "https://tokenbel.info/#organization"
+            }
           }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "DataFeed",
-          "name": "Лента токенов TokenBel",
-          "url": "https://dashboard.tokenbel.info/rss/emission",
-          "description": "RSS-лента с последними эмиссиями токенов белорусских компаний"
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "DataFeed",
-          "name": "Лента вторичного рынка TokenBel",
-          "url": "https://dashboard.tokenbel.info/rss/secondhand",
-          "description": "RSS-лента с предложениями на вторичном рынке токенов"
-        }
-      ]
+        ]
+      }
     </script>
     <script
       defer
