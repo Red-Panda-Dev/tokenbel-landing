@@ -360,7 +360,102 @@
               Обновление ежеминутно
             </span>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+            <!-- Token Card - EUROLOMBARD -->
+            <article
+              class="bg-white border-2 border-green-400 rounded-2xl p-4 sm:p-5 flex flex-col hover:shadow-lg hover:border-green-500 transition-all duration-300 group relative overflow-hidden"
+            >
+              <!-- Status Badge -->
+              <div class="absolute top-3 right-3">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
+                  <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                  В продаже
+                </span>
+              </div>
+              
+              <!-- Logo -->
+              <div class="h-20 sm:h-24 flex items-center justify-center mb-3 bg-gray-50 rounded-xl group-hover:bg-green-50/50 transition-colors">
+                <img
+                  src="https://static.tokenbel.info/company/ae6840b7/logo.png"
+                  alt="Логотип компании ЕвроЛомбард"
+                  class="max-h-14 sm:max-h-20 w-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              
+              <div class="flex-1 flex flex-col">
+                <!-- Title & Company -->
+                <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-1 line-clamp-1">EUROLOMBARD_(BYN_822)</h3>
+                <a href="https://dashboard.tokenbel.info/company/ae6840b7" class="text-sm text-blue-600 hover:text-blue-700 hover:underline mb-3" target="_blank" rel="noopener">
+                  ЕвроЛомбард
+                </a>
+                
+                <!-- Rate Info -->
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="inline-flex items-center px-2.5 py-1 bg-green-100 text-green-700 rounded-full text-sm font-bold">
+                    20% BYN
+                  </span>
+                  <span class="text-xs text-gray-500">Ежемесячно</span>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="mb-3">
+                  <div class="flex justify-between text-xs text-gray-600 mb-1">
+                    <span>Продано: <span class="font-semibold text-gray-900">10 676</span> / 20 000</span>
+                    <span class="font-semibold text-orange-600">53.4%</span>
+                  </div>
+                  <div class="w-full bg-green-200 rounded-full h-2 overflow-hidden">
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full transition-all" style="width: 53.4%"></div>
+                  </div>
+                </div>
+                
+                <!-- Details Grid -->
+                <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs mb-3 pb-3 border-b border-gray-100">
+                  <div class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-600">Досрочный выкуп</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <span class="text-gray-600">Поручительство</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-600">Без налога</span>
+                  </div>
+                  <div class="text-gray-600">
+                    <span class="font-medium text-gray-900">50 BYN</span> / токен
+                  </div>
+                </div>
+                
+                <!-- Amount & Dates -->
+                <div class="text-xs text-gray-500 mb-3 space-y-0.5">
+                  <div>Общая сумма: <span class="font-semibold text-gray-700">1 000 000 BYN</span></div>
+                  <div>Окончание продаж: <time datetime="2026-11-30" class="font-medium">30.11.2026</time></div>
+                  <div>Срок эмиссии до: <time datetime="2029-06-25" class="font-medium">25.06.2029</time></div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="flex items-center justify-between pt-3 border-t border-gray-100 mt-auto">
+                  <span class="text-xs text-gray-500">
+                    <a href="https://app.finstore.by/?utm_source=tokenbel" class="text-blue-600 hover:underline" target="_blank" rel="noopener">Finstore</a>
+                  </span>
+                  <a
+                    href="https://dashboard.tokenbel.info/company/ae6840b7/emission/42b89d42"
+                    class="text-blue-600 hover:text-blue-700 font-medium text-sm hover:underline"
+                  >
+                    Подробнее →
+                  </a>
+                </div>
+              </div>
+            </article>
             <!-- Token Card 1 -->
             <article
               class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 flex flex-col hover:shadow-lg hover:border-blue-200 transition-all duration-300 group"
