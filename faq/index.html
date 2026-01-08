@@ -174,87 +174,148 @@
     </a>
 
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-40">
-      <nav class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl" aria-label="Основная навигация">
-        <div class="flex items-center justify-between h-16">
-          <!-- Logo -->
-          <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="TokenBel - Главная">
-            <img
-              src="https://static.tokenbel.info/files/logo_hor.png"
-              alt="TokenBel"
-              class="h-8 w-auto"
-              width="120"
-              height="32"
-            />
-          </a>
+    <header class="bg-white fixed left-0 right-0 z-50 shadow-md">
+      <div class="mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity duration-200">
+          <img src="https://static.tokenbel.info/files/logo_hor.png" alt="TokenBel" class="h-9 w-auto" />
+        </a>
 
-          <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center gap-1">
-            <a href="/" class="px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors font-medium">
-              Главная
-            </a>
-            <a href="https://dashboard.tokenbel.info/" class="px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors font-medium">
-              Компании
-            </a>
-            <a href="https://dashboard.tokenbel.info/emissions/" class="px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors font-medium">
-              Токены
-            </a>
-            <a href="/faq/" class="px-4 py-2 text-blue-600 bg-blue-50 rounded-lg font-medium" aria-current="page">
-              FAQ
-            </a>
-            <a href="/contacts/" class="px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors font-medium">
-              Контакты
-            </a>
-          </div>
-
-          <!-- Mobile Menu Button -->
-          <button
-            @click="mobileMenu = !mobileMenu"
-            class="md:hidden p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
-            :aria-expanded="mobileMenu"
-            aria-controls="mobile-menu"
-            aria-label="Открыть меню"
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-1">
+          <a
+            href="https://dashboard.tokenbel.info/"
+            class="px-4 py-2 text-gray-700 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 text font-medium"
           >
-            <svg x-show="!mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            Компании
+          </a>
+          <a
+            href="https://dashboard.tokenbel.info/emissions/"
+            class="px-4 py-2 text-gray-700 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+          >
+            Токены
+          </a>
+          <a
+            href="https://dashboard.tokenbel.info/secondhand/"
+            class="px-4 py-2 text-gray-700 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+          >
+            Вторичный рынок
+          </a>
+          <a
+            href="https://dashboard.tokenbel.info/statistics/market/"
+            class="px-4 py-2 text-gray-700 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+          >
+            Статистика
+          </a>
+          <a
+            href="https://dashboard.tokenbel.info/auth/login"
+            class="text-gray-700 ml-2 flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-100 hover:border-gray-200 transition-all duration-200 font-medium"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-700"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 3a1 1 0 0 0 0 2h9v13a1 1 0 0 1-1 1H9a1 1 0 0 0 0 2h8a3 3 0 0 0 3-3V4a1 1 0 0 0-1-1zm3.707 5.293A1 1 0 0 0 11 9v2H5a1 1 0 0 0 0 2h6v2a1 1 0 0 0 1.707.707l3-3a1 1 0 0 0 0-1.414z"
+                clip-rule="evenodd"
+              />
             </svg>
-            <svg x-show="mobileMenu" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
+            Войти
+          </a>
+        </nav>
 
-        <!-- Mobile Navigation -->
-        <div
-          id="mobile-menu"
-          x-show="mobileMenu"
-          x-collapse.duration.200ms
-          @click.outside="mobileMenu = false"
-          class="md:hidden border-t border-gray-100"
+        <!-- Mobile Menu Button -->
+        <button
+          @click="mobileMenu = !mobileMenu"
+          class="text-gray-700 md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          aria-label="Открыть меню"
         >
-          <div class="py-3 space-y-1">
-            <a href="/" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium">
-              Главная
-            </a>
-            <a href="https://dashboard.tokenbel.info/" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium">
-              Компании
-            </a>
-            <a href="https://dashboard.tokenbel.info/emissions/" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium">
-              Токены
-            </a>
-            <a href="/faq/" class="block px-4 py-3 text-blue-600 bg-blue-50 rounded-lg font-medium" aria-current="page">
-              FAQ
-            </a>
-            <a href="/contacts/" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium">
-              Контакты
-            </a>
-          </div>
-        </div>
-      </nav>
+          <svg
+            x-show="!mobileMenu"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-10 w-10"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg
+            x-show="mobileMenu"
+            x-cloak
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-10 w-10"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div
+        x-show="mobileMenu"
+        x-collapse.duration.200ms
+        x-cloak
+        class="md:hidden bg-white border-t border-gray-100 shadow-md"
+        @click.outside="mobileMenu = false"
+      >
+        <nav class="flex flex-col p-4 gap-1">
+          <a
+            href="https://dashboard.tokenbel.info/"
+            class="flex items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
+          >
+            Компании
+          </a>
+          <a
+            href="https://dashboard.tokenbel.info/emissions/"
+            class="flex items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
+          >
+            Токены
+          </a>
+          <a
+            href="https://dashboard.tokenbel.info/secondhand/"
+            class="flex items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
+          >
+            Вторичный рынок
+          </a>
+          <a
+            href="https://dashboard.tokenbel.info/statistics/market/"
+            class="flex items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
+          >
+            Статистика
+          </a>
+          <div class="h-px bg-gray-100 my-2"></div>
+          <a
+            href="https://dashboard.tokenbel.info/auth/login"
+            class="text-gray-700 flex items-center justify-center gap-2 px-4 py-3 border border-gray-200 bg-white hover:bg-gray-100 hover:border-gray-400 rounded-lg transition-colors font-medium"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-700"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 3a1 1 0 0 0 0 2h9v13a1 1 0 0 1-1 1H9a1 1 0 0 0 0 2h8a3 3 0 0 0 3-3V4a1 1 0 0 0-1-1zm3.707 5.293A1 1 0 0 0 11 9v2H5a1 1 0 0 0 0 2h6v2a1 1 0 0 0 1.707.707l3-3a1 1 0 0 0 0-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Войти в аккаунт
+          </a>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
-    <main id="main-content" class="flex-1 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <main id="main-content" class="flex-1 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 mt-16">
       <div class="container mx-auto max-w-4xl">
 
         <!-- Page Header -->
@@ -774,54 +835,134 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 mt-auto">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-6">
-        <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
-          <!-- Logo & Copyright -->
-          <div class="flex flex-col items-center sm:items-start gap-2">
-            <a href="/" class="hover:opacity-80 transition-opacity">
-              <img src="https://static.tokenbel.info/files/logo_hor.png" alt="TokenBel" class="h-7 w-auto" />
+    <footer class="bg-white shadow-md-[0_-6px_12px_rgba(0,0,0,0.1)] mt-auto">
+      <div class="container mx-auto py-4 flex flex-col sm:flex-row gap-2 justify-between items-center text-sm">
+        <!-- Logo & Copyright -->
+        <div class="flex flex-col items-center sm:items-start gap-2">
+          <a href="https://tokenbel.info" class="hover:opacity-80 transition-opacity">
+            <img src="https://static.tokenbel.info/files/logo_hor.png" alt="TokenBel" class="h-7 w-auto" />
+          </a>
+          <span class="text-sm text-gray-500">© 2025–2026, TokenBel</span>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="flex flex-col md:gap-1 md:flex-row items-center">
+            <a
+              href="https://wiki.tokenbel.info/books/novosti"
+              class="px-4 py-2 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 text font-medium"
+              aria-label="Описание функционала"
+              >Новости</a
+            >
+            <a
+              href="/faq/"
+              class="px-4 py-2 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 text font-medium"
+              aria-label="Основные вопросы и ответы"
+              >FAQ</a
+            >
+            <a
+              href="/contacts/"
+              class="px-4 py-2 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 text font-medium"
+              aria-label="Наши контакты"
+            >
+              Контакты
             </a>
-            <span class="text-sm text-gray-500">© 2025–2026, TokenBel</span>
+            <a
+              href="https://wiki.tokenbel.info/books/politika-i-soglaseniia/page/privacy-policy"
+              class="px-4 py-2 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 text font-medium"
+              aria-label="Пользовательское соглашение"
+              >Policy</a
+            >
           </div>
 
-          <!-- Footer Links -->
-          <nav class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm" aria-label="Дополнительная навигация">
-            <a href="https://wiki.tokenbel.info/books/novosti" class="text-gray-600 hover:text-gray-900 transition-colors">Новости</a>
-            <a href="/faq/" class="text-blue-600 font-medium" aria-current="page">FAQ</a>
-            <a href="/contacts/" class="text-gray-600 hover:text-gray-900 transition-colors">Контакты</a>
-            <a href="https://wiki.tokenbel.info/books/politika-i-soglaseniia/page/privacy-policy" class="text-gray-600 hover:text-gray-900 transition-colors">Policy</a>
-          </nav>
-
           <!-- Social Links -->
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-1">
             <a
-              href="https://t.me/tokenbel"
-              class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-              aria-label="Telegram канал"
-              target="_blank"
-              rel="noopener"
+              href="https://status.tokenbel.info/"
+              class="p-2 text-green-700 hover:text-green-900 hover:bg-green-200 rounded-lg transition-all duration-200"
+              aria-label="Статус"
+              title="Статус сервисов"
             >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M9.36 16.86l-.38 3.58c.55 0 .79-.23 1.09-.51l2.63-2.42 5.45 3.99c1 .56 1.7.27 1.97-.89l3.58-16.85c.35-1.61-.58-2.23-1.66-1.84L2.42 9.54c-1.59.61-1.58 1.48-.28 1.85l5.08 1.59 11.79-7.43-9.65 10.31z"></path>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M12 8.035c-2.697 0-4.884 2.151-4.884 4.806a4.75 4.75 0 0 0 1.43 3.398a.68.68 0 0 1 0 .97a.706.706 0 0 1-.986 0a6.1 6.1 0 0 1-1.84-4.368c0-3.413 2.812-6.18 6.28-6.18s6.28 2.767 6.28 6.18a6.1 6.1 0 0 1-1.84 4.369a.706.706 0 0 1-.987 0a.68.68 0 0 1 0-.971a4.75 4.75 0 0 0 1.43-3.398c0-2.655-2.186-4.806-4.883-4.806"
+                  clip-rule="evenodd"
+                />
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M12 4.373c-4.752 0-8.605 3.791-8.605 8.468c0 2.338.963 4.454 2.52 5.987a.68.68 0 0 1 0 .97a.706.706 0 0 1-.986 0A9.73 9.73 0 0 1 2 12.842C2 7.406 6.477 3 12 3s10 4.406 10 9.84a9.73 9.73 0 0 1-2.929 6.959a.706.706 0 0 1-.987 0a.68.68 0 0 1 0-.971a8.37 8.37 0 0 0 2.52-5.987c0-4.677-3.852-8.468-8.604-8.468"
+                  clip-rule="evenodd"
+                />
+                <path
+                  fill="currentColor"
+                  d="M10.31 17.344c.767-.876 1.151-1.314 1.625-1.342q.065-.004.13 0c.474.028.858.466 1.625 1.342c1.67 1.906 2.505 2.858 2.271 3.68q-.03.107-.074.206C15.543 22 14.362 22 12 22s-3.543 0-3.887-.77a2 2 0 0 1-.074-.206c-.234-.822.6-1.774 2.27-3.68M14.5 12.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0"
+                />
               </svg>
             </a>
             <a
               href="/rss/"
-              class="p-2 text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
-              aria-label="RSS лента"
+              class="p-2 text-orange-700 hover:text-orange-900 hover:bg-orange-200 rounded-lg transition-all duration-200"
+              aria-label="RSS"
+              title="RSS лента"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://dashboard.simpleanalytics.com/dashboard.tokenbel.info"
+              class="p-2 text-red-700 hover:text-red-900 hover:bg-red-200 rounded-lg transition-all duration-200"
+              aria-label="Аналитика"
+              title="Simple Analytics"
+              target="_blank"
+              rel="noopener nofollow"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-width="2">
+                  <path d="M21 21H3V3" />
+                  <path
+                    d="m6 14l5-5l4 4c.42-.421 1.549-1.547 2.715-2.71m1.592-1.588l1.697-1.692zm0 0l-.004.004m0 0l-1.588 1.584m1.588-1.584l-1.588 1.584M17 7h4v4"
+                  />
+                </g>
+              </svg>
+            </a>
+            <a
+              href="https://www.threads.com/@tokenbel_info"
+              class="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition-all duration-200"
+              aria-label="Threads"
+              title="Threads"
+              target="_blank"
+              rel="noopener nofollow"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098c1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015c-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164c1.43 1.783 3.631 2.698 6.54 2.717c2.623-.02 4.358-.631 5.8-2.045c1.647-1.613 1.618-3.593 1.09-4.798c-.31-.71-.873-1.3-1.634-1.75c-.192 1.352-.622 2.446-1.284 3.272c-.886 1.102-2.14 1.704-3.73 1.79c-1.202.065-2.361-.218-3.259-.801c-1.063-.689-1.685-1.74-1.752-2.964c-.065-1.19.408-2.285 1.33-3.082c.88-.76 2.119-1.207 3.583-1.291a14 14 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757c-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32l-1.757-1.18c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388q.163.07.321.142c1.49.7 2.58 1.761 3.154 3.07c.797 1.82.871 4.79-1.548 7.158c-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69q-.362 0-.739.021c-1.836.103-2.98.946-2.916 2.143c.067 1.256 1.452 1.839 2.784 1.767c1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://t.me/tokenbel"
+              class="p-2 text-blue-700 hover:text-blue-900 hover:bg-blue-200 rounded-lg transition-all duration-200"
+              aria-label="Telegram"
+              title="Telegram канал"
+              target="_blank"
+              rel="noopener nofollow"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"></path>
+                <path
+                  d="M9.36 16.86l-.38 3.58c.55 0 .79-.23 1.09-.51l2.63-2.42 5.45 3.99c1 .56 1.7.27 1.97-.89l3.58-16.85c.35-1.61-.58-2.23-1.66-1.84L2.42 9.54c-1.59.61-1.58 1.48-.28 1.85l5.08 1.59 11.79-7.43-9.65 10.31z"
+                />
               </svg>
             </a>
           </div>
         </div>
       </div>
     </footer>
-
-    <!-- Analytics -->
-    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
   </body>
 </html>
