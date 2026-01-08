@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => ({
         contacts: path.resolve(__dirname, "contacts/index.html"),
         rss: path.resolve(__dirname, "rss/index.html"),
         faq: path.resolve(__dirname, "faq/index.html"),
-        auth: path.resolve(__dirname, "auth/index.html"),
+        login: path.resolve(__dirname, "login/index.html"),
         "404": path.resolve(__dirname, "404/index.html"),
       },
     },
