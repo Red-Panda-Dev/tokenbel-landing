@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => ({
         main: path.resolve(__dirname, "index.html"),
         contacts: path.resolve(__dirname, "contacts/index.html"),
         rss: path.resolve(__dirname, "rss/index.html"),
+        faq: path.resolve(__dirname, "faq/index.html"),
         "404": path.resolve(__dirname, "404/index.html"),
       },
     },
