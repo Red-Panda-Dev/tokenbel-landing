@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import { componentTagger } from "lovable-tagger";
+import handlebars from "vite-plugin-handlebars";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -11,6 +12,9 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     tailwindcss(),
+    handlebars({
+      partialDirectory: path.resolve(__dirname, "partials"),
+    }),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
   build: {
