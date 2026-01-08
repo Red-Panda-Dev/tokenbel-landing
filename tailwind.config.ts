@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: ["./index.html", "./contacts/**/*.html", "./rss/**/*.html", "./404/**/*.html"],
+  content: ["./index.html", "./contacts/**/*.html", "./rss/**/*.html", "./faq/**/*.html", "./404/**/*.html"],
   theme: {
     container: {
       center: true,
