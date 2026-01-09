@@ -338,7 +338,10 @@
         <div
           id="telegram-modal-overlay"
           class="fixed inset-0 bg-black/50 z-[999] hidden"
-          onclick="this.classList.add('hidden'); document.getElementById('telegram-modal').classList.add('hidden');"
+          onclick="
+            this.classList.add('hidden');
+            document.getElementById('telegram-modal').classList.add('hidden');
+          "
         ></div>
 
         <!-- Telegram Modal with Widget -->
@@ -365,17 +368,22 @@
               username: user.username || "",
               photo_url: user.photo_url || "",
               auth_date: user.auth_date,
-              hash: user.hash
+              hash: user.hash,
             });
-            window.location.href = "/auth/telegram/callback?" + params.toString();
+            window.location.href =
+              "/auth/telegram/callback?" + params.toString();
           };
 
           document.addEventListener("DOMContentLoaded", function () {
             const btn = document.getElementById("telegram-login-btn");
             if (btn) {
               btn.addEventListener("click", function () {
-                document.getElementById("telegram-modal-overlay").classList.remove("hidden");
-                document.getElementById("telegram-modal").classList.remove("hidden");
+                document
+                  .getElementById("telegram-modal-overlay")
+                  .classList.remove("hidden");
+                document
+                  .getElementById("telegram-modal")
+                  .classList.remove("hidden");
               });
             }
           });
