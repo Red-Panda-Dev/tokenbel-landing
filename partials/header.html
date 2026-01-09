@@ -1,0 +1,157 @@
+<!-- Header -->
+<header class="bg-white fixed left-0 right-0 z-50 shadow-md">
+  <div
+    class="mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8"
+  >
+    <a
+      href="/"
+      class="flex items-center gap-2 hover:opacity-80 transition-opacity duration-200"
+    >
+      <img
+        src="https://static.tokenbel.info/files/logo_hor.png"
+        alt="TokenBel"
+        class="h-9 w-auto"
+      />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-1">
+      <a
+        href="https://dashboard.tokenbel.info/"
+        class="px-4 py-2 text-gray-700 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 text font-medium"
+      >
+        Компании
+      </a>
+      <a
+        href="https://dashboard.tokenbel.info/emissions/"
+        class="px-4 py-2 text-gray-700 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+      >
+        Токены
+      </a>
+      <a
+        href="https://dashboard.tokenbel.info/secondhand/"
+        class="px-4 py-2 text-gray-700 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+      >
+        Вторичный рынок
+      </a>
+      <a
+        href="https://dashboard.tokenbel.info/statistics/market/"
+        class="px-4 py-2 text-gray-700 hover:hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+      >
+        Статистика
+      </a>
+      <a
+        href="/login/"
+        class="text-gray-700 ml-2 flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-100 hover:border-gray-200 transition-all duration-200 font-medium"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-green-700"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9 3a1 1 0 0 0 0 2h9v13a1 1 0 0 1-1 1H9a1 1 0 0 0 0 2h8a3 3 0 0 0 3-3V4a1 1 0 0 0-1-1zm3.707 5.293A1 1 0 0 0 11 9v2H5a1 1 0 0 0 0 2h6v2a1 1 0 0 0 1.707.707l3-3a1 1 0 0 0 0-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Войти
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      @click="mobileMenu = !mobileMenu"
+      class="text-gray-700 md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+      aria-label="Открыть меню"
+    >
+      <svg
+        x-show="!mobileMenu"
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-10 w-10"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+      <svg
+        x-show="mobileMenu"
+        x-cloak
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-10 w-10"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div
+    x-show="mobileMenu"
+    x-collapse.duration.200ms
+    x-cloak
+    class="md:hidden bg-white border-t border-gray-100 shadow-md"
+    @click.outside="mobileMenu = false"
+  >
+    <nav class="flex flex-col p-4 gap-1">
+      <a
+        href="https://dashboard.tokenbel.info/"
+        class="flex items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg border border-gray-200 hover:border-gray-400 transition-colors"
+      >
+        Компании
+      </a>
+      <a
+        href="https://dashboard.tokenbel.info/emissions/"
+        class="flex items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg border border-gray-200 hover:border-gray-400 transition-colors"
+      >
+        Токены
+      </a>
+      <a
+        href="https://dashboard.tokenbel.info/secondhand/"
+        class="flex items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg border border-gray-200 hover:border-gray-400 transition-colors"
+      >
+        Вторичный рынок
+      </a>
+      <a
+        href="https://dashboard.tokenbel.info/statistics/market/"
+        class="flex items-center justify-center px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg border border-gray-200 hover:border-gray-400 transition-colors"
+      >
+        Статистика
+      </a>
+      <div class="h-px bg-gray-100 my-2"></div>
+      <a
+        href="/login/"
+        class="text-gray-700 flex items-center justify-center gap-2 px-4 py-3 border border-gray-200 bg-white hover:bg-gray-100 hover:border-gray-400 rounded-lg transition-colors font-medium"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-green-700"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9 3a1 1 0 0 0 0 2h9v13a1 1 0 0 1-1 1H9a1 1 0 0 0 0 2h8a3 3 0 0 0 3-3V4a1 1 0 0 0-1-1zm3.707 5.293A1 1 0 0 0 11 9v2H5a1 1 0 0 0 0 2h6v2a1 1 0 0 0 1.707.707l3-3a1 1 0 0 0 0-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Войти в аккаунт
+      </a>
+    </nav>
+  </div>
+</header>
