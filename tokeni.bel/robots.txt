@@ -1,0 +1,8 @@
+# Allow all crawlers to crawl the entire site
+User-agent: *
+Disallow: /api/
+Disallow: /profile/
+Allow: /
+
+# Specify location of sitemap
+Sitemap: https://токены.бел/sitemap.xml
