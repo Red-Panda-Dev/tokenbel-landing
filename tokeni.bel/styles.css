@@ -1,0 +1,81 @@
+/* Tailwind CSS - Loaded via CDN for tokeni.bel */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for tokeni.bel */
+
+/* Hide Alpine.js x-cloak elements until loaded */
+[x-cloak] {
+  display: none !important;
+}
+
+/* Custom animations */
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Card hover effects */
+.token-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.token-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Progress bar animations */
+.progress-bar-animated {
+  transition: width 0.5s ease-out;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  header,
+  .mobile-nav,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    margin-top: 0 !important;
+  }
+}
