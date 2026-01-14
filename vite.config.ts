@@ -27,7 +27,6 @@ export default defineConfig(({ mode }) => ({
         rss: path.resolve(__dirname, "rss/index.html"),
         faq: path.resolve(__dirname, "faq/index.html"),
         login: path.resolve(__dirname, "login/index.html"),
-        statistics: path.resolve(__dirname, "statistics/index.html"),
         "404": path.resolve(__dirname, "404/index.html"),
       },
     },
