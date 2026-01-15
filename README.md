@@ -78,9 +78,13 @@ npm run preview
 ## Project Features
 
 ✅ **Pure HTML + Tailwind CSS** - No React dependencies
+
 ✅ **Fast build times** - Vite-powered optimization
+
 ✅ **Responsive design** - Mobile-first approach
+
 ✅ **Easy to maintain** - Simple file structure
+
 ✅ **Production ready** - Optimized assets
 
 ## Available Pages
