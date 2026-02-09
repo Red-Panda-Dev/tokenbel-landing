@@ -1,40 +1,57 @@
 
 
-## Add "Формирование портфеля" benefit to login page
+## Страница "Статистика вторичного рынка"
 
-Add a new benefit card to the "Преимущества личного кабинета" grid on `login/index.html`, following the existing card pattern.
+Создание новой страницы `/statistics/secondmarket/` с 6 графиками, использующими данные из API `hype.tokenbel.info`.
 
-### What will be added
+### Что будет создано
 
-A new card with:
-- **Title**: "Формирование портфеля"
-- **Description**: Text about creating, managing, tracking personal token portfolios and calculating financial parameters (HHI, Entropy, leverage ratios, etc.)
-- **Icon**: Portfolio/pie-chart style icon in a teal/cyan color scheme (`bg-teal-100`, `text-teal-600`) to differentiate from existing cards
-- **Position**: After the last existing benefit (RSS), maintaining the 2-column grid layout
+Новая страница со следующими графиками (по скриншотам):
 
-### Technical details
+1. **Donut chart** -- Распределение по платформам и операциям (Finstore/Fainex, Покупка/Продажа)
+2. **Horizontal bar chart** -- Топ токенов по количеству предложений (Покупка/Продажа)
+3. **Horizontal bar chart** -- Топ компаний по количеству предложений (Покупка/Продажа)
+4. **Line chart** -- Всего операций по дням
+5. **Line chart** -- Операции по платформам по дням
+6. **Stacked bar chart** -- Операции по платформам и типам
 
-**File: `login/index.html`**
+Страница будет включать переключатель периода (7d, 30d, 90d, all) как на скриншоте.
 
-Insert a new benefit `<div>` block after the RSS benefit card (around line 720), using the same pattern:
+### Источники данных (4 API-эндпоинта)
 
-```html
-<div class="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
-  <div class="flex-shrink-0 w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
-    <svg ...> <!-- pie-chart or portfolio icon --> </svg>
-  </div>
-  <div>
-    <h3 class="font-semibold text-gray-900 mb-1">Формирование портфеля</h3>
-    <p class="text-gray-600 text-sm">
-      Создавайте персональный портфель токенов, отслеживайте его состав
-      и рассчитывайте финансовые показатели: доходность, HHI, энтропию
-      и коэффициент рычага
-    </p>
-  </div>
-</div>
-```
+| Endpoint | Параметры | Графики |
+|----------|-----------|---------|
+| `operations_by_platform_type` | `period` | Donut chart (#1), Stacked bar (#6) |
+| `top_emissions` | `period`, `limit` | Bar chart (#2) |
+| `top_companies` | `period`, `limit` | Bar chart (#3) |
+| `operations_time_series` | `period` | Line charts (#4, #5) |
 
-Also update the JSON-LD `featureList` array to include "Формирование и аналитика портфеля токенов".
+Base URL: `https://hype.tokenbel.info/api/statistics/secondmarket`
 
-No other files need changes.
+### Технические детали
+
+**Новые файлы:**
+
+1. `statistics/secondmarket/index.html` -- основная страница с Chart.js (CDN), Alpine.js для переключения периода, fetch-вызовы к API
+
+**Изменяемые файлы:**
+
+2. `vite.config.ts` -- добавить `statisticsSecondmarket` в `rollupOptions.input`
+3. `tailwind.config.ts` -- добавить `./statistics/**/*.html` в `content`
+
+**Библиотеки (CDN, без npm):**
+- Chart.js 4.x via `https://cdn.jsdelivr.net/npm/chart.js`
+
+**Архитектура страницы:**
+- Alpine.js `x-data` для управления состоянием (выбранный период, загрузка)
+- При смене периода -- повторный fetch всех 4 эндпоинтов
+- Chart.js инстансы пересоздаются при обновлении данных
+- Используется стандартный header/footer через Handlebars partials (`{{> header}}`, `{{> footer}}`)
+- Цветовая схема графиков: синий/голубой (Finstore), оранжевый/красный (Fainex), зеленый (Покупка), розовый (Продажа) -- как на скриншотах
+
+**Макет:**
+- Верхний блок: заголовок + переключатель периода (кнопки-chips)
+- Первый ряд: donut chart (слева) + stacked bar (справа) -- `grid-cols-1 lg:grid-cols-2`
+- Второй ряд: два horizontal bar charts (топ токенов, топ компаний) -- `grid-cols-1 lg:grid-cols-2`
+- Третий ряд: два line charts (всего операций, по платформам) -- `grid-cols-1 lg:grid-cols-2`
 
