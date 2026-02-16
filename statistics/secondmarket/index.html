@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="ru" class="h-100">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NZ6G8T8C");
+    </script>
+    <!-- End Google Tag Manager -->
+    <title>Статистика вторичного рынка | TokenBel</title>
+    <meta charset="UTF-8" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Статистика вторичного рынка токенов в Беларуси: операции по платформам, топ токенов и компаний, динамика по дням."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="TokenBel" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Статистика вторичного рынка | TokenBel"
+    />
+    <meta
+      property="og:description"
+      content="Статистика вторичного рынка токенов в Беларуси: операции по платформам, топ токенов и компаний, динамика по дням."
+    />
+    <meta
+      property="og:image"
+      content="https://static.tokenbel.info/files/48x48.png"
+    />
+    <meta property="og:locale" content="ru-BY" />
+    <meta property="og:site_name" content="TokenBel" />
+    <meta
+      property="og:url"
+      content="https://tokenbel.info/statistics/secondmarket/"
+    />
+
+    <!-- Technical Meta -->
+    <meta name="language" content="ru" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+    <meta name="application-name" content="TokenBel" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="canonical"
+      href="https://tokenbel.info/statistics/secondmarket/"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://static.tokenbel.info" crossorigin />
+
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/manrope/v19/xn7gYHE41ni1AdIRggOxSuXd.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://static.tokenbel.info/files/48x48.png"
+    />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://static.tokenbel.info/files/48x48.webp"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://static.tokenbel.info/files/120x120.svg"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://static.tokenbel.info/files/180x180.png"
+    />
+
+    <link rel="stylesheet" href="/src/main.css" />
+    <script type="module" src="/src/main.js"></script>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.15.0/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gray-50 text-black min-h-screen flex flex-col font-sans antialiased"
+    x-data="{ mobileMenu: false }"
+  >
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NZ6G8T8C"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-lg z-50"
+    >
+      Перейти к содержимому
+    </a>
+
+    {{> header}}
+
+    <!-- Main Content -->
+    <main
+      id="main-content"
+      class="w-full mb-10 mt-20"
+      x-data="statisticsApp()"
+      x-init="init()"
+    >
+      <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <!-- Page Header -->
+        <header class="mb-6 sm:mb-8">
+          <h1
+            class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+          >
+            Статистика вторичного рынка
+          </h1>
+
+          <!-- Period Switcher -->
+          <div class="flex flex-wrap gap-2">
+            <template
+              x-for="p in periods"
+              :key="p.value"
+            >
+              <button
+                @click="setPeriod(p.value)"
+                :class="period === p.value
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100'"
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                x-text="p.label"
+              ></button>
+            </template>
+          </div>
+        </header>
+
+        <!-- Loading State -->
+        <div x-show="loading" x-cloak class="flex items-center justify-center py-20">
+          <div class="flex items-center gap-3 text-gray-500">
+            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+            </svg>
+            <span class="text-sm font-medium">Загрузка данных...</span>
+          </div>
+        </div>
+
+        <!-- Error State -->
+        <div x-show="error" x-cloak class="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+          <p class="text-red-700 text-sm" x-text="error"></p>
+        </div>
+
+        <!-- Charts Grid -->
+        <div x-show="!loading && !error" x-cloak>
+          <!-- Row 1: Donut + Stacked Bar -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+            <!-- Donut Chart: Distribution by Platform & Operation -->
+            <div
+              class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6"
+            >
+              <h2 class="text-base sm:text-lg font-semibold text-gray-900 mb-4">
+                Распределение по платформам и операциям
+              </h2>
+              <div class="relative" style="max-height: 320px">
+                <canvas id="donutChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Stacked Bar Chart: Operations by Platform & Type -->
+            <div
+              class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6"
+            >
+              <h2 class="text-base sm:text-lg font-semibold text-gray-900 mb-4">
+                Операции по платформам и типам
+              </h2>
+              <div class="relative" style="max-height: 320px">
+                <canvas id="stackedBarChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2: Top Tokens + Top Companies -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+            <!-- Horizontal Bar: Top Tokens -->
+            <div
+              class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6"
+            >
+              <h2 class="text-base sm:text-lg font-semibold text-gray-900 mb-4">
+                Топ токенов по количеству предложений
+              </h2>
+              <div class="relative">
+                <canvas id="topTokensChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Horizontal Bar: Top Companies -->
+            <div
+              class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6"
+            >
+              <h2 class="text-base sm:text-lg font-semibold text-gray-900 mb-4">
+                Топ компаний по количеству предложений
+              </h2>
+              <div class="relative">
+                <canvas id="topCompaniesChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: Line Charts -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+            <!-- Line Chart: Total Operations by Day -->
+            <div
+              class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6"
+            >
+              <h2 class="text-base sm:text-lg font-semibold text-gray-900 mb-4">
+                Всего операций по дням
+              </h2>
+              <div class="relative">
+                <canvas id="totalOpsChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Line Chart: Operations by Platform -->
+            <div
+              class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6"
+            >
+              <h2 class="text-base sm:text-lg font-semibold text-gray-900 mb-4">
+                Операции по платформам по дням
+              </h2>
+              <div class="relative">
+                <canvas id="platformOpsChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {{> footer}}
+
+    <script>
+      function statisticsApp() {
+        const BASE_URL =
+          "https://hype.tokenbel.info/api/statistics/secondmarket";
+
+        // Color palette
+        const COLORS = {
+          finstoreBuy: "rgba(59, 130, 246, 0.85)", // blue
+          finstoreSell: "rgba(147, 197, 253, 0.85)", // light blue
+          fainexBuy: "rgba(249, 115, 22, 0.85)", // orange
+          fainexSell: "rgba(253, 186, 116, 0.85)", // light orange
+          buy: "rgba(34, 197, 94, 0.85)", // green
+          sell: "rgba(244, 63, 94, 0.85)", // rose
+          finstore: "rgba(59, 130, 246, 1)", // blue line
+          fainex: "rgba(249, 115, 22, 1)", // orange line
+          total: "rgba(99, 102, 241, 1)", // indigo line
+        };
+
+        let charts = {};
+
+        return {
+          period: "7d",
+          periods: [
+            { value: "7d", label: "7 дней" },
+            { value: "30d", label: "30 дней" },
+            { value: "90d", label: "90 дней" },
+            { value: "all", label: "Всё время" },
+          ],
+          loading: true,
+          error: null,
+
+          async init() {
+            await this.fetchAll();
+          },
+
+          async setPeriod(p) {
+            this.period = p;
+            await this.fetchAll();
+          },
+
+          async fetchAll() {
+            this.loading = true;
+            this.error = null;
+
+            try {
+              const [platformType, topEmissions, topCompanies, timeSeries] =
+                await Promise.all([
+                  this.fetchAPI("operations_by_platform_type"),
+                  this.fetchAPI("top_emissions", { limit: 7 }),
+                  this.fetchAPI("top_companies", { limit: 7 }),
+                  this.fetchAPI("operations_time_series"),
+                ]);
+
+              this.loading = false;
+
+              // Wait for DOM to render canvases
+              await this.$nextTick();
+
+              this.renderDonutChart(platformType);
+              this.renderStackedBarChart(platformType);
+              this.renderTopTokensChart(topEmissions);
+              this.renderTopCompaniesChart(topCompanies);
+              this.renderTotalOpsChart(timeSeries);
+              this.renderPlatformOpsChart(timeSeries);
+            } catch (e) {
+              this.loading = false;
+              this.error =
+                "Не удалось загрузить данные. Попробуйте позже.";
+              console.error("Statistics fetch error:", e);
+            }
+          },
+
+          async fetchAPI(view, extra = {}) {
+            const params = new URLSearchParams({
+              view,
+              period: this.period,
+              ...extra,
+            });
+            const res = await fetch(`${BASE_URL}?${params}`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.json();
+          },
+
+          destroyChart(id) {
+            if (charts[id]) {
+              charts[id].destroy();
+              charts[id] = null;
+            }
+          },
+
+          getCtx(id) {
+            const el = document.getElementById(id);
+            return el ? el.getContext("2d") : null;
+          },
+
+          renderDonutChart(data) {
+            this.destroyChart("donutChart");
+            const ctx = this.getCtx("donutChart");
+            if (!ctx || !data) return;
+
+            // data expected: array of { platform, operation_type, count }
+            const items = Array.isArray(data) ? data : data.data || [];
+            const labels = items.map(
+              (d) => `${d.platform} — ${d.operation_type}`
+            );
+            const values = items.map((d) => d.count);
+            const colors = items.map((d) => {
+              if (d.platform === "Finstore" && d.operation_type === "Покупка")
+                return COLORS.finstoreBuy;
+              if (d.platform === "Finstore" && d.operation_type === "Продажа")
+                return COLORS.finstoreSell;
+              if (d.platform === "Fainex" && d.operation_type === "Покупка")
+                return COLORS.fainexBuy;
+              if (d.platform === "Fainex" && d.operation_type === "Продажа")
+                return COLORS.fainexSell;
+              return "rgba(156, 163, 175, 0.7)";
+            });
+
+            charts["donutChart"] = new Chart(ctx, {
+              type: "doughnut",
+              data: {
+                labels,
+                datasets: [
+                  {
+                    data: values,
+                    backgroundColor: colors,
+                    borderWidth: 2,
+                    borderColor: "#fff",
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                  legend: {
+                    position: "bottom",
+                    labels: { padding: 16, usePointStyle: true, font: { family: "Manrope" } },
+                  },
+                },
+              },
+            });
+          },
+
+          renderStackedBarChart(data) {
+            this.destroyChart("stackedBarChart");
+            const ctx = this.getCtx("stackedBarChart");
+            if (!ctx || !data) return;
+
+            const items = Array.isArray(data) ? data : data.data || [];
+            // Group by platform, then by operation_type
+            const platforms = [...new Set(items.map((d) => d.platform))];
+            const opTypes = [...new Set(items.map((d) => d.operation_type))];
+
+            const colorMap = {
+              "Finstore-Покупка": COLORS.finstoreBuy,
+              "Finstore-Продажа": COLORS.finstoreSell,
+              "Fainex-Покупка": COLORS.fainexBuy,
+              "Fainex-Продажа": COLORS.fainexSell,
+            };
+
+            const datasets = [];
+            platforms.forEach((platform) => {
+              opTypes.forEach((opType) => {
+                const item = items.find(
+                  (d) => d.platform === platform && d.operation_type === opType
+                );
+                datasets.push({
+                  label: `${platform} — ${opType}`,
+                  data: [item ? item.count : 0],
+                  backgroundColor:
+                    colorMap[`${platform}-${opType}`] ||
+                    "rgba(156,163,175,0.7)",
+                  borderRadius: 4,
+                });
+              });
+            });
+
+            charts["stackedBarChart"] = new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["Операции"],
+                datasets,
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                  legend: {
+                    position: "bottom",
+                    labels: { padding: 16, usePointStyle: true, font: { family: "Manrope" } },
+                  },
+                },
+                scales: {
+                  x: { stacked: true, grid: { display: false } },
+                  y: { stacked: true, beginAtZero: true },
+                },
+              },
+            });
+          },
+
+          renderTopTokensChart(data) {
+            this.destroyChart("topTokensChart");
+            const ctx = this.getCtx("topTokensChart");
+            if (!ctx || !data) return;
+
+            const items = Array.isArray(data) ? data : data.data || [];
+            // Expected: array of { name, buy_count, sell_count } or similar
+            const labels = items.map(
+              (d) => d.name || d.emission_name || d.token_name || ""
+            );
+            const buyData = items.map(
+              (d) => d.buy_count || d.buy || 0
+            );
+            const sellData = items.map(
+              (d) => d.sell_count || d.sell || 0
+            );
+
+            charts["topTokensChart"] = new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels,
+                datasets: [
+                  {
+                    label: "Покупка",
+                    data: buyData,
+                    backgroundColor: COLORS.buy,
+                    borderRadius: 4,
+                  },
+                  {
+                    label: "Продажа",
+                    data: sellData,
+                    backgroundColor: COLORS.sell,
+                    borderRadius: 4,
+                  },
+                ],
+              },
+              options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    position: "bottom",
+                    labels: { padding: 16, usePointStyle: true, font: { family: "Manrope" } },
+                  },
+                },
+                scales: {
+                  x: { beginAtZero: true, grid: { color: "rgba(0,0,0,0.05)" } },
+                  y: {
+                    grid: { display: false },
+                    ticks: { font: { family: "Manrope", size: 11 } },
+                  },
+                },
+              },
+            });
+          },
+
+          renderTopCompaniesChart(data) {
+            this.destroyChart("topCompaniesChart");
+            const ctx = this.getCtx("topCompaniesChart");
+            if (!ctx || !data) return;
+
+            const items = Array.isArray(data) ? data : data.data || [];
+            const labels = items.map(
+              (d) => d.name || d.company_name || ""
+            );
+            const buyData = items.map(
+              (d) => d.buy_count || d.buy || 0
+            );
+            const sellData = items.map(
+              (d) => d.sell_count || d.sell || 0
+            );
+
+            charts["topCompaniesChart"] = new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels,
+                datasets: [
+                  {
+                    label: "Покупка",
+                    data: buyData,
+                    backgroundColor: COLORS.buy,
+                    borderRadius: 4,
+                  },
+                  {
+                    label: "Продажа",
+                    data: sellData,
+                    backgroundColor: COLORS.sell,
+                    borderRadius: 4,
+                  },
+                ],
+              },
+              options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    position: "bottom",
+                    labels: { padding: 16, usePointStyle: true, font: { family: "Manrope" } },
+                  },
+                },
+                scales: {
+                  x: { beginAtZero: true, grid: { color: "rgba(0,0,0,0.05)" } },
+                  y: {
+                    grid: { display: false },
+                    ticks: { font: { family: "Manrope", size: 11 } },
+                  },
+                },
+              },
+            });
+          },
+
+          renderTotalOpsChart(data) {
+            this.destroyChart("totalOpsChart");
+            const ctx = this.getCtx("totalOpsChart");
+            if (!ctx || !data) return;
+
+            const items = Array.isArray(data) ? data : data.data || [];
+            // Expected: array of { date, total } or grouped by date
+            // Try to aggregate by date
+            const byDate = {};
+            items.forEach((d) => {
+              const date = d.date || d.day;
+              if (!byDate[date]) byDate[date] = 0;
+              byDate[date] += d.count || d.total || 0;
+            });
+
+            const dates = Object.keys(byDate).sort();
+            const values = dates.map((d) => byDate[d]);
+
+            charts["totalOpsChart"] = new Chart(ctx, {
+              type: "line",
+              data: {
+                labels: dates.map((d) => this.formatDate(d)),
+                datasets: [
+                  {
+                    label: "Всего операций",
+                    data: values,
+                    borderColor: COLORS.total,
+                    backgroundColor: "rgba(99, 102, 241, 0.1)",
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 3,
+                    pointHoverRadius: 5,
+                    borderWidth: 2,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                  legend: {
+                    position: "bottom",
+                    labels: { padding: 16, usePointStyle: true, font: { family: "Manrope" } },
+                  },
+                },
+                scales: {
+                  x: {
+                    grid: { display: false },
+                    ticks: { font: { family: "Manrope", size: 11 }, maxTicksLimit: 10 },
+                  },
+                  y: {
+                    beginAtZero: true,
+                    grid: { color: "rgba(0,0,0,0.05)" },
+                  },
+                },
+              },
+            });
+          },
+
+          renderPlatformOpsChart(data) {
+            this.destroyChart("platformOpsChart");
+            const ctx = this.getCtx("platformOpsChart");
+            if (!ctx || !data) return;
+
+            const items = Array.isArray(data) ? data : data.data || [];
+            // Group by date + platform
+            const byDatePlatform = {};
+            const platformSet = new Set();
+            items.forEach((d) => {
+              const date = d.date || d.day;
+              const platform = d.platform || "Unknown";
+              platformSet.add(platform);
+              if (!byDatePlatform[date]) byDatePlatform[date] = {};
+              if (!byDatePlatform[date][platform])
+                byDatePlatform[date][platform] = 0;
+              byDatePlatform[date][platform] += d.count || d.total || 0;
+            });
+
+            const dates = Object.keys(byDatePlatform).sort();
+            const platforms = [...platformSet];
+
+            const platformColors = {
+              Finstore: COLORS.finstore,
+              Fainex: COLORS.fainex,
+            };
+            const platformBg = {
+              Finstore: "rgba(59, 130, 246, 0.1)",
+              Fainex: "rgba(249, 115, 22, 0.1)",
+            };
+
+            const datasets = platforms.map((platform) => ({
+              label: platform,
+              data: dates.map((d) =>
+                byDatePlatform[d][platform]
+                  ? byDatePlatform[d][platform]
+                  : 0
+              ),
+              borderColor: platformColors[platform] || "rgba(156,163,175,1)",
+              backgroundColor:
+                platformBg[platform] || "rgba(156,163,175,0.1)",
+              fill: true,
+              tension: 0.3,
+              pointRadius: 3,
+              pointHoverRadius: 5,
+              borderWidth: 2,
+            }));
+
+            charts["platformOpsChart"] = new Chart(ctx, {
+              type: "line",
+              data: {
+                labels: dates.map((d) => this.formatDate(d)),
+                datasets,
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                  legend: {
+                    position: "bottom",
+                    labels: { padding: 16, usePointStyle: true, font: { family: "Manrope" } },
+                  },
+                },
+                scales: {
+                  x: {
+                    grid: { display: false },
+                    ticks: { font: { family: "Manrope", size: 11 }, maxTicksLimit: 10 },
+                  },
+                  y: {
+                    beginAtZero: true,
+                    grid: { color: "rgba(0,0,0,0.05)" },
+                  },
+                },
+              },
+            });
+          },
+
+          formatDate(dateStr) {
+            if (!dateStr) return "";
+            try {
+              const d = new Date(dateStr);
+              return d.toLocaleDateString("ru-RU", {
+                day: "2-digit",
+                month: "2-digit",
+              });
+            } catch {
+              return dateStr;
+            }
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
