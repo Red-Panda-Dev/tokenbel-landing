@@ -203,6 +203,52 @@
         </div>
       </section>
 
+      <!-- Рынок в цифрах -->
+      <section class="py-10 sm:py-14 bg-white border-b border-gray-100 px-4">
+        <div class="container mx-auto max-w-5xl">
+          <h2 class="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-8 sm:mb-10">Рынок в цифрах</h2>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <!-- Объём рынка BYN -->
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ val: 0, target: 291 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
+              <div class="text-3xl sm:text-4xl font-bold text-blue-700 mb-1" x-text="val.toLocaleString('ru-RU')">0</div>
+              <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн BYN</div>
+              <div class="text-xs text-gray-500">Объём рынка</div>
+            </div>
+            <!-- Объём рынка USD -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ val: 0, target: 68 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
+              <div class="text-3xl sm:text-4xl font-bold text-green-700 mb-1" x-text="val.toLocaleString('ru-RU')">0</div>
+              <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн USD</div>
+              <div class="text-xs text-gray-500">Объём рынка</div>
+            </div>
+            <!-- Активные эмитенты -->
+            <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ val: 0, target: 42 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
+              <div class="text-3xl sm:text-4xl font-bold text-purple-700 mb-1" x-text="val">0</div>
+              <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">эмитентов</div>
+              <div class="text-xs text-gray-500">Активные компании</div>
+            </div>
+            <!-- Средняя доходность -->
+            <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 sm:p-6 text-center">
+              <div class="flex items-baseline justify-center gap-2 mb-1">
+                <span class="text-2xl sm:text-3xl font-bold text-amber-700">18%</span>
+                <span class="text-sm text-gray-500">BYN</span>
+              </div>
+              <div class="flex items-baseline justify-center gap-2 mb-0.5">
+                <span class="text-2xl sm:text-3xl font-bold text-green-700">10%</span>
+                <span class="text-sm text-gray-500">USD</span>
+              </div>
+              <div class="text-xs text-gray-500">Средняя доходность</div>
+            </div>
+          </div>
+          <p class="text-center text-xs text-gray-400 mt-4">Данные на основе текущих размещений. Информация носит справочный характер.</p>
+        </div>
+      </section>
+
       <!-- Актуальные токены -->
       <section id="tokens" class="py-12 sm:py-16 bg-white px-4">
         <div class="container mx-auto max-w-6xl">
