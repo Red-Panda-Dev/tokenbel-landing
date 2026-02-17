@@ -205,9 +205,10 @@
 
       <!-- Рынок в цифрах -->
       <section class="py-10 sm:py-14 bg-white border-b border-gray-100 px-4">
-        <div class="container mx-auto max-w-6xl">
+        <div class="container mx-auto max-w-5xl">
           <h2 class="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-8 sm:mb-10">Рынок в цифрах</h2>
-          <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+          <!-- Верхний ряд: 3 объёма -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
             <!-- Объём рынка BYN -->
             <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-5 sm:p-6 text-center"
                  x-data="{ val: 0, target: 291 }"
@@ -232,6 +233,9 @@
               <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн EUR</div>
               <div class="text-xs text-gray-500">Объём рынка</div>
             </div>
+          </div>
+          <!-- Нижний ряд: эмитенты + доходность -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
             <!-- Активные эмитенты -->
             <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-5 sm:p-6 text-center"
                  x-data="{ val: 0, target: 42 }"
