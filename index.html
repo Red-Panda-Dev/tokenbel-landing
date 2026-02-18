@@ -211,7 +211,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
             <!-- Объём рынка BYN -->
             <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-5 sm:p-6 text-center"
-                 x-data="{ val: 0, target: 291 }"
+                 x-data="{ val: 0, target: 65 }"
                  x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
               <div class="text-3xl sm:text-4xl font-bold text-blue-700 mb-1" x-text="val.toLocaleString('ru-RU')">0</div>
               <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн BYN</div>
@@ -219,7 +219,7 @@
             </div>
             <!-- Объём рынка USD -->
             <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-5 sm:p-6 text-center"
-                 x-data="{ val: 0, target: 68 }"
+                 x-data="{ val: 0, target: 46 }"
                  x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
               <div class="text-3xl sm:text-4xl font-bold text-green-700 mb-1" x-text="val.toLocaleString('ru-RU')">0</div>
               <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн USD</div>
@@ -227,7 +227,7 @@
             </div>
             <!-- Объём рынка EUR -->
             <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-5 sm:p-6 text-center"
-                 x-data="{ val: 0, target: 15 }"
+                 x-data="{ val: 0, target: 10 }"
                  x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
               <div class="text-3xl sm:text-4xl font-bold text-blue-600 mb-1" x-text="val.toLocaleString('ru-RU')">0</div>
               <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн EUR</div>
