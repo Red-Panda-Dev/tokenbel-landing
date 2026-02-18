@@ -253,17 +253,19 @@
               <div class="text-xs text-gray-500">Активные размещения</div>
             </div>
             <!-- Средняя доходность -->
-            <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-5 sm:p-6 text-center">
+            <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ byn: 0, usd: 0, eur: 0 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);byn=Math.round(19.5*p*10)/10;usd=Math.round(9.4*p*10)/10;eur=Math.round(8.0*p*10)/10;if(p<1)requestAnimationFrame(a)}())">
               <div class="flex items-baseline justify-center gap-2 mb-1">
-                <span class="text-2xl sm:text-3xl font-bold text-orange-700">19.5%</span>
+                <span class="text-2xl sm:text-3xl font-bold text-orange-700" x-text="byn.toFixed(1)+'%'">0%</span>
                 <span class="text-sm text-gray-500">BYN</span>
               </div>
               <div class="flex items-baseline justify-center gap-2 mb-0.5">
-                <span class="text-2xl sm:text-3xl font-bold text-green-700">9.4%</span>
+                <span class="text-2xl sm:text-3xl font-bold text-green-700" x-text="usd.toFixed(1)+'%'">0%</span>
                 <span class="text-sm text-gray-500">USD</span>
               </div>
               <div class="flex items-baseline justify-center gap-2 mb-0.5">
-                <span class="text-2xl sm:text-3xl font-bold text-blue-600">8.0%</span>
+                <span class="text-2xl sm:text-3xl font-bold text-blue-600" x-text="eur.toFixed(1)+'%'">0%</span>
                 <span class="text-sm text-gray-500">EUR</span>
               </div>
               <div class="text-xs text-gray-500">Средняя доходность</div>
