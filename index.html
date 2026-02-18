@@ -180,7 +180,7 @@
       <section class="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 py-12 sm:py-16 lg:py-15 px-4">
         <div class="container mx-auto text-center max-w-4xl">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-900">
-            Оперативная информация о токенах и компаниях в Беларуси
+            Агрегатор токенов Беларуси: Аналитика, Вторичный рынок и Рейтинги
           </h1>
           <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
             Получите актуальные данные, аналитику и статистику о белорусских компаниях и выпущенных ими цифровых
@@ -200,6 +200,78 @@
               Смотреть токены
             </a>
           </div>
+        </div>
+      </section>
+
+      <!-- Рынок в цифрах -->
+      <section class="py-10 sm:py-14 bg-white border-b border-gray-100 px-4">
+        <div class="container mx-auto max-w-5xl">
+          <h2 class="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-8 sm:mb-10">Рынок в цифрах</h2>
+          <!-- Верхний ряд: 3 объёма -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
+            <!-- Объём рынка BYN -->
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ val: 0, target: 65 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
+              <div class="text-3xl sm:text-4xl font-bold text-blue-700 mb-1" x-text="val.toLocaleString('ru-RU')">0</div>
+              <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн BYN</div>
+              <div class="text-xs text-gray-500">Объём рынка</div>
+            </div>
+            <!-- Объём рынка USD -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ val: 0, target: 46 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
+              <div class="text-3xl sm:text-4xl font-bold text-green-700 mb-1" x-text="val.toLocaleString('ru-RU')">0</div>
+              <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн USD</div>
+              <div class="text-xs text-gray-500">Объём рынка</div>
+            </div>
+            <!-- Объём рынка EUR -->
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ val: 0, target: 10 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
+              <div class="text-3xl sm:text-4xl font-bold text-blue-600 mb-1" x-text="val.toLocaleString('ru-RU')">0</div>
+              <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">млн EUR</div>
+              <div class="text-xs text-gray-500">Объём рынка</div>
+            </div>
+          </div>
+          <!-- Нижний ряд: эмитенты + токены + доходность -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
+            <!-- Активные эмитенты -->
+            <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ val: 0, target: 68 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
+              <div class="text-3xl sm:text-4xl font-bold text-indigo-700 mb-1" x-text="val">0</div>
+              <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">эмитентов</div>
+              <div class="text-xs text-gray-500">Активные компании</div>
+            </div>
+            <!-- Активные токены -->
+            <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ val: 0, target: 242 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);val=Math.round(target*p);if(p<1)requestAnimationFrame(a)}())">
+              <div class="text-3xl sm:text-4xl font-bold text-teal-700 mb-1" x-text="val">0</div>
+              <div class="text-sm sm:text-base font-semibold text-gray-700 mb-0.5">токенов</div>
+              <div class="text-xs text-gray-500">Активные размещения</div>
+            </div>
+            <!-- Средняя доходность -->
+            <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-5 sm:p-6 text-center"
+                 x-data="{ byn: 0, usd: 0, eur: 0 }"
+                 x-intersect.once="let s=performance.now();(function a(){let p=Math.min((performance.now()-s)/1200,1);byn=Math.round(19.5*p*10)/10;usd=Math.round(9.4*p*10)/10;eur=Math.round(8.0*p*10)/10;if(p<1)requestAnimationFrame(a)}())">
+              <div class="flex items-baseline justify-center gap-2 mb-1">
+                <span class="text-2xl sm:text-3xl font-bold text-orange-700" x-text="byn.toFixed(1)+'%'">0%</span>
+                <span class="text-sm text-gray-500">BYN</span>
+              </div>
+              <div class="flex items-baseline justify-center gap-2 mb-0.5">
+                <span class="text-2xl sm:text-3xl font-bold text-green-700" x-text="usd.toFixed(1)+'%'">0%</span>
+                <span class="text-sm text-gray-500">USD</span>
+              </div>
+              <div class="flex items-baseline justify-center gap-2 mb-0.5">
+                <span class="text-2xl sm:text-3xl font-bold text-blue-600" x-text="eur.toFixed(1)+'%'">0%</span>
+                <span class="text-sm text-gray-500">EUR</span>
+              </div>
+              <div class="text-xs text-gray-500">Средняя доходность</div>
+            </div>
+          </div>
+          <p class="text-center text-xs text-gray-400 mt-4">Данные на основе текущих размещений. Информация носит справочный характер.</p>
         </div>
       </section>
 
@@ -886,6 +958,68 @@
                   stroke-width="2"
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Последние новости / Аналитика -->
+      <section id="news" class="py-12 sm:py-16 bg-gray-50 px-4">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Последние новости</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">Актуальные события, изменения рейтингов и аналитика рынка токенов</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Статья 1: YTM -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 flex flex-col hover:shadow-lg hover:border-blue-200 transition-all duration-300 group">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">Руководство</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                Доходность к погашению (YTM)
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">
+                Когда вы покупаете токен на вторичном рынке, важно понимать реальную доходность. YTM учитывает процентные выплаты и разницу между ценой покупки и номиналом при погашении.
+              </p>
+              <a href="https://wiki.tokenbel.info/books/rukovodstvo-polzovatelia/page/doxodnost-k-pogaseniiu-ytm" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-700 font-medium text-sm hover:underline mt-auto">Читать →</a>
+            </article>
+            <!-- Статья 2: Статистика за декабрь -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 flex flex-col hover:shadow-lg hover:border-blue-200 transition-all duration-300 group">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center px-2.5 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">Статистика</span>
+                <time datetime="2025-12-01" class="text-xs text-gray-400">Декабрь 2025</time>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                Статистика рынка токенов за декабрь 2025
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">
+                Лизинг — лидер по эмитентам и эмиссиям. Доллар и рубль поменялись местами. Finstore выпустил 11 новых токенов на ~11 млн рублей.
+              </p>
+              <a href="https://wiki.tokenbel.info/books/statistika-rynka-tokenov-belarusi/page/statistika-rynka-tokenov-za-122025" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-700 font-medium text-sm hover:underline mt-auto">Читать →</a>
+            </article>
+            <!-- Статья 3: Статистика за ноябрь -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 flex flex-col hover:shadow-lg hover:border-blue-200 transition-all duration-300 group">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center px-2.5 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">Статистика</span>
+                <time datetime="2025-11-01" class="text-xs text-gray-400">Ноябрь 2025</time>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                Статистика рынка токенов за ноябрь 2025
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">
+                Высокая активность в отрасли лизинга — 6 эмитентов и 8 эмиссий. BYN — самая популярная валюта (10 эмиссий). Finstore — лидер по количеству размещений.
+              </p>
+              <a href="https://wiki.tokenbel.info/books/statistika-rynka-tokenov-belarusi/page/statistika-rynka-tokenov-za-112025" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-700 font-medium text-sm hover:underline mt-auto">Читать →</a>
+            </article>
+          </div>
+          <div class="text-center mt-8">
+            <a href="https://t.me/tokenbel" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group">
+              Все новости в Telegram
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
           </div>
