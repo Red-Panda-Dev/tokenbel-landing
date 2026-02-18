@@ -1,5 +1,7 @@
 # Contact Refresh - Pure HTML + Tailwind 4.1 Project
 
+🔗 **[Лендинг — tokenbel.info](https://tokenbel.info/)** | **[Агрегатор токенов — dashboard.tokenbel.info](https://dashboard.tokenbel.info/)**
+
 ## Project Overview
 
 This project has been successfully migrated from a React + Vite + TypeScript setup to a pure HTML + Tailwind CSS 4.1 static site.
