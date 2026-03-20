@@ -29,6 +29,7 @@ export default defineConfig(({ mode }) => ({
         login: path.resolve(__dirname, "login/index.html"),
         statisticsSecondmarket: path.resolve(__dirname, "statistics/secondmarket/index.html"),
         "404": path.resolve(__dirname, "404/index.html"),
+        pricing: path.resolve(__dirname, "pricing/index.html"),
       },
     },
   },
