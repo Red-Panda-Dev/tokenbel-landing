@@ -268,6 +268,12 @@
             >
               Коэффициенты
             </a>
+            <a
+              href="#investor-categories"
+              class="px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap"
+            >
+              Категории инвесторов
+            </a>
           </div>
         </nav>
 
@@ -1290,6 +1296,205 @@
                   </div>
                 </div>
               </article>
+            </div>
+          </section>
+
+          <!-- Section: Investor Categories -->
+          <section id="investor-categories" class="scroll-mt-20">
+            <h2
+              class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2"
+            >
+              <span
+                class="w-8 h-8 sm:w-10 sm:h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+              </span>
+              Категории инвесторов на рынке токенов
+            </h2>
+
+            <p class="text-gray-500 text-sm mb-4 sm:mb-6">
+              Вступает в силу с 01.04.2026. Источник:
+              <a
+                href="https://myfin.by/article/rynki/cto-pomenaetsa-dla-investorov-v-belarusi-nalogovye-poslablenia-i-dostup-k-akciam-predpriatij-44548"
+                target="_blank"
+                rel="noopener"
+                class="text-blue-600 hover:underline"
+              >Myfin.by</a>
+            </p>
+
+            <div class="space-y-4 sm:space-y-5">
+
+              <!-- Лицо без статуса -->
+              <article
+                id="non-qualified-investor"
+                class="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-5 sm:p-7 hover:shadow-md hover:border-gray-300 transition-all duration-300 scroll-mt-15"
+              >
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-2xl">🔒</span>
+                  <div>
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-900">
+                      <a href="#non-qualified-investor" class="hover:text-gray-700 transition-colors">Лицо без статуса квалифицированного инвестора</a>
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-500">Не соответствует критериям квалификации</p>
+                  </div>
+                </div>
+
+                <p class="text-gray-600 text-sm sm:text-base mb-4">
+                  Доступны только токены, отвечающие <strong>всем</strong> следующим требованиям:
+                </p>
+
+                <ul class="space-y-2.5">
+                  <li class="flex items-start gap-2.5 text-sm sm:text-base text-gray-700">
+                    <span class="mt-1 w-5 h-5 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </span>
+                    Низкая степень риска банкротства эмитента
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm sm:text-base text-gray-700">
+                    <span class="mt-1 w-5 h-5 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </span>
+                    Эмитент ведёт хозяйственную деятельность ≥ 2 лет до утверждения White Paper
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm sm:text-base text-gray-700">
+                    <span class="mt-1 w-5 h-5 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </span>
+                    Обязательства по токенам обеспечены одним из способов, предусмотренных законодательством
+                  </li>
+                  <li class="flex items-start gap-2.5 text-sm sm:text-base text-gray-700">
+                    <span class="mt-1 w-5 h-5 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </span>
+                    Стоимость чистых активов эмитента не превышает объём обязательств по токенам
+                  </li>
+                </ul>
+              </article>
+
+              <!-- Квалифицированный инвестор -->
+              <article
+                id="qualified-investor"
+                class="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-5 sm:p-7 hover:shadow-md hover:border-amber-200 transition-all duration-300 scroll-mt-15"
+              >
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-2xl">🔓</span>
+                  <div>
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-900">
+                      <a href="#qualified-investor" class="hover:text-amber-600 transition-colors">Квалифицированный инвестор</a>
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-500">Соответствие минимум <strong>2 из 5</strong> критериев</p>
+                  </div>
+                </div>
+
+                <div class="overflow-x-auto -mx-2 px-2">
+                  <table class="w-full text-sm sm:text-base">
+                    <thead>
+                      <tr class="border-b border-gray-100">
+                        <th class="text-left py-2.5 pr-4 text-gray-500 font-medium text-xs sm:text-sm uppercase tracking-wide">Критерий</th>
+                        <th class="text-left py-2.5 text-gray-500 font-medium text-xs sm:text-sm uppercase tracking-wide">Требование</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-50">
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Годовой доход</td>
+                        <td class="py-3 font-semibold text-gray-900">≥ 80 000 BYN</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Стоимость имущества</td>
+                        <td class="py-3 font-semibold text-gray-900">≥ 150 000 BYN</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Квалификационный аттестат</td>
+                        <td class="py-3 text-gray-700">Аттестат специалиста РЦБ, CFA, CIIA или FRM</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Опыт работы</td>
+                        <td class="py-3 text-gray-700">≥ 3 года в организации, совершающей сделки с ЦБ / токенами</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Опыт сделок</td>
+                        <td class="py-3 text-gray-700">≥ 3 года совершения сделок с ЦБ / токенами</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="mt-4 px-3 py-2.5 bg-amber-50 border border-amber-100 rounded-lg">
+                  <p class="text-sm text-amber-800">
+                    <span class="font-semibold">Доступ:</span> Токены только от компаний-резидентов Республики Беларусь.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Особо квалифицированный инвестор -->
+              <article
+                id="highly-qualified-investor"
+                class="bg-white border-2 border-amber-200 rounded-xl sm:rounded-2xl p-5 sm:p-7 hover:shadow-md transition-all duration-300 scroll-mt-15 relative"
+              >
+                <span class="absolute -top-3 right-4 sm:right-6 px-3 py-0.5 bg-amber-500 text-white text-xs font-semibold rounded-full">Максимальный доступ</span>
+
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-2xl">🔓</span>
+                  <div>
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-900">
+                      <a href="#highly-qualified-investor" class="hover:text-amber-600 transition-colors">Особо квалифицированный инвестор</a>
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-500">Соответствие хотя бы <strong>1 из 5</strong> критериев</p>
+                  </div>
+                </div>
+
+                <div class="overflow-x-auto -mx-2 px-2">
+                  <table class="w-full text-sm sm:text-base">
+                    <thead>
+                      <tr class="border-b border-gray-100">
+                        <th class="text-left py-2.5 pr-4 text-gray-500 font-medium text-xs sm:text-sm uppercase tracking-wide">Критерий</th>
+                        <th class="text-left py-2.5 text-gray-500 font-medium text-xs sm:text-sm uppercase tracking-wide">Требование</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-50">
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Годовой доход</td>
+                        <td class="py-3 font-semibold text-gray-900">≥ 300 000 BYN</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Стоимость имущества</td>
+                        <td class="py-3 font-semibold text-gray-900">≥ 600 000 BYN</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Квалификационный аттестат</td>
+                        <td class="py-3 text-gray-700">Аттестат специалиста РЦБ, CFA, CIIA или FRM</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Опыт работы</td>
+                        <td class="py-3 text-gray-700">≥ 3 года в организации, совершающей сделки с ЦБ / токенами</td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 pr-4 text-gray-600">Опыт сделок</td>
+                        <td class="py-3 text-gray-700">≥ 3 года совершения сделок с ЦБ / токенами</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="mt-4 px-3 py-2.5 bg-green-50 border border-green-100 rounded-lg">
+                  <p class="text-sm text-green-800">
+                    <span class="font-semibold">Доступ:</span> Любые токены на платформах, включая токены иностранных компаний.
+                  </p>
+                </div>
+              </article>
+
             </div>
           </section>
         </div>
