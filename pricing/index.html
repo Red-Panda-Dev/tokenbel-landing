@@ -53,6 +53,42 @@
       [x-cloak] { display: none !important; }
       body { font-family: 'Manrope', sans-serif; }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "TokenBel Pro",
+      "description": "Профессиональный тариф TokenBel с приоритетными оповещениями, расширенными фильтрами и без рекламы для аналитики токенов и облигаций Беларуси.",
+      "brand": { "@type": "Brand", "name": "TokenBel" },
+      "url": "https://tokenbel.info/pricing/",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Standard",
+          "price": "0",
+          "priceCurrency": "BYN",
+          "availability": "https://schema.org/InStock",
+          "url": "https://tokenbel.info/pricing/"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "9.00",
+          "priceCurrency": "BYN",
+          "availability": "https://schema.org/InStock",
+          "url": "https://tokenbel.info/pricing/",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "9.00",
+            "priceCurrency": "BYN",
+            "billingIncrement": 1,
+            "unitCode": "MON"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="min-h-screen flex flex-col bg-gray-50" x-data="{ mobileMenu: false }">
     <!-- Google Tag Manager (noscript) -->
