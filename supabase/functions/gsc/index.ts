@@ -22,7 +22,32 @@ Deno.serve(async (req) => {
     return new Response(JSON.stringify({ error: "Missing keys" }), { status: 500, headers: cors });
   }
 
-  const { action, payload } = await req.json();
+  let parsed: any;
+  try {
+    parsed = await req.json();
+  } catch {
+    return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400, headers: cors });
+  }
+
+  const action = parsed?.action;
+  const payload = (parsed?.payload ?? {}) as Record<string, any>;
+  const isStr = (v: unknown): v is string => typeof v === "string" && v.length > 0;
+
+  const ALLOWED = ["get_token", "verify", "add_site", "submit_sitemap"] as const;
+  if (typeof action !== "string" || !ALLOWED.includes(action as any)) {
+    return new Response(JSON.stringify({ error: "unknown action" }), { status: 400, headers: cors });
+  }
+
+  if ((action === "get_token" || action === "verify") && !isStr(payload?.site?.identifier)) {
+    return new Response(JSON.stringify({ error: "Missing payload.site.identifier" }), { status: 400, headers: cors });
+  }
+  if (action === "add_site" && !isStr(payload?.siteUrl)) {
+    return new Response(JSON.stringify({ error: "Missing payload.siteUrl" }), { status: 400, headers: cors });
+  }
+  if (action === "submit_sitemap" && (!isStr(payload?.siteUrl) || !isStr(payload?.sitemapUrl))) {
+    return new Response(JSON.stringify({ error: "Missing payload.siteUrl or payload.sitemapUrl" }), { status: 400, headers: cors });
+  }
+
   const headers: Record<string, string> = {
     Authorization: `Bearer ${LOVABLE_API_KEY}`,
     "X-Connection-Api-Key": GSC_KEY,
@@ -48,8 +73,6 @@ Deno.serve(async (req) => {
     const sm = encodeURIComponent(payload.sitemapUrl);
     url = `${GATEWAY}/google_search_console/webmasters/v3/sites/${enc}/sitemaps/${sm}`;
     method = "PUT";
-  } else {
-    return new Response(JSON.stringify({ error: "unknown action" }), { status: 400, headers: cors });
   }
 
   const r = await fetch(url, { method, headers, body });
