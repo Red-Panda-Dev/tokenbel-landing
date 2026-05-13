@@ -75,10 +75,18 @@ Deno.serve(async (req) => {
     method = "PUT";
   }
 
-  const r = await fetch(url, { method, headers, body });
-  const text = await r.text();
-  return new Response(JSON.stringify({ status: r.status, body: text }), {
-    status: 200,
-    headers: { ...cors, "Content-Type": "application/json" },
-  });
+  try {
+    const r = await fetch(url, { method, headers, body });
+    const text = await r.text();
+    return new Response(JSON.stringify({ status: r.status, body: text }), {
+      status: 200,
+      headers: { ...cors, "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error("Gateway request failed:", error);
+    return new Response(JSON.stringify({ error: "Gateway request failed" }), {
+      status: 502,
+      headers: { ...cors, "Content-Type": "application/json" },
+    });
+  }
 });

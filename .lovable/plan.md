@@ -1,14 +1,41 @@
 ## Plan
 
-Harden `supabase/functions/gsc/index.ts` input handling:
+Wrap the outbound `fetch` to the connector gateway in `supabase/functions/gsc/index.ts` in a try/catch so network failures return a proper CORS-enabled 502 instead of a bare 500.
 
-1. Wrap `await req.json()` in try/catch — return 400 `Invalid JSON` on parse failure.
-2. Validate `action` is a known string (`get_token`, `verify`, `add_site`, `submit_sitemap`) — 400 otherwise.
-3. Per-action payload validation:
-   - `get_token`, `verify`: require `payload.site.identifier` (string).
-   - `add_site`: require `payload.siteUrl` (string).
-   - `submit_sitemap`: require `payload.siteUrl` and `payload.sitemapUrl` (strings).
-4. Return 400 with a descriptive `error` message when validation fails, before any outbound fetch.
-5. Keep the existing auth check and gateway call logic unchanged.
+### Change
 
-Only file touched: `supabase/functions/gsc/index.ts`. No new deps.
+In `supabase/functions/gsc/index.ts`, replace the final block:
+
+```ts
+const r = await fetch(url, { method, headers, body });
+const text = await r.text();
+return new Response(JSON.stringify({ status: r.status, body: text }), {
+  status: 200,
+  headers: { ...cors, "Content-Type": "application/json" },
+});
+```
+
+with:
+
+```ts
+try {
+  const r = await fetch(url, { method, headers, body });
+  const text = await r.text();
+  return new Response(JSON.stringify({ status: r.status, body: text }), {
+    status: 200,
+    headers: { ...cors, "Content-Type": "application/json" },
+  });
+} catch (error) {
+  console.error("Gateway request failed:", error);
+  return new Response(JSON.stringify({ error: "Gateway request failed" }), {
+    status: 502,
+    headers: { ...cors, "Content-Type": "application/json" },
+  });
+}
+```
+
+### Notes
+
+- Only file touched: `supabase/functions/gsc/index.ts`.
+- Existing auth, JSON parsing, and per-action validation remain unchanged.
+- `console.error` aids debugging via edge function logs without leaking error details to the client.
