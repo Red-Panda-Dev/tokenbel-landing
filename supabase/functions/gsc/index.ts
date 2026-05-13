@@ -3,12 +3,18 @@ const GATEWAY = "https://connector-gateway.lovable.dev";
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "*",
+  "Access-Control-Allow-Headers": "authorization, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
+
+  const PROXY_SECRET = Deno.env.get("GSC_PROXY_SECRET");
+  const reqAuth = req.headers.get("Authorization");
+  if (!PROXY_SECRET || reqAuth !== `Bearer ${PROXY_SECRET}`) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: cors });
+  }
 
   const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
   const GSC_KEY = Deno.env.get("GOOGLE_SEARCH_CONSOLE_API_KEY");
