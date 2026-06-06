@@ -215,6 +215,16 @@
             "provider": {
               "@id": "https://tokenbel.info/#organization"
             }
+          },
+          {
+            "@type": "DataFeed",
+            "@id": "https://tokenbel.info/rss/#events-feed",
+            "name": "Лента событий TokenBel",
+            "url": "https://dashboard.tokenbel.info/rss/events",
+            "description": "Структурированные события и новости по токенам, акциям, облигациям, эмитентам, выплатам, регулированию и торговой инфраструктуре Беларуси.",
+            "provider": {
+              "@id": "https://tokenbel.info/#organization"
+            }
           }
         ]
       }
@@ -279,7 +289,7 @@
       <!-- RSS Feeds Section -->
       <section class="py-12 sm:py-16 lg:py-15 bg-white px-4">
         <div class="container mx-auto max-w-5xl">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div class="grid grid-cols-1 gap-6 sm:gap-8">
             <!-- Лента токенов -->
             <article
               class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 sm:p-8 flex flex-col hover:shadow-lg hover:border-blue-200 transition-all duration-300 group"
@@ -539,6 +549,146 @@
                       target="_blank"
                       rel="noopener"
                       class="inline-flex items-center justify-center px-3 py-2 border border-green-200 text-green-600 text-sm font-medium rounded-lg hover:bg-green-50 transition-colors"
+                      title="Открыть RSS"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Лента событий -->
+            <article
+              class="bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100 rounded-2xl p-6 sm:p-8 flex flex-col hover:shadow-lg hover:border-orange-200 transition-all duration-300 group"
+            >
+              <div class="flex items-start gap-4 mb-6">
+                <div
+                  class="bg-orange-100 text-orange-600 p-3 sm:p-4 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-7 w-7 sm:h-8 sm:w-8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 16H5V10h14zM9 14H7v-2h2zm4 0h-2v-2h2zm4 0h-2v-2h2zm-8 4H7v-2h2zm4 0h-2v-2h2zm4 0h-2v-2h2z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
+                    Лента событий
+                  </h2>
+                  <p class="text-gray-600 text-sm sm:text-base">
+                    Новости и события рынка
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex-1">
+                <p
+                  class="text-gray-700 mb-4 text-sm sm:text-base leading-relaxed"
+                >
+                  Структурированные события и новости по токенам, акциям,
+                  облигациям, эмитентам, выплатам, регулированию и торговой
+                  инфраструктуре Беларуси.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                  <span
+                    class="inline-flex items-center px-2.5 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium"
+                  >
+                    <svg
+                      class="w-3 h-3 mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Обновление: ежеминутно
+                  </span>
+                  <span
+                    class="inline-flex items-center px-2.5 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium"
+                  >
+                    AI-обработка
+                  </span>
+                </div>
+              </div>
+
+              <!-- URL Box -->
+              <div
+                class="bg-white/80 rounded-xl p-3 sm:p-4 border border-orange-200"
+              >
+                <div
+                  class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3"
+                >
+                  <code
+                    class="flex-1 text-xs sm:text-sm text-gray-700 bg-gray-50 px-3 py-2 rounded-lg overflow-x-auto whitespace-nowrap"
+                  >
+                    https://dashboard.tokenbel.info/rss/events
+                  </code>
+                  <div class="flex gap-2">
+                    <button
+                      @click="navigator.clipboard.writeText('https://dashboard.tokenbel.info/rss/events'); copied = 'events'; setTimeout(() => copied = null, 2000)"
+                      class="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-orange-600 text-white text-sm font-medium rounded-lg hover:bg-orange-700 transition-colors"
+                    >
+                      <svg
+                        x-show="copied !== 'events'"
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                        />
+                      </svg>
+                      <svg
+                        x-show="copied === 'events'"
+                        x-cloak
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span
+                        x-text="copied === 'events' ? 'Скопировано' : 'Копировать'"
+                        >Копировать</span
+                      >
+                    </button>
+                    <a
+                      href="https://dashboard.tokenbel.info/rss/events"
+                      target="_blank"
+                      rel="noopener"
+                      class="inline-flex items-center justify-center px-3 py-2 border border-orange-200 text-orange-600 text-sm font-medium rounded-lg hover:bg-orange-50 transition-colors"
                       title="Открыть RSS"
                     >
                       <svg
