@@ -1,0 +1,26 @@
+{
+    "specVersion": "1.0",
+    "host": {
+        "displayName": "TokenBel",
+        "identifier": "did:web:tokenbel.info",
+        "documentationUrl": "https://tokenbel.info/"
+    },
+    "entries": [
+        {
+            "identifier": "urn:ai:tokenbel.info:mcp:financial-data",
+            "displayName": "TokenBel Financial Data MCP",
+            "type": "application/mcp-server+json",
+            "url": "https://mcp.tokenbel.info/mcp",
+            "description": "Belarusian securities data: tokens, shares, bonds, companies.",
+            "tags": ["finance", "securities", "belarus", "bonds", "shares", "tokens"],
+            "capabilities": ["TickerSearch", "BondLookup", "ShareLookup", "TokenLookup", "CompanyLookup"],
+            "representativeQueries": [
+                "find Belarusian bonds by ticker",
+                "search shares and bonds by ticker",
+                "get details for a Belarusian tokenized emission",
+                "find a company by UNP",
+                "list Belarusian securities issuers"
+            ]
+        }
+    ]
+}

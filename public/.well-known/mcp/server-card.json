@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "tokenbel-mcp",
+    "version": "1.0.0",
+    "title": "TokenBel MCP Server",
+    "description": "Структурированные данные TokenBel: токены, акции, облигации, эмитенты, выплаты, регулирование и торговая инфраструктура Беларуси."
+  },
+  "endpoint": "https://mcp.tokenbel.info/mcp",
+  "transport": "streamable-http",
+  "transports": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.tokenbel.info/mcp"
+    }
+  ],
+  "manifest": "https://mcp.tokenbel.info/server.json",
+  "capabilities": {
+    "tools": {},
+    "resources": {},
+    "prompts": {}
+  },
+  "documentation": "https://tokenbel.info/rss/",
+  "contact": {
+    "url": "https://tokenbel.info/contacts/"
+  }
+}
