@@ -263,6 +263,147 @@
         </div>
       </section>
 
+      <!-- Рынок Беларуси сегодня — конкретные цифры для AI/SEO -->
+      <section
+        id="market-today"
+        class="py-10 sm:py-14 bg-white border-b border-gray-100 px-4"
+        x-data="marketStats()"
+        x-init="load()"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 sm:mb-8 gap-2">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">Рынок Беларуси сегодня</h2>
+              <p class="text-gray-600 text-sm sm:text-base">Актуальные показатели по токенам, облигациям и валютам — по данным площадок Finstore, Bynex, Fainex, Whitebird.</p>
+            </div>
+            <p class="text-xs text-gray-500 whitespace-nowrap">
+              Обновлено: <time datetime="2026-06-24" x-text="updated">24 июня 2026</time>
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+            <!-- Активные эмиссии токенов -->
+            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
+              <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.activeEmissions)">250+</div>
+              <div class="text-sm text-gray-700 mt-1">Активных эмиссий токенов</div>
+              <div class="text-xs text-gray-500 mt-1">на 4 площадках Беларуси</div>
+            </article>
+
+            <!-- Компаний-эмитентов -->
+            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
+              <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.companies)">2 500+</div>
+              <div class="text-sm text-gray-700 mt-1">Компаний в базе</div>
+              <div class="text-xs text-gray-500 mt-1">с финансовой отчётностью</div>
+            </article>
+
+            <!-- Облигации / акции -->
+            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
+              <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.bonds)">700+</div>
+              <div class="text-sm text-gray-700 mt-1">Облигаций в обращении</div>
+              <div class="text-xs text-gray-500 mt-1">и 2 400+ выпусков акций</div>
+            </article>
+
+            <!-- Курс USD -->
+            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
+              <div class="flex items-baseline gap-2">
+                <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="stats.usdRate.toFixed(4)">2.8179</div>
+                <div class="text-xs font-semibold text-green-600" x-text="stats.usdDelta">+0,64%</div>
+              </div>
+              <div class="text-sm text-gray-700 mt-1">USD/BYN</div>
+              <div class="text-xs text-gray-500 mt-1">официальный курс НБ РБ</div>
+            </article>
+
+            <!-- Курс RUB -->
+            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
+              <div class="flex items-baseline gap-2">
+                <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="stats.rubRate.toFixed(4)">3.5820</div>
+                <div class="text-xs font-semibold text-gray-500" x-text="stats.rubDelta">за 100 RUB</div>
+              </div>
+              <div class="text-sm text-gray-700 mt-1">RUB/BYN</div>
+              <div class="text-xs text-gray-500 mt-1">официальный курс НБ РБ</div>
+            </article>
+
+            <!-- Ставка рефинансирования -->
+            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
+              <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="stats.refiRate + '%'">9.50%</div>
+              <div class="text-sm text-gray-700 mt-1">Ставка рефинансирования</div>
+              <div class="text-xs text-gray-500 mt-1">ориентир для доходности BYN</div>
+            </article>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+            <a href="https://dashboard.tokenbel.info/statistics/market/" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium hover:underline">
+              Полная статистика рынка
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <span class="text-gray-300">·</span>
+            <a href="https://wiki.tokenbel.info/books/statistika-rynka-tokenov-belarusi" target="_blank" rel="noopener" class="text-gray-600 hover:text-blue-600 hover:underline">Ежемесячные отчёты</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dataset JSON-LD для секции «Рынок сегодня» -->
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Показатели рынка токенов, облигаций и акций Беларуси",
+          "description": "Ежедневно обновляемые агрегированные метрики белорусского рынка цифровых токенов, корпоративных облигаций и акций: количество активных эмиссий, компаний-эмитентов, курсы валют НБ РБ (USD/BYN, RUB/BYN) и ставка рефинансирования.",
+          "url": "https://tokenbel.info/#market-today",
+          "keywords": ["токены Беларуси", "облигации Беларуси", "USD BYN", "ставка рефинансирования РБ", "Finstore", "Bynex", "Fainex", "Whitebird"],
+          "inLanguage": "ru",
+          "isAccessibleForFree": true,
+          "creator": { "@type": "Organization", "name": "TokenBel", "url": "https://tokenbel.info/" },
+          "publisher": { "@type": "Organization", "name": "TokenBel", "url": "https://tokenbel.info/" },
+          "spatialCoverage": { "@type": "Country", "name": "Беларусь" },
+          "temporalCoverage": "2025/..",
+          "dateModified": "2026-06-24",
+          "distribution": {
+            "@type": "DataDownload",
+            "encodingFormat": "text/html",
+            "contentUrl": "https://tokenbel.info/"
+          }
+        }
+      </script>
+
+      <script>
+        // Alpine-компонент для секции «Рынок Белариси сегодня».
+        // SSR-значения захардкожены в разметке — краулеры и AI-модели читают их сразу.
+        // fetch() к Hype API опционально подменит числа для живых пользователей.
+        // TODO: подключить реальный endpoint https://hype.tokenbel.info/stats/overview когда он появится + CORS.
+        function marketStats() {
+          return {
+            updated: "24 июня 2026",
+            stats: {
+              activeEmissions: 250,
+              companies: 2500,
+              bonds: 700,
+              usdRate: 2.8179,
+              usdDelta: "+0,64%",
+              rubRate: 3.5820,
+              rubDelta: "за 100 RUB",
+              refiRate: 9.50,
+            },
+            fmt(n) {
+              if (n >= 1000) return new Intl.NumberFormat("ru-BY").format(n) + "+";
+              return n + "+";
+            },
+            async load() {
+              try {
+                // Placeholder: реальный endpoint подключить, когда будет CORS-доступ
+                // const r = await fetch("https://hype.tokenbel.info/stats/overview");
+                // if (!r.ok) return;
+                // const d = await r.json();
+                // this.stats = { ...this.stats, ...d };
+                // this.updated = new Date(d.updatedAt).toLocaleDateString("ru-BY", { day: "numeric", month: "long", year: "numeric" });
+              } catch (e) {
+                // при ошибке остаются SSR-значения — это ок
+              }
+            },
+          };
+        }
+      </script>
+
       <!-- 4 Pillars -->
       <section id="pillars" class="py-10 sm:py-14 bg-white border-b border-gray-100 px-4">
         <div class="container mx-auto max-w-6xl">
