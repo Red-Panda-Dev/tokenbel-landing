@@ -1,3 +1,45 @@
+# ─────────────────────────────────────────────────────────────
+# TokenBel robots.txt
+# Явные правила для AI search-краулеров — те, что цитируют
+# страницы в AI-ответах (AI Overviews, ChatGPT, Perplexity, Claude).
+# Training-краулеры (GPTBot, ClaudeBot, Google-Extended, CCBot,
+# Applebot-Extended, Meta-ExternalAgent) — НЕ блокируем.
+# TODO: пересмотреть политику по training-ботам при необходимости.
+# ─────────────────────────────────────────────────────────────
+
+# Google Search + AI Overviews + Gemini grounding
+User-agent: Googlebot
+Allow: /
+
+# Bing + Microsoft Copilot
+User-agent: Bingbot
+Allow: /
+
+# ChatGPT Search (live web index)
+User-agent: OAI-SearchBot
+Allow: /
+
+# ChatGPT fetch по запросу пользователя
+User-agent: ChatGPT-User
+Allow: /
+
+# Claude web search
+User-agent: Claude-SearchBot
+Allow: /
+
+# Claude fetch по запросу пользователя
+User-agent: Claude-User
+Allow: /
+
+# Perplexity search index
+User-agent: PerplexityBot
+Allow: /
+
+# Perplexity fetch по запросу пользователя
+User-agent: Perplexity-User
+Allow: /
+
+# Fallback для всех остальных ботов
 User-agent: *
 Allow: /
 
