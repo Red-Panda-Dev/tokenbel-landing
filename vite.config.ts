@@ -3,6 +3,7 @@ import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import { componentTagger } from "lovable-tagger";
 import handlebars from "vite-plugin-handlebars";
+import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -15,6 +16,7 @@ export default defineConfig(({ mode }) => ({
     handlebars({
       partialDirectory: path.resolve(__dirname, "partials"),
     }),
+    mcpPlugin(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
   build: {
