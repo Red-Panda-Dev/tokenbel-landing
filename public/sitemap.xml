@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tokenbel.info/</loc>
+    <loc>https://tokenbel.lovable.app/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tokenbel.info/pricing/</loc>
+    <loc>https://tokenbel.lovable.app/pricing/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tokenbel.info/faq/</loc>
+    <loc>https://tokenbel.lovable.app/faq/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tokenbel.info/statistics/secondmarket/</loc>
+    <loc>https://tokenbel.lovable.app/statistics/secondmarket/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tokenbel.info/contacts/</loc>
+    <loc>https://tokenbel.lovable.app/contacts/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://tokenbel.info/rss/</loc>
+    <loc>https://tokenbel.lovable.app/rss/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://tokenbel.info/login/</loc>
+    <loc>https://tokenbel.lovable.app/login/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
