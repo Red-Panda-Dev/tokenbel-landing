@@ -279,7 +279,7 @@
               <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">Рынок Беларуси сегодня</h2>
               <p class="text-gray-600 text-sm sm:text-base">Актуальные показатели по токенам, облигациям и валютам — по данным площадок Finstore, Bynex, Fainex, Whitebird.</p>
             </div>
-            <p class="text-xs text-gray-500 whitespace-nowrap">
+            <p class="text-sm sm:text-xs text-gray-600 whitespace-nowrap">
               Обновлено: <time datetime="2026-06-24" x-text="updated">24 июня 2026</time>
             </p>
           </div>
@@ -289,21 +289,21 @@
             <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
               <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.activeEmissions)">250+</div>
               <div class="text-sm text-gray-700 mt-1">Активных эмиссий токенов</div>
-              <div class="text-xs text-gray-500 mt-1">на 4 площадках Беларуси</div>
+              <div class="text-sm sm:text-xs text-gray-600 mt-1">на 4 площадках Беларуси</div>
             </article>
 
             <!-- Компаний-эмитентов -->
             <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
               <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.companies)">2 500+</div>
               <div class="text-sm text-gray-700 mt-1">Компаний в базе</div>
-              <div class="text-xs text-gray-500 mt-1">с финансовой отчётностью</div>
+              <div class="text-sm sm:text-xs text-gray-600 mt-1">с финансовой отчётностью</div>
             </article>
 
             <!-- Облигации / акции -->
             <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
               <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.bonds)">700+</div>
               <div class="text-sm text-gray-700 mt-1">Облигаций в обращении</div>
-              <div class="text-xs text-gray-500 mt-1">и 2 400+ выпусков акций</div>
+              <div class="text-sm sm:text-xs text-gray-600 mt-1">и 2 400+ выпусков акций</div>
             </article>
 
             <!-- Курс USD -->
@@ -313,7 +313,7 @@
                 <div class="text-xs font-semibold text-green-600" x-text="stats.usdDelta"></div>
               </div>
               <div class="text-sm text-gray-700 mt-1">USD/BYN</div>
-              <div class="text-xs text-gray-500 mt-1">официальный курс НБ РБ</div>
+              <div class="text-sm sm:text-xs text-gray-600 mt-1">официальный курс НБ РБ</div>
             </article>
 
             <!-- Курс RUB -->
@@ -323,24 +323,24 @@
                 <div class="text-xs font-semibold text-gray-500" x-text="stats.rubDelta">за 100 RUB</div>
               </div>
               <div class="text-sm text-gray-700 mt-1">RUB/BYN</div>
-              <div class="text-xs text-gray-500 mt-1">официальный курс НБ РБ</div>
+              <div class="text-sm sm:text-xs text-gray-600 mt-1">официальный курс НБ РБ</div>
             </article>
 
             <!-- Ставка рефинансирования -->
             <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
               <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="stats.refiRate + '%'">9.50%</div>
               <div class="text-sm text-gray-700 mt-1">Ставка рефинансирования</div>
-              <div class="text-xs text-gray-500 mt-1">ориентир для доходности BYN</div>
+              <div class="text-sm sm:text-xs text-gray-600 mt-1">ориентир для доходности BYN</div>
             </article>
           </div>
 
           <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-            <a href="https://dashboard.tokenbel.info/statistics/market/" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium hover:underline">
+            <a href="https://dashboard.tokenbel.info/statistics/market/" class="inline-flex items-center gap-1 min-h-11 py-2 text-blue-600 hover:text-blue-700 font-medium hover:underline">
               Полная статистика рынка
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
             <span class="text-gray-500">·</span>
-            <a href="https://wiki.tokenbel.info/statistics/statistika-rynka-tokenov-belarusi/" target="_blank" rel="noopener" class="text-gray-600 hover:text-blue-600 hover:underline">Ежемесячные отчёты</a>
+            <a href="https://wiki.tokenbel.info/statistics/statistika-rynka-tokenov-belarusi/" target="_blank" rel="noopener" class="inline-flex items-center min-h-11 py-2 text-gray-600 hover:text-blue-600 hover:underline">Ежемесячные отчёты</a>
           </div>
         </div>
       </section>
@@ -416,13 +416,13 @@
       </script>
 
       <!-- 4 Pillars -->
-      <section id="pillars" class="py-10 sm:py-14 bg-white border-b border-gray-100 px-4">
+      <section id="pillars" class="scroll-mt-20 py-10 sm:py-14 bg-white border-b border-gray-100 px-4">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center mb-8 sm:mb-10">
             <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">4 направления — один интерфейс</h2>
             <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">Токены, акции, облигации и портфель инвестора — каждый раздел работает с реальными данными белорусского рынка.</p>
           </div>
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+          <div class="grid grid-cols-1 min-[380px]:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             <!-- Tokens -->
             <a href="https://dashboard.tokenbel.info/emissions/" class="group bg-white border border-gray-200 rounded-2xl p-4 sm:p-5 hover:shadow-lg hover:border-teal-300 transition-all duration-300 flex flex-col">
               <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-3 group-hover:bg-teal-200 transition-colors">
@@ -477,7 +477,7 @@
       </section>
 
       <!-- Портфель -->
-      <section id="portfolio" class="py-12 sm:py-16 bg-white px-4">
+      <section id="portfolio" class="scroll-mt-20 py-12 sm:py-16 bg-white px-4">
         <div class="container mx-auto max-w-6xl">
           <div class="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-10 items-start">
             <div>
@@ -514,7 +514,7 @@
       </section>
 
       <!-- Акции -->
-      <section id="shares" class="py-12 sm:py-16 bg-gray-50 px-4">
+      <section id="shares" class="scroll-mt-20 py-12 sm:py-16 bg-gray-50 px-4">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center mb-8 sm:mb-12">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Белорусские акции</h2>
@@ -528,12 +528,12 @@
             <a href="https://dashboard.tokenbel.info/shares/edc66220" class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-lg hover:border-indigo-200 transition-all duration-300 group"><div class="flex items-start justify-between gap-3 mb-3"><div><h3 class="font-bold text-gray-900">ОАО «СТРОЙТРЕСТ №35»</h3><p class="text-sm text-indigo-700 font-semibold">T0754-S0001</p></div><span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded-full">акция</span></div><p class="text-sm text-gray-600 mb-4">Строительный сектор: параметры выпуска и сведения об эмитенте.</p><dl class="grid grid-cols-2 gap-2 text-xs text-gray-600 mb-4"><div><dt class="text-gray-600">Сектор</dt><dd class="font-semibold text-gray-900">строительство</dd></div><div><dt class="text-gray-600">Номинал</dt><dd class="font-semibold text-gray-900">0.02 BYN</dd></div><div><dt class="text-gray-600">Тип</dt><dd class="font-semibold text-gray-900">обыкновенная</dd></div><div><dt class="text-gray-600">Объём</dt><dd class="font-semibold text-gray-900">541 149 шт.</dd></div></dl><span class="text-blue-600 font-medium text-sm group-hover:underline">Открыть карточку →</span></a>
             <a href="https://dashboard.tokenbel.info/shares/4d7fc6fc" class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-lg hover:border-indigo-200 transition-all duration-300 group"><div class="flex items-start justify-between gap-3 mb-3"><div><h3 class="font-bold text-gray-900">ОАО «ЦУМ МИНСК»</h3><p class="text-sm text-indigo-700 font-semibold">T0765-S0003</p></div><span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded-full">акция</span></div><p class="text-sm text-gray-600 mb-4">Розничная торговля: параметры выпуска и сведения об эмитенте.</p><dl class="grid grid-cols-2 gap-2 text-xs text-gray-600 mb-4"><div><dt class="text-gray-600">Сектор</dt><dd class="font-semibold text-gray-900">ритейл</dd></div><div><dt class="text-gray-600">Номинал</dt><dd class="font-semibold text-gray-900">6.25 BYN</dd></div><div><dt class="text-gray-600">Тип</dt><dd class="font-semibold text-gray-900">обыкновенная</dd></div><div><dt class="text-gray-600">Объём</dt><dd class="font-semibold text-gray-900">1 210 096 шт.</dd></div></dl><span class="text-blue-600 font-medium text-sm group-hover:underline">Открыть карточку →</span></a>
           </div>
-          <div class="text-center mt-8"><a href="https://dashboard.tokenbel.info/shares/" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group">Все акции <span class="group-hover:translate-x-1 transition-transform">→</span></a></div>
+          <div class="text-center mt-8"><a href="https://dashboard.tokenbel.info/shares/" class="inline-flex items-center gap-2 min-h-11 py-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group">Все акции <span class="group-hover:translate-x-1 transition-transform">→</span></a></div>
         </div>
       </section>
 
       <!-- Облигации -->
-      <section id="bonds" class="py-12 sm:py-16 bg-white px-4">
+      <section id="bonds" class="scroll-mt-20 py-12 sm:py-16 bg-white px-4">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center mb-8 sm:mb-12">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Белорусские облигации</h2>
@@ -547,7 +547,7 @@
             <a href="https://dashboard.tokenbel.info/bonds/364f041b" class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-lg hover:border-amber-200 transition-all duration-300 group"><div class="flex items-start justify-between gap-3 mb-3"><div><h3 class="font-bold text-gray-900">ЗАО «АрмисИнвестГрупп»</h3><p class="text-sm text-amber-700 font-semibold">Armis-B0002</p></div><span class="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">облигация</span></div><p class="text-sm text-gray-600 mb-4">Карточка выпуска с финансовыми параметрами и историей сделок.</p><dl class="grid grid-cols-2 gap-2 text-xs text-gray-600 mb-4"><div><dt class="text-gray-600">Ставка / купон</dt><dd class="font-semibold text-gray-900">20.00%</dd></div><div><dt class="text-gray-600">Периодичность</dt><dd class="font-semibold text-gray-900">ежеквартально</dd></div><div><dt class="text-gray-600">Погашение</dt><dd class="font-semibold text-gray-900">07.04.2030</dd></div><div><dt class="text-gray-600">Торгуется</dt><dd class="font-semibold text-gray-900">да</dd></div></dl><span class="text-blue-600 font-medium text-sm group-hover:underline">Открыть карточку →</span></a>
             <a href="https://dashboard.tokenbel.info/bonds/30085bef" class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-lg hover:border-amber-200 transition-all duration-300 group"><div class="flex items-start justify-between gap-3 mb-3"><div><h3 class="font-bold text-gray-900">ЗАО «АВАНГАРД ЛИЗИНГ»</h3><p class="text-sm text-amber-700 font-semibold">AVGRD-B0054</p></div><span class="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">облигация</span></div><p class="text-sm text-gray-600 mb-4">Лизинговая облигация для анализа купона, срока и рыночной доходности.</p><dl class="grid grid-cols-2 gap-2 text-xs text-gray-600 mb-4"><div><dt class="text-gray-600">Ставка / купон</dt><dd class="font-semibold text-gray-900">20.00%</dd></div><div><dt class="text-gray-600">Периодичность</dt><dd class="font-semibold text-gray-900">ежемесячно</dd></div><div><dt class="text-gray-600">Погашение</dt><dd class="font-semibold text-gray-900">31.12.2029</dd></div><div><dt class="text-gray-600">Торгуется</dt><dd class="font-semibold text-gray-900">да</dd></div></dl><span class="text-blue-600 font-medium text-sm group-hover:underline">Открыть карточку →</span></a>
           </div>
-          <div class="text-center mt-8"><a href="https://dashboard.tokenbel.info/bonds/" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group">Все облигации <span class="group-hover:translate-x-1 transition-transform">→</span></a></div>
+          <div class="text-center mt-8"><a href="https://dashboard.tokenbel.info/bonds/" class="inline-flex items-center gap-2 min-h-11 py-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group">Все облигации <span class="group-hover:translate-x-1 transition-transform">→</span></a></div>
         </div>
       </section>
 
@@ -578,7 +578,7 @@
       </section>
 
       <!-- Токены -->
-      <section id="tokens" class="py-12 sm:py-16 bg-white px-4">
+      <section id="tokens" class="scroll-mt-20 py-12 sm:py-16 bg-white px-4">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center mb-8 sm:mb-10">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Токены белорусских компаний</h2>
@@ -593,7 +593,7 @@
       </section>
 
       <!-- Компании -->
-      <section id="companies" class="py-12 sm:py-16 bg-blue-100/40 px-4">
+      <section id="companies" class="scroll-mt-20 py-12 sm:py-16 bg-blue-100/40 px-4">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center mb-8 sm:mb-12">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Белорусские компании</h2>
@@ -617,7 +617,7 @@
               </div>
               <div class="flex-1 flex flex-col">
                 <h3 class="wbr-break text-lg font-bold text-gray-900 leading-tight mb-2">
-                  <a href="https://dashboard.tokenbel.info/company/b77059fe" class="text-blue-600 hover:text-blue-700 hover:underline">
+                  <a href="https://dashboard.tokenbel.info/company/b77059fe" class="inline-flex items-center min-h-11 py-1.5 text-blue-600 hover:text-blue-700 hover:underline">
                     Финансы и Механика
                   </a>
                 </h3>
@@ -635,7 +635,7 @@
                   </span>
                   <a
                     href="https://dashboard.tokenbel.info/company/b77059fe"
-                    class="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
+                    class="inline-flex items-center min-h-11 py-2 text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
                   >
                     Подробнее →
                   </a>
@@ -660,7 +660,7 @@
               </div>
               <div class="flex-1 flex flex-col">
                 <h3 class="wbr-break text-lg font-bold text-gray-900 leading-tight mb-2">
-                  <a href="https://dashboard.tokenbel.info/company/98a9dbd6" class="text-blue-600 hover:text-blue-700 hover:underline">
+                  <a href="https://dashboard.tokenbel.info/company/98a9dbd6" class="inline-flex items-center min-h-11 py-1.5 text-blue-600 hover:text-blue-700 hover:underline">
                     Гурмина-ПРО
                   </a>
                 </h3>
@@ -679,7 +679,7 @@
                   </span>
                   <a
                     href="https://dashboard.tokenbel.info/company/98a9dbd6"
-                    class="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
+                    class="inline-flex items-center min-h-11 py-2 text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
                   >
                     Подробнее →
                   </a>
@@ -704,7 +704,7 @@
               </div>
               <div class="flex-1 flex flex-col">
                 <h3 class="wbr-break text-lg font-bold text-gray-900 leading-tight mb-2">
-                  <a href="https://dashboard.tokenbel.info/company/1177494d" class="text-blue-600 hover:text-blue-700 hover:underline">
+                  <a href="https://dashboard.tokenbel.info/company/1177494d" class="inline-flex items-center min-h-11 py-1.5 text-blue-600 hover:text-blue-700 hover:underline">
                     ЗВЕЗДА СТОЛИЦЫ
                   </a>
                 </h3>
@@ -719,7 +719,7 @@
                   </span>
                   <a
                     href="https://dashboard.tokenbel.info/company/1177494d"
-                    class="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
+                    class="inline-flex items-center min-h-11 py-2 text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
                   >
                     Подробнее →
                   </a>
@@ -744,7 +744,7 @@
               </div>
               <div class="flex-1 flex flex-col">
                 <h3 class="wbr-break text-lg font-bold text-gray-900 leading-tight mb-2">
-                  <a href="https://dashboard.tokenbel.info/company/23951c7f" class="text-blue-600 hover:text-blue-700 hover:underline">
+                  <a href="https://dashboard.tokenbel.info/company/23951c7f" class="inline-flex items-center min-h-11 py-1.5 text-blue-600 hover:text-blue-700 hover:underline">
                     Завод «Бульбашъ»
                   </a>
                 </h3>
@@ -762,7 +762,7 @@
                   </span>
                   <a
                     href="https://dashboard.tokenbel.info/company/23951c7f"
-                    class="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
+                    class="inline-flex items-center min-h-11 py-2 text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
                   >
                     Подробнее →
                   </a>
@@ -787,7 +787,7 @@
               </div>
               <div class="flex-1 flex flex-col">
                 <h3 class="wbr-break text-lg font-bold text-gray-900 leading-tight mb-2">
-                  <a href="https://dashboard.tokenbel.info/company/832e0561" class="text-blue-600 hover:text-blue-700 hover:underline">
+                  <a href="https://dashboard.tokenbel.info/company/832e0561" class="inline-flex items-center min-h-11 py-1.5 text-blue-600 hover:text-blue-700 hover:underline">
                     ГРИНрозница
                   </a>
                 </h3>
@@ -806,7 +806,7 @@
                   </span>
                   <a
                     href="https://dashboard.tokenbel.info/company/832e0561"
-                    class="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
+                    class="inline-flex items-center min-h-11 py-2 text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
                   >
                     Подробнее →
                   </a>
@@ -831,7 +831,7 @@
               </div>
               <div class="flex-1 flex flex-col">
                 <h3 class="wbr-break text-lg font-bold text-gray-900 leading-tight mb-2">
-                  <a href="https://dashboard.tokenbel.info/company/ae5d13cc" class="text-blue-600 hover:text-blue-700 hover:underline">
+                  <a href="https://dashboard.tokenbel.info/company/ae5d13cc" class="inline-flex items-center min-h-11 py-1.5 text-blue-600 hover:text-blue-700 hover:underline">
                     Мохровское
                   </a>
                 </h3>
@@ -846,7 +846,7 @@
                   </span>
                   <a
                     href="https://dashboard.tokenbel.info/company/ae5d13cc"
-                    class="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
+                    class="inline-flex items-center min-h-11 py-2 text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base hover:underline"
                   >
                     Подробнее →
                   </a>
@@ -857,7 +857,7 @@
           <div class="text-center mt-8">
             <a
               href="https://dashboard.tokenbel.info/"
-              class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group"
+              class="inline-flex items-center gap-2 min-h-11 py-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group"
             >
               Все компании
               <svg
@@ -879,7 +879,7 @@
       </section>
 
       <!-- Последние новости / Аналитика -->
-      <section id="news" class="py-12 sm:py-16 bg-gray-50 px-4">
+      <section id="news" class="scroll-mt-20 py-12 sm:py-16 bg-gray-50 px-4">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center mb-8 sm:mb-12">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Последние новости</h2>
@@ -953,7 +953,7 @@
           </div>
           <div class="text-center mt-8">
             <a href="https://t.me/tokenbel" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group">
+               class="inline-flex items-center gap-2 min-h-11 py-2 text-blue-600 hover:text-blue-700 font-semibold text-base sm:text-lg group">
               Все новости в Telegram
               <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -964,7 +964,7 @@
       </section>
 
       <!-- Преимущества -->
-      <section id="advantages" class="py-12 sm:py-16 bg-orange-50/50 px-4">
+      <section id="advantages" class="scroll-mt-20 py-12 sm:py-16 bg-orange-50/50 px-4">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center mb-8 sm:mb-12">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Наши преимущества</h2>
