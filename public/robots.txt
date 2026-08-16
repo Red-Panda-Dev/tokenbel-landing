@@ -42,5 +42,7 @@ Allow: /
 # Fallback для всех остальных ботов
 User-agent: *
 Allow: /
+Disallow: /404/
 
 Sitemap: https://tokenbel.lovable.app/sitemap.xml
+
