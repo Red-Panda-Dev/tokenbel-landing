@@ -17,6 +17,20 @@ https://dashboard.tokenbel.info/ (sign-in page: https://tokenbel.info/login/).
 | MCP server (streamable-http) | `https://mcp.tokenbel.info/mcp` | not required (anonymous access) |
 | MCP server card | `https://tokenbel.info/.well-known/mcp/server-card.json` | not required |
 | AI catalog | `https://tokenbel.info/.well-known/ai-catalog.json` | not required |
+| Web Bot Auth key directory (JWKS) | `https://tokenbel.info/.well-known/http-message-signatures-directory` | not required |
+
+## Web Bot Auth (outbound requests)
+
+Requests sent by the TokenBel bot/agent are signed with HTTP Message Signatures
+(RFC 9421) as described by the IETF WebBotAuth WG. Signed requests carry:
+
+- `Signature-Agent: "https://tokenbel.info"`
+- `Signature-Input: sig1=("@method" "@target-uri" "signature-agent");created=…;expires=…;keyid="rtk3c5hUFmeJbfdbbc0CdCryXyozNRWBrYaHRHxRKuE";alg="ed25519";nonce=…;tag="web-bot-auth"`
+- `Signature: sig1=:…:`
+
+Verify signatures with the Ed25519 public key published in the JWKS at
+`https://tokenbel.info/.well-known/http-message-signatures-directory`.
+
 
 ## Authentication model
 
