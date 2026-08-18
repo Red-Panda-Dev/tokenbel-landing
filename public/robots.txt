@@ -42,5 +42,10 @@ Allow: /
 # Fallback для всех остальных ботов
 User-agent: *
 Allow: /
+Disallow: /404/
+
+# Markdown-версии страниц для агентов: добавьте заголовок
+# `Accept: text/markdown` или откройте <путь>/index.md (см. /llms.txt).
 
 Sitemap: https://tokenbel.lovable.app/sitemap.xml
+
