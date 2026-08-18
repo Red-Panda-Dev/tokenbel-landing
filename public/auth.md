@@ -1,38 +1,40 @@
 # auth.md
 
-Документ описывает, как AI-агенты и автоматизированные клиенты получают доступ к данным TokenBel.
-Version: 1.0 · Updated: 2026-08-18 · Contact: https://tokenbel.info/contacts/
+This document describes how AI agents and automated clients access TokenBel data.
+Version: 1.1 · Updated: 2026-08-19 · Contact: https://tokenbel.info/contacts/
 
 ## Audience
 
-Этот документ адресован автономным агентам (AI-ассистентам, MCP-клиентам, краулерам),
-а не браузерным пользователям. Люди входят в личный кабинет через
-https://dashboard.tokenbel.info/ (страница входа: https://tokenbel.info/login/).
+This document is addressed to autonomous agents (AI assistants, MCP clients, crawlers),
+not to browser users. Humans sign in to the dashboard at
+https://dashboard.tokenbel.info/ (sign-in page: https://tokenbel.info/login/).
 
 ## Resources
 
 | Resource | URL | Auth |
 | --- | --- | --- |
-| Публичный сайт и markdown-версии страниц | `https://tokenbel.info/` (см. `/llms.txt`) | не требуется |
-| MCP-сервер (streamable-http) | `https://mcp.tokenbel.info/mcp` | не требуется (анонимный доступ) |
-| MCP server card | `https://tokenbel.info/.well-known/mcp/server-card.json` | не требуется |
-| AI catalog | `https://tokenbel.info/.well-known/ai-catalog.json` | не требуется |
+| Public website and markdown versions of pages | `https://tokenbel.info/` (see `/llms.txt`) | not required |
+| MCP server (streamable-http) | `https://mcp.tokenbel.info/mcp` | not required (anonymous access) |
+| MCP server card | `https://tokenbel.info/.well-known/mcp/server-card.json` | not required |
+| AI catalog | `https://tokenbel.info/.well-known/ai-catalog.json` | not required |
 
 ## Authentication model
 
-OAuth Authorization Server для агентов не публикуется, поэтому этот документ
-самодостаточен: OAuth Protected Resource Metadata и Authorization Server Metadata
-отсутствуют намеренно, а не по ошибке.
+Public read-only resources (the website, markdown versions, and the MCP tools for
+searching tokens, shares, bonds and issuers) are available **anonymously**: a bearer
+token is neither required nor validated. If a client does send an `Authorization`
+header, it is ignored.
 
-Публичные read-only ресурсы (сайт, markdown-версии, MCP-инструменты поиска по токенам,
-акциям, облигациям и эмитентам) доступны **анонимно**: bearer-токен не требуется и
-не проверяется. Если клиент всё же отправит `Authorization`, заголовок игнорируется.
+OAuth Protected Resource Metadata is published at
+`https://tokenbel.info/.well-known/oauth-protected-resource` and lists an
+authorization server for clients that prefer an OAuth flow; it is not required for
+public data.
 
 ## Registration / provisioning
 
-Отдельная регистрация агента для публичного доступа не нужна. Регистрация требуется
-только для повышенных лимитов, коммерческого использования и приватных данных
-личного кабинета; она выполняется людьми, а не программно.
+Separate agent registration is not needed for public access. Registration is only
+required for higher rate limits, commercial use, and private dashboard data; it is
+handled by humans, not programmatically.
 
 ```json
 {
@@ -47,7 +49,7 @@ OAuth Authorization Server для агентов не публикуется, п
     "methods": [
       {
         "type": "anonymous",
-        "description": "Публичный доступ без учётных данных к сайту, markdown-версиям страниц и MCP-серверу.",
+        "description": "Public credential-free access to the website, markdown versions of pages, and the MCP server.",
         "resource": "https://mcp.tokenbel.info/mcp",
         "credential_types_supported": ["none"],
         "bearer_methods_supported": [],
@@ -56,7 +58,7 @@ OAuth Authorization Server для агентов не публикуется, п
       },
       {
         "type": "manual_provisioning",
-        "description": "Запрос повышенных лимитов или доступа к приватным данным: заявка через страницу контактов, ответ и условия — по email/Telegram.",
+        "description": "Request higher rate limits or access to private data: submit a request via the contacts page; terms and response are handled over email/Telegram.",
         "register_uri": "https://tokenbel.info/contacts/",
         "credential_types_supported": ["none"]
       }
@@ -67,15 +69,15 @@ OAuth Authorization Server для агентов не публикуется, п
 
 ## Credential use
 
-Для анонимного доступа учётные данные не выпускаются и не требуются:
-запросы отправляются без заголовка `Authorization`. Если по итогам ручного
-согласования агенту выдадут ключ, он передаётся как `Authorization: Bearer <token>`
-по HTTPS, не логируется и не публикуется в URL.
+No credentials are issued or required for anonymous access: requests are sent without
+an `Authorization` header. If a key is granted after manual review, it is passed as
+`Authorization: Bearer <token>` over HTTPS, is never logged, and is never published in
+a URL.
 
 ## Rate limits and etiquette
 
-- Идентифицируйте себя понятным `User-Agent` со ссылкой на оператора агента.
-- Предпочитайте markdown-представления (`Accept: text/markdown` или `<путь>/index.md`) вместо парсинга HTML.
-- Соблюдайте `robots.txt`: https://tokenbel.info/robots.txt
-- Разумный темп: не более ~1 запроса в секунду; при 429 используйте экспоненциальную паузу.
-- Не выполняйте POST на служебные эндпоинты при пассивном сканировании.
+- Identify yourself with a clear `User-Agent` that links to the agent operator.
+- Prefer markdown representations (`Accept: text/markdown` or `<path>/index.md`) over scraping HTML.
+- Respect `robots.txt`: https://tokenbel.info/robots.txt
+- Keep a reasonable pace: no more than ~1 request per second; back off exponentially on 429.
+- Do not POST to service endpoints during passive scanning.
