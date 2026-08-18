@@ -18,3 +18,15 @@ TokenBel помогает частным инвесторам в Беларус�
 
 - [FAQ (markdown)](/faq.md): Полная версия FAQ в markdown для индексации LLM.
 - [Dashboard](https://dashboard.tokenbel.info): Личный кабинет инвестора с избранным, уведомлениями и аналитикой.
+
+## Markdown versions (Markdown for Agents)
+
+Каждая страница доступна в чистом markdown. Запрос с заголовком `Accept: text/markdown` возвращает markdown-версию, браузеры получают HTML.
+
+- [Главная](/index.md)
+- [Тарифы](/pricing/index.md)
+- [FAQ](/faq.md)
+- [Статистика вторичного рынка](/statistics/secondmarket/index.md)
+- [RSS и MCP](/rss/index.md)
+- [Контакты](/contacts/index.md)
+- [Вход](/login/index.md)
