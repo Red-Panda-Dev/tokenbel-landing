@@ -3,14 +3,16 @@
   "resource_name": "TokenBel MCP Server",
   "resource_documentation": "https://tokenbel.info/auth.md",
   "resource_policy_uri": "https://wiki.tokenbel.info/policies/privacy-policy/",
-  "authorization_servers": [],
-  "bearer_methods_supported": [],
-  "scopes_supported": [],
-  "identity_types_supported": ["anonymous"],
+  "authorization_servers": [
+    "https://moqboilvfwuwjlhtynil.supabase.co/auth/v1"
+  ],
+  "bearer_methods_supported": ["header"],
+  "scopes_supported": ["openid", "email", "profile"],
+  "identity_types_supported": ["anonymous", "oauth"],
   "anonymous": {
     "credential_types_supported": ["none"],
     "claim_uri": "https://tokenbel.info/auth.md"
   },
   "register_uri": "https://tokenbel.info/contacts/",
-  "notes": "Public read-only resource. No OAuth authorization server is published; access is anonymous and no bearer token is required or validated."
+  "notes": "Public read-only resource: anonymous access works without a bearer token. The listed authorization server is available for clients that prefer an OAuth flow; tokens are accepted in the Authorization header."
 }
