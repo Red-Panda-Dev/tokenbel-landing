@@ -1,33 +1,33 @@
 # TokenBel
 
-> Aggregator of Belarusian investment tokens and securities: catalog of tokens and issuers, secondary market statistics, yield and financial analytics.
+> Агрегатор инвестиционных токенов и ценных бумаг Беларуси: каталог токенов и эмитентов, статистика вторичного рынка, аналитика доходности и финансовых показателей.
 
-TokenBel helps private investors in Belarus find, compare and track investment tokens and bonds issued by Belarusian companies. The platform aggregates data from Finstore, Bynex, Fainex, Whitebird and other venues, providing filters, ratings, alerts and a payout calendar. Page content is in Russian.
+TokenBel помогает частным инвесторам в Беларуси находить, сравнивать и отслеживать инвестиционные токены и облигации белорусских компаний. Платформа агрегирует данные с площадок Finstore, Bynex, Fainex, Whitebird и других, предоставляя удобные фильтры, рейтинги, оповещения и календарь выплат.
 
 ## Pages
 
-- [Home](/): Catalog of tokens and issuing companies with key yield parameters.
-- [Pricing](/pricing/): Free Standard plan and professional Pro (9 BYN/month) with advanced filters and alerts.
-- [FAQ](/faq/): Answers about tokens, APY, ROI, risks and financial ratios.
-- [Secondary market statistics](/statistics/secondmarket/): Trading volumes by platform, top tokens and issuers, daily dynamics.
-- [RSS](/rss/): RSS feeds for new token issues and catalog updates.
-- [Contacts](/contacts/): Contact the TokenBel team (issuers and investors).
-- [Login](/login/): Sign in to the dashboard via Google, Telegram, Microsoft or Yandex.
+- [Главная](/): Каталог токенов и компаний-эмитентов с ключевыми параметрами доходности.
+- [Тарифы](/pricing/): Бесплатный Standard и профессиональный Pro (9 BYN/мес) с расширенными фильтрами и оповещениями.
+- [FAQ](/faq/): Ответы на популярные вопросы о токенах, APY, ROI, рисках и финансовых коэффициентах.
+- [Статистика вторичного рынка](/statistics/secondmarket/): Объёмы операций по платформам, топ токенов и эмитентов, динамика по дням.
+- [RSS](/rss/): RSS-лента новых выпусков токенов и обновлений каталога.
+- [Контакты](/contacts/): Связь с командой TokenBel для эмитентов и инвесторов.
+- [Вход](/login/): Вход в личный кабинет через Google, Telegram, Microsoft или Яндекс.
 
 ## Optional
 
-- [FAQ (markdown)](/faq.md): Full FAQ in markdown for LLM indexing.
-- [Agent auth](/auth.md): How agents get access (anonymous public access, MCP, registration).
-- [Dashboard](https://dashboard.tokenbel.info): Investor dashboard with favorites, notifications and analytics.
+- [FAQ (markdown)](/faq.md): Полная версия FAQ в markdown для индексации LLM.
+- [Auth для агентов](/auth.md): Как агентам получать доступ (анонимный публичный доступ, MCP, регистрация).
+- [Dashboard](https://dashboard.tokenbel.info): Личный кабинет инвестора с избранным, уведомлениями и аналитикой.
 
 ## Markdown versions (Markdown for Agents)
 
-Every page is available as clean markdown. A request with the `Accept: text/markdown` header returns the markdown version; browsers get HTML.
+Каждая страница доступна в чистом markdown. Запрос с заголовком `Accept: text/markdown` возвращает markdown-версию, браузеры получают HTML.
 
-- [Home](/index.md)
-- [Pricing](/pricing/index.md)
+- [Главная](/index.md)
+- [Тарифы](/pricing/index.md)
 - [FAQ](/faq.md)
-- [Secondary market statistics](/statistics/secondmarket/index.md)
-- [RSS and MCP](/rss/index.md)
-- [Contacts](/contacts/index.md)
-- [Login](/login/index.md)
+- [Статистика вторичного рынка](/statistics/secondmarket/index.md)
+- [RSS и MCP](/rss/index.md)
+- [Контакты](/contacts/index.md)
+- [Вход](/login/index.md)
