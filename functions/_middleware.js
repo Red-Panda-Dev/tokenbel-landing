@@ -78,6 +78,11 @@ export async function onRequest(context) {
       const headers = new Headers(mdResponse.headers);
       headers.set("Content-Type", "text/markdown; charset=utf-8");
       headers.set("Vary", "Accept");
+      // Cloudflare's edge cache ignores `Vary: Accept`, so negotiated responses
+      // must never be stored at the edge — otherwise a markdown response gets
+      // replayed to browsers (and vice versa).
+      headers.set("Cache-Control", "no-store");
+      headers.set("CDN-Cache-Control", "no-store");
       headers.set("Link", `<${url.origin}${mdPath}>; rel="alternate"; type="text/markdown"`);
       return new Response(mdResponse.body, { status: 200, headers });
     }
@@ -92,7 +97,10 @@ export async function onRequest(context) {
   );
   if (mdPath) {
     headers.set("Link", `<${url.origin}${mdPath}>; rel="alternate"; type="text/markdown"`);
+    headers.set("Cache-Control", "no-store");
+    headers.set("CDN-Cache-Control", "no-store");
   }
+
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
