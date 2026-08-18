@@ -20,13 +20,14 @@ https://dashboard.tokenbel.info/ (страница входа: https://tokenbel.
 
 ## Authentication model
 
-OAuth Authorization Server для агентов не публикуется, поэтому этот документ
-самодостаточен: OAuth Protected Resource Metadata и Authorization Server Metadata
-отсутствуют намеренно, а не по ошибке.
-
 Публичные read-only ресурсы (сайт, markdown-версии, MCP-инструменты поиска по токенам,
 акциям, облигациям и эмитентам) доступны **анонимно**: bearer-токен не требуется и
 не проверяется. Если клиент всё же отправит `Authorization`, заголовок игнорируется.
+
+OAuth Protected Resource Metadata публикуется по адресу
+`https://tokenbel.info/.well-known/oauth-protected-resource` и указывает
+authorization server для клиентов, которым нужен OAuth-поток; для публичных данных он
+не обязателен.
 
 ## Registration / provisioning
 
