@@ -9,6 +9,26 @@
   "bearer_methods_supported": ["header"],
   "scopes_supported": ["openid", "email", "profile"],
   "identity_types_supported": ["anonymous", "oauth"],
+  "agent_auth": {
+    "skill": "https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md",
+    "register_uri": "https://tokenbel.info/contacts/",
+    "identity_types_supported": ["anonymous"],
+    "anonymous": {
+      "credential_types_supported": ["none"],
+      "claim_uri": "https://tokenbel.info/auth.md"
+    },
+    "methods": [
+      {
+        "type": "anonymous",
+        "description": "Public credential-free access to the website, markdown page representations, and the MCP server.",
+        "resource": "https://mcp.tokenbel.info/mcp",
+        "credential_types_supported": ["none"],
+        "bearer_methods_supported": [],
+        "register_uri": "https://tokenbel.info/contacts/",
+        "claim_uri": "https://tokenbel.info/auth.md"
+      }
+    ]
+  },
   "anonymous": {
     "credential_types_supported": ["none"],
     "claim_uri": "https://tokenbel.info/auth.md"
