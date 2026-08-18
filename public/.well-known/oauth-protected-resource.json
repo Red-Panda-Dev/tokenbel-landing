@@ -1,0 +1,16 @@
+{
+  "resource": "https://mcp.tokenbel.info/mcp",
+  "resource_name": "TokenBel MCP Server",
+  "resource_documentation": "https://tokenbel.info/auth.md",
+  "resource_policy_uri": "https://wiki.tokenbel.info/policies/privacy-policy/",
+  "authorization_servers": [],
+  "bearer_methods_supported": [],
+  "scopes_supported": [],
+  "identity_types_supported": ["anonymous"],
+  "anonymous": {
+    "credential_types_supported": ["none"],
+    "claim_uri": "https://tokenbel.info/auth.md"
+  },
+  "register_uri": "https://tokenbel.info/contacts/",
+  "notes": "Public read-only resource. No OAuth authorization server is published; access is anonymous and no bearer token is required or validated."
+}
