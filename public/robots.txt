@@ -47,5 +47,7 @@ Disallow: /404/
 # Markdown-версии страниц для агентов: добавьте заголовок
 # `Accept: text/markdown` или откройте <путь>/index.md (см. /llms.txt).
 
+# Доступ агентов: https://tokenbel.info/auth.md
+
 Sitemap: https://tokenbel.lovable.app/sitemap.xml
 
