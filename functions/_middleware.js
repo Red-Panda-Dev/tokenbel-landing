@@ -61,20 +61,33 @@ function normalizePath(pathname) {
 /** Extensionless well-known JSON documents -> static asset with .json suffix. */
 const WELL_KNOWN_JSON = {
   "/.well-known/oauth-protected-resource": "/.well-known/oauth-protected-resource.json",
+  // Web Bot Auth key directory (JWKS) — RFC 9421 / IETF WebBotAuth WG.
+  "/.well-known/http-message-signatures-directory":
+    "/.well-known/http-message-signatures-directory.json",
+};
+
+/** Media types for extensionless well-known documents. */
+const WELL_KNOWN_CONTENT_TYPE = {
+  "/.well-known/http-message-signatures-directory":
+    "application/http-message-signatures-directory+json",
 };
 
 export async function onRequest(context) {
   const { request, next } = context;
   const url = new URL(request.url);
 
-  const jsonPath = WELL_KNOWN_JSON[url.pathname.replace(/\/$/, "")];
+  const wellKnownPath = url.pathname.replace(/\/$/, "");
+  const jsonPath = WELL_KNOWN_JSON[wellKnownPath];
   if (jsonPath && (request.method === "GET" || request.method === "HEAD")) {
     const assetResponse = await context.env.ASSETS.fetch(
       new Request(new URL(jsonPath, url.origin), { method: request.method }),
     );
     if (assetResponse.ok) {
       const headers = new Headers(assetResponse.headers);
-      headers.set("Content-Type", "application/json; charset=utf-8");
+      headers.set(
+        "Content-Type",
+        WELL_KNOWN_CONTENT_TYPE[wellKnownPath] || "application/json; charset=utf-8",
+      );
       headers.set("Access-Control-Allow-Origin", "*");
       // Discovery metadata must not reuse the old HTML fallback that may still
       // exist in browser or intermediary caches from before this route existed.
