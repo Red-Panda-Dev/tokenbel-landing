@@ -58,11 +58,32 @@ function normalizePath(pathname) {
   return pathname;
 }
 
+/** Extensionless well-known JSON documents -> static asset with .json suffix. */
+const WELL_KNOWN_JSON = {
+  "/.well-known/oauth-protected-resource": "/.well-known/oauth-protected-resource.json",
+};
+
 export async function onRequest(context) {
   const { request, next } = context;
   const url = new URL(request.url);
+
+  const jsonPath = WELL_KNOWN_JSON[url.pathname.replace(/\/$/, "")];
+  if (jsonPath && (request.method === "GET" || request.method === "HEAD")) {
+    const assetResponse = await context.env.ASSETS.fetch(
+      new Request(new URL(jsonPath, url.origin), { method: request.method }),
+    );
+    if (assetResponse.ok) {
+      const headers = new Headers(assetResponse.headers);
+      headers.set("Content-Type", "application/json; charset=utf-8");
+      headers.set("Access-Control-Allow-Origin", "*");
+      headers.set("Cache-Control", "public, max-age=3600");
+      return new Response(assetResponse.body, { status: 200, headers });
+    }
+  }
+
   const path = normalizePath(url.pathname);
   const mdPath = MARKDOWN_ROUTES[path];
+
 
   if (
     mdPath &&
