@@ -76,7 +76,10 @@ export async function onRequest(context) {
       const headers = new Headers(assetResponse.headers);
       headers.set("Content-Type", "application/json; charset=utf-8");
       headers.set("Access-Control-Allow-Origin", "*");
-      headers.set("Cache-Control", "public, max-age=3600");
+      // Discovery metadata must not reuse the old HTML fallback that may still
+      // exist in browser or intermediary caches from before this route existed.
+      headers.set("Cache-Control", "no-store");
+      headers.set("CDN-Cache-Control", "no-store");
       return new Response(assetResponse.body, { status: 200, headers });
     }
   }
