@@ -25,7 +25,7 @@ Requests sent by the TokenBel bot/agent are signed with HTTP Message Signatures
 (RFC 9421) as described by the IETF WebBotAuth WG. Signed requests carry:
 
 - `Signature-Agent: "https://tokenbel.info"`
-- `Signature-Input: sig1=("@method" "@target-uri" "signature-agent");created=…;expires=…;keyid="rtk3c5hUFmeJbfdbbc0CdCryXyozNRWBrYaHRHxRKuE";alg="ed25519";nonce=…;tag="web-bot-auth"`
+- `Signature-Input: sig1=("@method" "@target-uri" "signature-agent");created=…;expires=…;keyid="key-1";alg="ed25519";nonce=…;tag="web-bot-auth"`
 - `Signature: sig1=:…:`
 
 Verify signatures with the Ed25519 public key published in the JWKS at

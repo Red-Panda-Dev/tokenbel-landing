@@ -3,12 +3,10 @@
     {
       "kty": "OKP",
       "crv": "Ed25519",
-      "x": "7_a0BpvhZ_e6IEmyILSjZJ0cNUZlZ97Fnyq7IMzbXuc",
-      "kid": "rtk3c5hUFmeJbfdbbc0CdCryXyozNRWBrYaHRHxRKuE",
+      "x": "Tudttb10M7w9PilErW3MzCQTdzPUBDvA2Hoo36aIbGs",
+      "alg": "EdDSA",
       "use": "sig",
-      "alg": "Ed25519",
-      "key_ops": ["verify"],
-      "nbf": 1787096684
+      "kid": "key-1"
     }
   ]
 }
