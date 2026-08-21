@@ -129,7 +129,58 @@ export async function onRequest(context) {
   }
 
   const response = await next();
+
+  // Agent-friendly 404s: keep the real 404 status, but give agents a body they
+  // can parse — markdown with recovery links, or a structured JSON error.
+  if (response.status === 404 && (request.method === "GET" || request.method === "HEAD")) {
+    const accept = request.headers.get("Accept") || "";
+    const wantsJson =
+      /\bapplication\/json\b/i.test(accept) && !/\btext\/html\b/i.test(accept);
+
+    if (wantsJson) {
+      const body = JSON.stringify({
+        error: {
+          code: "not_found",
+          message: `No resource exists at ${url.pathname}.`,
+          hint: "See https://tokenbel.info/llms.txt, https://tokenbel.info/sitemap.xml or https://tokenbel.info/agent-instructions.md",
+        },
+      });
+      return new Response(request.method === "HEAD" ? null : body, {
+        status: 404,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Cache-Control": "no-store",
+          "CDN-Cache-Control": "no-store",
+          Vary: "Accept",
+        },
+      });
+    }
+
+    if (prefersMarkdown(accept)) {
+      const notFoundMd = await context.env.ASSETS.fetch(
+        new Request(new URL("/404.md", url.origin), {
+          method: "GET",
+          headers: { Accept: "text/plain" },
+        }),
+      );
+      if (notFoundMd.ok) {
+        const body = await notFoundMd.text();
+        return new Response(request.method === "HEAD" ? null : body, {
+          status: 404,
+          headers: {
+            "Content-Type": "text/markdown; charset=utf-8",
+            "Cache-Control": "no-store",
+            "CDN-Cache-Control": "no-store",
+            Vary: "Accept",
+            Link: `<${url.origin}/404.md>; rel="alternate"; type="text/markdown"`,
+          },
+        });
+      }
+    }
+  }
+
   const headers = new Headers(response.headers);
+
   const existingVary = headers.get("Vary");
   headers.set(
     "Vary",
