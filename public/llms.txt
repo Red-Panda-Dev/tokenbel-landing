@@ -35,6 +35,9 @@ TokenBel помогает частным инвесторам в Беларус�
 
 - [FAQ (markdown)](/faq.md): Полная версия FAQ в markdown для индексации LLM.
 - [Auth для агентов](/auth.md): Как агентам получать доступ (анонимный публичный доступ, MCP, регистрация).
+- [Инструкции для агентов](/agent-instructions.md): Когда и как использовать TokenBel, лимиты, форматы ошибок.
+- [OpenAPI](/openapi.json): Машиночитаемое описание публичного read API.
+- [MCP-карточка](/.well-known/mcp): Endpoint и возможности MCP-сервера.
 - [Dashboard](https://dashboard.tokenbel.info): Личный кабинет инвестора с избранным, уведомлениями и аналитикой.
 
 ## Markdown versions (Markdown for Agents)
