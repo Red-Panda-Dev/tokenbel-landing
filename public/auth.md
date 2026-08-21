@@ -1,7 +1,7 @@
 # auth.md
 
 This document describes how AI agents and automated clients access TokenBel data.
-Version: 1.1 · Updated: 2026-08-19 · Contact: https://tokenbel.info/contacts/
+Version: 1.2 · Updated: 2026-08-21 · Contact: https://tokenbel.info/contacts/
 
 ## Audience
 
@@ -18,6 +18,9 @@ https://dashboard.tokenbel.info/ (sign-in page: https://tokenbel.info/login/).
 | MCP server card | `https://tokenbel.info/.well-known/mcp/server-card.json` | not required |
 | AI catalog | `https://tokenbel.info/.well-known/ai-catalog.json` | not required |
 | Web Bot Auth key directory (JWKS) | `https://tokenbel.info/.well-known/http-message-signatures-directory` | not required |
+| Agent instructions (when to use, limits, errors) | `https://tokenbel.info/agent-instructions.md` | not required |
+| OpenAPI description of the public read API | `https://tokenbel.info/openapi.json` | not required |
+| MCP discovery document | `https://tokenbel.info/.well-known/mcp` | not required |
 
 ## Web Bot Auth (outbound requests)
 
@@ -43,6 +46,43 @@ OAuth Protected Resource Metadata is published at
 `https://tokenbel.info/.well-known/oauth-protected-resource` and lists an
 authorization server for clients that prefer an OAuth flow; it is not required for
 public data.
+
+## Scopes
+
+Public read access is scoped read-only. Clients that use the optional OAuth flow can
+request these scopes; anonymous clients get the same read-only permissions implicitly:
+
+| Scope | Grants |
+| --- | --- |
+| `securities:read` | Read public securities, issuer and market data. |
+| `statistics:read` | Read aggregated secondary-market statistics. |
+| `openid`, `email`, `profile` | End-user identity for dashboard-linked clients. |
+
+No write, trade, payment or account-mutation scope exists for agents.
+
+## Onboarding friction
+
+- **Free tier: yes.** No signup, no contact form, no sales call to start reading.
+- **Self-serve:** send the first request immediately; no key is issued or validated.
+- **Sandbox:** the public surface is read-only and therefore safe to explore directly.
+
+## Error responses
+
+Errors are returned as JSON with a matching HTTP status:
+
+```json
+{
+  "error": {
+    "code": "not_found",
+    "message": "No security matches the requested ticker.",
+    "hint": "Try a shorter ticker fragment or search by issuer name."
+  }
+}
+```
+
+Codes: `invalid_request` (400), `not_found` (404), `rate_limited` (429),
+`internal_error` (5xx). A request with `Accept: application/json` never receives an
+HTML error page; `Accept: text/markdown` yields a markdown body, including for 404s.
 
 ## Registration / provisioning
 
