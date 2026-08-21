@@ -17,11 +17,74 @@
   "manifest": "https://mcp.tokenbel.info/server.json",
   "capabilities": {
     "tools": {},
-    "resources": {},
+    "resources": { "listChanged": false },
     "prompts": {}
   },
-  "documentation": "https://tokenbel.info/rss/",
+  "resources": [
+    {
+      "uri": "https://tokenbel.info/llms.txt",
+      "name": "site-overview",
+      "title": "TokenBel site overview (llms.txt)",
+      "description": "Site summary, page index and markdown representations of every public page.",
+      "mimeType": "text/plain"
+    },
+    {
+      "uri": "https://tokenbel.info/agent-instructions.md",
+      "name": "agent-instructions",
+      "title": "Agent instructions",
+      "description": "When and when not to use TokenBel, call order, onboarding, rate limits and error semantics.",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "https://tokenbel.info/faq.md",
+      "name": "faq",
+      "title": "TokenBel FAQ",
+      "description": "Tokens, APY, ROI, risks, taxation and financial ratios explained.",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "https://tokenbel.info/statistics/secondmarket/index.md",
+      "name": "secondary-market-statistics",
+      "title": "Secondary market statistics",
+      "description": "Aggregated trading volumes by platform, top tokens and top issuers.",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "https://tokenbel.info/openapi.json",
+      "name": "openapi",
+      "title": "Public read API (OpenAPI 3.1)",
+      "description": "Machine-readable description of the TokenBel public read API for function calling.",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "https://tokenbel.info/auth.md",
+      "name": "auth",
+      "title": "Access model for agents",
+      "description": "Anonymous public access, optional OAuth, scopes and manual provisioning.",
+      "mimeType": "text/markdown"
+    }
+  ],
+  "authentication": {
+    "type": "none",
+    "free_tier": true,
+    "self_serve": true,
+    "documentation": "https://tokenbel.info/auth.md"
+  },
+  "scopes": [
+    {
+      "name": "securities:read",
+      "description": "Read public securities, issuer and market data."
+    },
+    {
+      "name": "statistics:read",
+      "description": "Read aggregated secondary-market statistics."
+    }
+  ],
+  "whenToUse": "Use for Belarusian investment tokens, shares and bonds: ticker/issuer lookup, yields, payouts and secondary-market statistics. Not for investment advice, trade execution, or non-Belarusian markets.",
+  "documentation": "https://tokenbel.info/agent-instructions.md",
+  "openapi": "https://tokenbel.info/openapi.json",
   "contact": {
-    "url": "https://tokenbel.info/contacts/"
+    "url": "https://tokenbel.info/contacts/",
+    "email": "admin@tokenbel.info"
   }
 }

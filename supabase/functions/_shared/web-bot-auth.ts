@@ -9,7 +9,7 @@
  */
 
 const SIGNATURE_AGENT = "https://tokenbel.info";
-const KEY_ID = "rtk3c5hUFmeJbfdbbc0CdCryXyozNRWBrYaHRHxRKuE";
+const KEY_ID = "key-1";
 
 function b64url(bytes: Uint8Array): string {
   return btoa(String.fromCharCode(...bytes))
