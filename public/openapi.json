@@ -1,0 +1,221 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TokenBel public read API",
+    "version": "1.0.0",
+    "summary": "Read-only access to Belarusian investment tokens, shares, bonds and issuers.",
+    "description": "Public, anonymous, read-only API behind TokenBel. No API key is required; an Authorization header, if sent, is ignored. Agent guidance: https://tokenbel.info/agent-instructions.md",
+    "termsOfService": "https://wiki.tokenbel.info/policies/privacy-policy/",
+    "contact": {
+      "name": "TokenBel",
+      "url": "https://tokenbel.info/contacts/",
+      "email": "admin@tokenbel.info"
+    },
+    "license": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://hype.tokenbel.info",
+      "description": "Production read API"
+    }
+  ],
+  "externalDocs": {
+    "description": "Agent instructions and access model",
+    "url": "https://tokenbel.info/agent-instructions.md"
+  },
+  "paths": {
+    "/search": {
+      "get": {
+        "operationId": "searchSecurities",
+        "summary": "Search Belarusian securities",
+        "description": "Search Belarusian investment tokens, shares and bonds by ticker fragment or issuer name. Returns a ranked list of matches with issuer and instrument metadata.",
+        "tags": ["securities"],
+        "security": [{}],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Ticker fragment or issuer name to search for.",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 100 },
+            "example": "bel"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results to return.",
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching securities.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SearchResult" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "anonymous": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Not required for public read access. Reserved for manually provisioned tokens with elevated rate limits; see https://tokenbel.info/auth.md"
+      },
+      "oauth2": {
+        "type": "oauth2",
+        "description": "Optional OAuth 2.1 flow for clients that prefer scoped access. Protected-resource metadata: https://tokenbel.info/.well-known/oauth-protected-resource",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://moqboilvfwuwjlhtynil.supabase.co/auth/v1/authorize",
+            "tokenUrl": "https://moqboilvfwuwjlhtynil.supabase.co/auth/v1/token",
+            "scopes": {
+              "securities:read": "Read public securities, issuer and market data.",
+              "statistics:read": "Read aggregated secondary-market statistics.",
+              "openid": "Authenticate the end user.",
+              "email": "Read the end user's email address.",
+              "profile": "Read the end user's basic profile."
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Security": {
+        "type": "object",
+        "description": "A Belarusian investment token, share or bond.",
+        "properties": {
+          "ticker": { "type": "string", "description": "Instrument ticker." },
+          "name": { "type": "string", "description": "Instrument name." },
+          "type": {
+            "type": "string",
+            "description": "Instrument type.",
+            "enum": ["token", "share", "bond"]
+          },
+          "issuer": { "type": "string", "description": "Issuer company name." },
+          "currency": { "type": "string", "description": "Denomination currency, ISO 4217." },
+          "yield": {
+            "type": ["number", "null"],
+            "description": "Declared annual yield, percent."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Canonical TokenBel page for the instrument."
+          }
+        },
+        "required": ["ticker", "name"]
+      },
+      "SearchResult": {
+        "type": "object",
+        "description": "Search response envelope.",
+        "properties": {
+          "query": { "type": "string" },
+          "count": { "type": "integer", "minimum": 0 },
+          "results": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Security" }
+          }
+        },
+        "required": ["results"]
+      },
+      "Error": {
+        "type": "object",
+        "description": "Structured error response.",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Stable machine-readable error code.",
+                "enum": ["invalid_request", "not_found", "rate_limited", "internal_error"]
+              },
+              "message": { "type": "string", "description": "Human-readable explanation." },
+              "hint": { "type": "string", "description": "How the caller can resolve the error." }
+            },
+            "required": ["code", "message"]
+          }
+        },
+        "required": ["error"]
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "The request parameters are missing or malformed.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" },
+            "example": {
+              "error": {
+                "code": "invalid_request",
+                "message": "Query parameter 'q' is required.",
+                "hint": "Pass ?q=<ticker or issuer name>."
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "No matching resource.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" },
+            "example": {
+              "error": {
+                "code": "not_found",
+                "message": "No security matches the requested ticker.",
+                "hint": "Try a shorter ticker fragment or search by issuer name."
+              }
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "Too many requests.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" },
+            "example": {
+              "error": {
+                "code": "rate_limited",
+                "message": "Request rate exceeded.",
+                "hint": "Keep to about 1 request per second and back off exponentially."
+              }
+            }
+          }
+        }
+      },
+      "InternalError": {
+        "description": "Unexpected server error.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" },
+            "example": {
+              "error": {
+                "code": "internal_error",
+                "message": "Temporary failure while querying market data.",
+                "hint": "Retry after a short delay; report persistent failures at https://tokenbel.info/contacts/."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [{}]
+}
