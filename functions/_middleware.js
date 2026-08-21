@@ -61,6 +61,8 @@ function normalizePath(pathname) {
 /** Extensionless well-known JSON documents -> static asset with .json suffix. */
 const WELL_KNOWN_JSON = {
   "/.well-known/oauth-protected-resource": "/.well-known/oauth-protected-resource.json",
+  // Live MCP handshake/discovery document.
+  "/.well-known/mcp": "/.well-known/mcp.json",
   // Web Bot Auth key directory (JWKS) — RFC 9421 / IETF WebBotAuth WG.
   "/.well-known/http-message-signatures-directory":
     "/.well-known/http-message-signatures-directory.json",
@@ -71,6 +73,7 @@ const WELL_KNOWN_CONTENT_TYPE = {
   "/.well-known/http-message-signatures-directory":
     "application/http-message-signatures-directory+json",
 };
+
 
 export async function onRequest(context) {
   const { request, next } = context;
