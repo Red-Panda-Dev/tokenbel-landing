@@ -1,18 +1,36 @@
 {
   "resource": "https://mcp.tokenbel.info/mcp",
   "resource_name": "TokenBel MCP Server",
-  "resource_documentation": "https://tokenbel.info/auth.md",
+  "resource_documentation": "https://tokenbel.info/agent-instructions.md",
   "resource_policy_uri": "https://wiki.tokenbel.info/policies/privacy-policy/",
   "authorization_servers": [
     "https://moqboilvfwuwjlhtynil.supabase.co/auth/v1"
   ],
   "bearer_methods_supported": ["header"],
-  "scopes_supported": ["openid", "email", "profile"],
+  "scopes_supported": [
+    "openid",
+    "email",
+    "profile",
+    "securities:read",
+    "statistics:read"
+  ],
+  "scope_descriptions": {
+    "securities:read": "Read public securities, issuer and market data.",
+    "statistics:read": "Read aggregated secondary-market statistics.",
+    "openid": "Authenticate the end user.",
+    "email": "Read the end user's email address.",
+    "profile": "Read the end user's basic profile."
+  },
+  "free_tier": true,
+  "self_serve": true,
   "identity_types_supported": ["anonymous", "oauth"],
   "agent_auth": {
     "skill": "https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md",
     "register_uri": "https://tokenbel.info/contacts/",
     "identity_types_supported": ["anonymous"],
+    "free_tier": true,
+    "self_serve": true,
+    "instructions_uri": "https://tokenbel.info/agent-instructions.md",
     "anonymous": {
       "credential_types_supported": ["none"],
       "claim_uri": "https://tokenbel.info/auth.md"
@@ -20,10 +38,11 @@
     "methods": [
       {
         "type": "anonymous",
-        "description": "Public credential-free access to the website, markdown page representations, and the MCP server.",
+        "description": "Public credential-free access to the website, markdown page representations, and the MCP server. No signup required.",
         "resource": "https://mcp.tokenbel.info/mcp",
         "credential_types_supported": ["none"],
         "bearer_methods_supported": [],
+        "scopes_supported": ["securities:read", "statistics:read"],
         "register_uri": "https://tokenbel.info/contacts/",
         "claim_uri": "https://tokenbel.info/auth.md"
       }
@@ -34,5 +53,16 @@
     "claim_uri": "https://tokenbel.info/auth.md"
   },
   "register_uri": "https://tokenbel.info/contacts/",
-  "notes": "Public read-only resource: anonymous access works without a bearer token. The listed authorization server is available for clients that prefer an OAuth flow; tokens are accepted in the Authorization header."
+  "error_format": {
+    "media_type": "application/json",
+    "schema": "https://tokenbel.info/openapi.json#/components/schemas/Error",
+    "example": {
+      "error": {
+        "code": "not_found",
+        "message": "No security matches the requested ticker.",
+        "hint": "Try a shorter ticker fragment or search by issuer name."
+      }
+    }
+  },
+  "notes": "Public read-only resource: anonymous access works without a bearer token and without registration. The listed authorization server is available for clients that prefer an OAuth flow with scoped read permissions; tokens are accepted in the Authorization header."
 }

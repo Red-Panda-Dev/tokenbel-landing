@@ -3,7 +3,7 @@
     "host": {
         "displayName": "TokenBel",
         "identifier": "did:web:tokenbel.info",
-        "documentationUrl": "https://tokenbel.info/"
+        "documentationUrl": "https://tokenbel.info/agent-instructions.md"
     },
     "entries": [
         {
@@ -11,9 +11,29 @@
             "displayName": "TokenBel Financial Data MCP",
             "type": "application/mcp-server+json",
             "url": "https://mcp.tokenbel.info/mcp",
+            "manifestUrl": "https://tokenbel.info/.well-known/mcp",
+            "documentationUrl": "https://tokenbel.info/agent-instructions.md",
+            "openapiUrl": "https://tokenbel.info/openapi.json",
             "description": "Belarusian securities data: tokens, shares, bonds, companies.",
+            "authentication": {
+                "type": "none",
+                "free_tier": true,
+                "self_serve": true,
+                "documentation": "https://tokenbel.info/auth.md"
+            },
+            "scopes": [
+                {
+                    "name": "securities:read",
+                    "description": "Read public securities, issuer and market data."
+                },
+                {
+                    "name": "statistics:read",
+                    "description": "Read aggregated secondary-market statistics."
+                }
+            ],
             "tags": ["finance", "securities", "belarus", "bonds", "shares", "tokens"],
             "capabilities": ["TickerSearch", "BondLookup", "ShareLookup", "TokenLookup", "CompanyLookup"],
+            "whenToUse": "Use for Belarusian investment tokens, shares and bonds: ticker/issuer lookup, yields, payouts and secondary-market statistics. Do not use for investment advice, trade execution, or non-Belarusian markets.",
             "representativeQueries": [
                 "find Belarusian bonds by ticker",
                 "search shares and bonds by ticker",

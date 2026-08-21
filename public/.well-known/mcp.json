@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "tokenbel-mcp",
+    "version": "1.0.0",
+    "title": "TokenBel MCP Server",
+    "description": "Belarusian securities data: investment tokens, shares, bonds, issuers, payouts and secondary-market statistics."
+  },
+  "endpoint": "https://mcp.tokenbel.info/mcp",
+  "transport": "streamable-http",
+  "transports": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.tokenbel.info/mcp"
+    }
+  ],
+  "manifest": "https://mcp.tokenbel.info/server.json",
+  "serverCard": "https://tokenbel.info/.well-known/mcp/server-card.json",
+  "capabilities": {
+    "tools": {},
+    "resources": {}
+  },
+  "authentication": {
+    "type": "none",
+    "free_tier": true,
+    "self_serve": true,
+    "documentation": "https://tokenbel.info/auth.md"
+  },
+  "documentation": "https://tokenbel.info/agent-instructions.md",
+  "openapi": "https://tokenbel.info/openapi.json",
+  "contact": {
+    "url": "https://tokenbel.info/contacts/",
+    "email": "admin@tokenbel.info"
+  }
+}
