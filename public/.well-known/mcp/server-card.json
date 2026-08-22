@@ -1,5 +1,33 @@
 {
   "schemaVersion": "2025-06-18",
+  "name": "tokenbel-mcp",
+  "title": "TokenBel MCP Server",
+  "description": "Structured Belarusian securities data: investment tokens, shares, bonds, issuers, payouts, regulation and secondary-market statistics.",
+  "version": "1.0.0",
+  "serverUrl": "https://mcp.tokenbel.info/mcp",
+  "tools": [
+    {
+      "name": "get_site_info",
+      "title": "Get TokenBel site info",
+      "description": "Return basic information about TokenBel: description, main sections, and key external URLs (dashboard, API, wiki).",
+      "annotations": { "readOnlyHint": true, "idempotentHint": true, "openWorldHint": false },
+      "inputSchema": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "search_securities",
+      "title": "Search Belarusian securities",
+      "description": "Search Belarusian tokens, shares and bonds by ticker or issuer name via the TokenBel public Hype API.",
+      "annotations": { "readOnlyHint": true, "idempotentHint": true, "openWorldHint": true },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "minLength": 1, "description": "Ticker fragment or issuer name to search for." },
+          "limit": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10, "description": "Maximum number of results to return (1-50)." }
+        },
+        "required": ["query"]
+      }
+    }
+  ],
   "serverInfo": {
     "name": "tokenbel-mcp",
     "version": "1.0.0",
