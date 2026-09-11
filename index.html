@@ -239,100 +239,115 @@
     <!-- End Google Tag Manager (noscript) -->
     {{> header}}
     <!-- main -->
-    <main class="w-full mb-10 mt-20">
+    <main class="w-full mb-10 mt-16">
       <!-- Hero + CTA -->
-      <section class="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 py-12 sm:py-16 lg:py-20 px-4">
-        <div class="container mx-auto text-center max-w-4xl">
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-900">
-            Токены, акции и облигации Беларуси — в одном кабинете
-          </h1>
-          <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
-            Актуальные данные по 3 классам инструментов, аналитика компаний и личный портфель с расчётом доходности.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-            <a
-              href="https://dashboard.tokenbel.info/"
-              class="w-full sm:w-auto bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-200 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
-            >
-              Открыть дашборд
-            </a>
-            <a
-              href="https://dashboard.tokenbel.info/profile/portfolio/"
-              class="w-full sm:w-auto bg-white text-blue-600 border-2 border-blue-200 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:border-blue-400 hover:bg-blue-50 transition-all duration-200"
-            >
-              Создать портфель
-            </a>
-          </div>
-          <!-- Micro-metrics row: только Беларусь -->
-          <div class="mt-6 sm:mt-8 flex flex-wrap justify-center items-center gap-x-4 gap-y-1.5 text-xs sm:text-sm text-gray-600">
-            <span class="flex items-center gap-1.5">
-              <span class="font-semibold text-gray-900">2 500+</span> компаний
-            </span>
-            <span class="text-gray-500">·</span>
-            <span class="flex items-center gap-1.5">
-              <span class="font-semibold text-gray-900">2 400+</span> акций
-            </span>
-            <span class="text-gray-500">·</span>
-            <span class="flex items-center gap-1.5">
-              <span class="font-semibold text-gray-900">700+</span> облигаций
-            </span>
-            <span class="text-gray-500">·</span>
-            <span class="flex items-center gap-1.5">
-              <span class="font-semibold text-gray-900">250+</span> токенов
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Рынок Беларуси сегодня — конкретные цифры для AI/SEO -->
       <section
-        id="market-today"
-        class="py-10 sm:py-14 bg-white border-b border-gray-100 px-4"
+        id="hero"
+        class="relative overflow-hidden bg-[#0b1220] px-4 py-10 sm:py-14 lg:py-16"
         x-data="marketStats()"
         x-init="load()"
       >
-        <div class="container mx-auto max-w-6xl">
-          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 sm:mb-8 gap-2">
+        <!-- фоновая сетка «финансового терминала» -->
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-0 opacity-[0.18]"
+          style="background-image: linear-gradient(to right, rgba(148,163,184,.25) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,.25) 1px, transparent 1px); background-size: 56px 56px;"
+        ></div>
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute -top-32 -right-24 h-[26rem] w-[26rem] rounded-full bg-blue-500/20 blur-3xl"
+        ></div>
+
+        <div class="container relative mx-auto max-w-6xl">
+          <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+            <!-- Левая колонка: смысл -->
             <div>
-              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">Рынок Беларуси сегодня</h2>
-              <p class="text-gray-600 text-sm sm:text-base">Актуальные показатели по токенам, облигациям и валютам — по данным площадок Finstore, Bynex, Fainex, Whitebird.</p>
+              <span
+                class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs sm:text-sm font-medium text-blue-100"
+              >
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                Данные 4 площадок Беларуси · обновляется ежедневно
+              </span>
+
+              <h1
+                class="mt-4 text-[1.75rem] leading-[1.15] sm:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+              >
+                Токены, акции и облигации Беларуси — в одном кабинете
+              </h1>
+
+              <p class="mt-3 sm:mt-4 max-w-xl text-base sm:text-lg leading-relaxed text-slate-300">
+                Доходность, выплаты и аналитика по трём классам инструментов — в одном портфеле.
+              </p>
+
+              <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://dashboard.tokenbel.info/"
+                  class="inline-flex w-full sm:w-auto items-center justify-center min-h-12 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-900/40 transition-all duration-200 hover:bg-blue-500 hover:-translate-y-0.5"
+                >
+                  Открыть дашборд
+                </a>
+                <a
+                  href="https://dashboard.tokenbel.info/profile/portfolio/"
+                  class="inline-flex w-full sm:w-auto items-center justify-center min-h-12 rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-semibold text-white transition-all duration-200 hover:border-white/40 hover:bg-white/10"
+                >
+                  Создать портфель
+                </a>
+              </div>
+
+              <p class="mt-4 text-sm text-slate-400">
+                Finstore · Bynex · Fainex · Whitebird · BCSE
+              </p>
             </div>
-            <p class="text-sm sm:text-xs text-gray-600 whitespace-nowrap">
-              Обновлено: <time datetime="2026-08-16" x-text="updated">16 августа 2026</time>
-            </p>
-          </div>
 
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-            <!-- Активные эмиссии токенов -->
-            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
-              <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.activeEmissions)">250+</div>
-              <div class="text-sm text-gray-700 mt-1">Активных эмиссий токенов</div>
-              <div class="text-sm sm:text-xs text-gray-600 mt-1">на 4 площадках Беларуси</div>
-            </article>
+            <!-- Правая колонка: карточка «Рынок сейчас» -->
+            <aside
+              id="market-today"
+              class="scroll-mt-20 rounded-2xl border border-white/10 bg-white/[0.06] p-4 sm:p-6 backdrop-blur-sm"
+            >
+              <div class="flex items-baseline justify-between gap-3">
+                <h2 class="text-lg sm:text-xl font-bold text-white">Рынок Беларуси сейчас</h2>
+                <p class="text-xs sm:text-sm text-slate-400 whitespace-nowrap">
+                  <time datetime="2026-08-16" x-text="updated">16 августа 2026</time>
+                </p>
+              </div>
 
-            <!-- Компаний-эмитентов -->
-            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
-              <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.companies)">2 500+</div>
-              <div class="text-sm text-gray-700 mt-1">Компаний в базе</div>
-              <div class="text-sm sm:text-xs text-gray-600 mt-1">с финансовой отчётностью</div>
-            </article>
+              <div class="mt-4 grid grid-cols-2 gap-3 sm:gap-4">
+                <div class="rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4">
+                  <div class="text-2xl sm:text-3xl font-bold text-white" x-text="fmt(stats.activeEmissions)">250+</div>
+                  <div class="mt-1 text-sm text-slate-300">токенов</div>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4">
+                  <div class="text-2xl sm:text-3xl font-bold text-white" x-text="fmt(stats.bonds)">700+</div>
+                  <div class="mt-1 text-sm text-slate-300">облигаций</div>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4">
+                  <div class="text-2xl sm:text-3xl font-bold text-white" x-text="fmt(stats.shares)">2 400+</div>
+                  <div class="mt-1 text-sm text-slate-300">акций</div>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4">
+                  <div class="text-2xl sm:text-3xl font-bold text-white" x-text="fmt(stats.companies)">2 500+</div>
+                  <div class="mt-1 text-sm text-slate-300">компаний</div>
+                </div>
+              </div>
 
-            <!-- Облигации / акции -->
-            <article class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
-              <div class="text-2xl sm:text-3xl font-bold text-gray-900" x-text="fmt(stats.bonds)">700+</div>
-              <div class="text-sm text-gray-700 mt-1">Облигаций в обращении</div>
-              <div class="text-sm sm:text-xs text-gray-600 mt-1">и 2 400+ выпусков акций</div>
-            </article>
-
-          </div>
-
-          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-            <a href="https://dashboard.tokenbel.info/statistics/market/" class="inline-flex items-center gap-1 min-h-11 py-2 text-blue-600 hover:text-blue-700 font-medium hover:underline">
-              Полная статистика рынка
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-            <span class="text-gray-500">·</span>
-            <a href="https://wiki.tokenbel.info/statistics/statistika-rynka-tokenov-belarusi/" target="_blank" rel="noopener" class="inline-flex items-center min-h-11 py-2 text-gray-600 hover:text-blue-600 hover:underline">Ежемесячные отчёты</a>
+              <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+                <a
+                  href="https://dashboard.tokenbel.info/statistics/market/"
+                  class="inline-flex min-h-11 items-center gap-1 py-2 font-medium text-blue-300 hover:text-blue-200 hover:underline"
+                >
+                  Полная статистика рынка
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+                <a
+                  href="https://wiki.tokenbel.info/statistics/statistika-rynka-tokenov-belarusi/"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex min-h-11 items-center py-2 text-slate-300 hover:text-white hover:underline"
+                >
+                  Ежемесячные отчёты
+                </a>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
