@@ -31,7 +31,7 @@ https://dashboard.tokenbel.info/rss/events
 
 Подключите данные TokenBel к ChatGPT, Claude, Cursor и другим AI-инструментам через Model Context Protocol. Транспорт: Streamable HTTP.
 
-https://mcp.tokenbel.info/mcp
+https://mcp.tokenbel.dev/mcp
 
 Manifest: https://tokenbel.info/.well-known/mcp/server-card.json
 

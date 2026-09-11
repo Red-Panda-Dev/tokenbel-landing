@@ -6,15 +6,15 @@
     "title": "TokenBel MCP Server",
     "description": "Belarusian securities data: investment tokens, shares, bonds, issuers, payouts and secondary-market statistics."
   },
-  "endpoint": "https://mcp.tokenbel.info/mcp",
+  "endpoint": "https://mcp.tokenbel.dev/mcp",
   "transport": "streamable-http",
   "transports": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.tokenbel.info/mcp"
+      "url": "https://mcp.tokenbel.dev/mcp"
     }
   ],
-  "manifest": "https://mcp.tokenbel.info/server.json",
+  "manifest": "https://mcp.tokenbel.dev/server.json",
   "serverCard": "https://tokenbel.info/.well-known/mcp/server-card.json",
   "capabilities": {
     "tools": {},
