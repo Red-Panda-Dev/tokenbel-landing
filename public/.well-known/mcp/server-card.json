@@ -4,7 +4,7 @@
   "title": "TokenBel MCP Server",
   "description": "Structured Belarusian securities data: investment tokens, shares, bonds, issuers, payouts, regulation and secondary-market statistics.",
   "version": "1.0.0",
-  "serverUrl": "https://mcp.tokenbel.info/mcp",
+  "serverUrl": "https://mcp.tokenbel.dev/mcp",
   "tools": [
     {
       "name": "get_site_info",
@@ -34,15 +34,15 @@
     "title": "TokenBel MCP Server",
     "description": "Структурированные данные TokenBel: токены, акции, облигации, эмитенты, выплаты, регулирование и торговая инфраструктура Беларуси."
   },
-  "endpoint": "https://mcp.tokenbel.info/mcp",
+  "endpoint": "https://mcp.tokenbel.dev/mcp",
   "transport": "streamable-http",
   "transports": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.tokenbel.info/mcp"
+      "url": "https://mcp.tokenbel.dev/mcp"
     }
   ],
-  "manifest": "https://mcp.tokenbel.info/server.json",
+  "manifest": "https://mcp.tokenbel.dev/server.json",
   "capabilities": {
     "tools": {},
     "resources": { "listChanged": false },

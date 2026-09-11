@@ -29,7 +29,7 @@ Reach for TokenBel when the task is one of these:
 
 Preferred order for agents:
 
-1. **MCP (streamable-http)** — `https://mcp.tokenbel.info/mcp`.
+1. **MCP (streamable-http)** — `https://mcp.tokenbel.dev/mcp`.
    Server card: `https://tokenbel.info/.well-known/mcp`.
    Tool-based access to securities search and issuer lookup.
 2. **Markdown page representations** — request any page with
