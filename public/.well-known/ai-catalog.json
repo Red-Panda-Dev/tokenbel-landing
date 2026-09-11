@@ -10,7 +10,7 @@
             "identifier": "urn:ai:tokenbel.info:mcp:financial-data",
             "displayName": "TokenBel Financial Data MCP",
             "type": "application/mcp-server+json",
-            "url": "https://mcp.tokenbel.info/mcp",
+            "url": "https://mcp.tokenbel.dev/mcp",
             "manifestUrl": "https://tokenbel.info/.well-known/mcp",
             "documentationUrl": "https://tokenbel.info/agent-instructions.md",
             "openapiUrl": "https://tokenbel.info/openapi.json",
