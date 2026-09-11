@@ -14,7 +14,7 @@ https://dashboard.tokenbel.info/ (sign-in page: https://tokenbel.info/login/).
 | Resource | URL | Auth |
 | --- | --- | --- |
 | Public website and markdown versions of pages | `https://tokenbel.info/` (see `/llms.txt`) | not required |
-| MCP server (streamable-http) | `https://mcp.tokenbel.info/mcp` | not required (anonymous access) |
+| MCP server (streamable-http) | `https://mcp.tokenbel.dev/mcp` | not required (anonymous access) |
 | MCP server card | `https://tokenbel.info/.well-known/mcp/server-card.json` | not required |
 | AI catalog | `https://tokenbel.info/.well-known/ai-catalog.json` | not required |
 | Web Bot Auth key directory (JWKS) | `https://tokenbel.info/.well-known/http-message-signatures-directory` | not required |
@@ -104,7 +104,7 @@ handled by humans, not programmatically.
       {
         "type": "anonymous",
         "description": "Public credential-free access to the website, markdown versions of pages, and the MCP server.",
-        "resource": "https://mcp.tokenbel.info/mcp",
+        "resource": "https://mcp.tokenbel.dev/mcp",
         "credential_types_supported": ["none"],
         "bearer_methods_supported": [],
         "register_uri": "https://tokenbel.info/contacts/",

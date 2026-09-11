@@ -16,7 +16,7 @@ TokenBel помогает частным инвесторам в Беларус�
 
 Не используйте для: инвестиционных рекомендаций, исполнения сделок, зарубежных рынков и котировок в реальном времени.
 
-Как вызывать: MCP `https://mcp.tokenbel.info/mcp` (streamable-http, карточка `/.well-known/mcp`), markdown-версии страниц (`Accept: text/markdown`), публичное read API `https://hype.tokenbel.info` (OpenAPI: `/openapi.json`). Доступ анонимный и бесплатный, ключи не нужны.
+Как вызывать: MCP `https://mcp.tokenbel.dev/mcp` (streamable-http, карточка `/.well-known/mcp`), markdown-версии страниц (`Accept: text/markdown`), публичное read API `https://hype.tokenbel.info` (OpenAPI: `/openapi.json`). Доступ анонимный и бесплатный, ключи не нужны.
 
 Подробные инструкции для агентов: [/agent-instructions.md](/agent-instructions.md)
 
