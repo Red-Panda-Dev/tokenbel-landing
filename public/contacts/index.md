@@ -28,6 +28,8 @@ language: ru-BY
 
 `TokenBelInfoBot/x.y.z (+https://tokenbel.info/contacts)`
 
+Подробное описание логики бота: https://wiki.tokenbel.info/about/tokenbelinfobot/
+
 ## Частые вопросы
 
 - **Время ответа** — обычно в течение 24 часов в рабочие дни.
