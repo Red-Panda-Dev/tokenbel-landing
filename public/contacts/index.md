@@ -30,6 +30,8 @@ language: ru-BY
 
 Подробное описание логики бота: https://wiki.tokenbel.info/about/tokenbelinfobot/
 
+Профиль бота в каталоге Cloudflare Radar: https://radar.cloudflare.com/bots/directory/TokenBelInfoBot
+
 ## Частые вопросы
 
 - **Время ответа** — обычно в течение 24 часов в рабочие дни.
