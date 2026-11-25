@@ -22,7 +22,9 @@ language: ru-BY
 
 ## Другие каналы
 
-- Threads: @tokenbel_info
+- MCP-сервер TokenBel: https://mcp.tokenbel.dev/mcp
+  Read-only MCP-сервер с данными о ценных бумагах Беларуси: токены, акции, облигации, компании, поиск по тикеру, названию или УНП. Транспорт: Streamable HTTP, без авторизации. Не является инвестиционной рекомендацией.
+  Репозиторий: https://github.com/Red-Panda-Dev/tokenbel-mcp
 
 ## User-Agent парсера
 
